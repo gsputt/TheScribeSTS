@@ -11,3 +11,4 @@ Spell Scribe Spreadsheet:
 https://docs.google.com/spreadsheets/d/1RnWWWux7knpMHxmUrtN3IV2i1oFARMrLzzJYb-ctRYk/edit#gid=0
 
 Test from inside IntelliJ
+Second test from inside IntelliJ also by GSPUTT
