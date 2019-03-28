@@ -5,5 +5,3 @@ Use Spell Effects and Spell Modifiers to create modular spells that can be caste
 This mod is currently a WIP. Feedback is appreciated.
 
 This is a test of the ComingVirus test branch.
-
-test from inside IntelliJ by Gsputt
