@@ -1,0 +1,106 @@
+{
+"theScribe:SpellAttack": {
+        "NAME": "Effect: Thunder",
+        "DESCRIPTIONS": ["Your next spell cast will deal #b", " damage."]
+},
+"theScribe:SpellBlock": {
+                "NAME": "Effect: Freeze",
+                "DESCRIPTIONS": ["Your next spell cast will give you #b", " #yBlock."]
+},
+"theScribe:SpellPoison": {
+                "NAME": "Effect: Poison",
+                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yPoison to the enemy."]
+},
+"theScribe:SpellVulnerable": {
+                "NAME": "Effect: Vulnerable",
+                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yVulnerable to the enemy."]
+},
+"theScribe:SpellWeak": {
+                "NAME": "Effect: Weak",
+                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yWeak to the enemy."]
+},
+"theScribe:SpellSplit": {
+                "NAME": "Modifier: Additional Casts",
+                "DESCRIPTIONS": ["Your next spell casts #b", " more times."]
+},
+"theScribe:BloodMagicksPower": {
+                "NAME": "Blood Magicks",
+                "DESCRIPTIONS": ["Cards use #btwice their cost in HP instead of Energy", "Cards cost HP instead of Energy."]
+},
+"theScribe:SpellClarity": {
+                "NAME": "Effect: Clarity",
+                "DESCRIPTIONS": ["Your next spell cast gives you #b", " [E]."]
+},
+  "theScribe:SpellEffectiveness": {
+    "NAME": "Modifier: Effectiveness",
+    "DESCRIPTIONS": ["Your next spell cast is #b", "% as effective."]
+  },
+  "theScribe:SpellTargetsAll": {
+    "NAME": "Open Minded",
+    "DESCRIPTIONS": ["Your spells target all enemies."]
+  },
+  "theScribe:Drained": {
+    "NAME": "Drained",
+    "DESCRIPTIONS": ["Lose #b1 [E] at the start of your turn for #b", " turn.", " turns."]
+  },
+  "theScribe:EscalationPower": {
+    "NAME": "Escalation",
+    "DESCRIPTIONS": ["For the first #ySpell #yEffect you gain each turn, gain #btwice as much of that #ySpell #yEffect."]
+  },
+  "theScribe:ThornsDown": {
+    "NAME": "Thorns Down",
+    "DESCRIPTIONS": ["Losing #b", " #yThorns at the start of your turn."]
+  },
+  "theScribe:SpellSelfDamage": {
+    "NAME": "Effect: Self Damage",
+    "DESCRIPTIONS": ["Your next spell cast will deal #b", " damage to yourself."]
+  },
+  "theScribe:LiquidumPower": {
+    "NAME": "Liquidum",
+    "DESCRIPTIONS": ["While #yDrained, Draw #b", " extra card at the start of your turn.", " extra cards at the start of your turn."]
+  },
+  "theScribe:BlankScrollPower": {
+    "NAME": "Blank Scroll",
+    "DESCRIPTIONS": ["At the start of your turn, if you have no #ySpell #yEffects or #ySpell #yModifiers, Gain #b", "% #ySpell #yEffectiveness."]
+  },
+  "theScribe:WordsOfPowerPower": {
+    "NAME": "Words of Power",
+    "DESCRIPTIONS": ["Whenever you lose a buff, deal ", "Whenever you lose or gain a buff, deal #b", " damage to a random enemy."]
+  },
+  "theScribe:StemTheFlowPower": {
+    "NAME": "Stem the Flow",
+    "DESCRIPTIONS": ["Whenever you gain a debuff, gain #yTemporary #yHP equal to #b" ," the amount.", " times the amount."]
+  },
+  "theScribe:FalseLifePower": {
+    "NAME": "False Life",
+    "DESCRIPTIONS": ["Block is gained as #yTemporary #yHP this turn."]
+  },
+  "theScribe:EnergizedScribePower": {
+    "NAME": "Energized",
+    "DESCRIPTIONS": ["Gain ", " additional [E] next turn."]
+  },
+  "theScribe:FlowLikeWaterPower": {
+    "NAME": "Flow Like Water",
+    "DESCRIPTIONS": ["At the start of your turn, if you are #yDrained, gain #b", " #yDexterity until end of turn."]
+  },
+  "theScribe:CapacitanceScrollPower": {
+    "NAME": "Capacitance Scroll",
+    "DESCRIPTIONS": ["At the start of your turn, if you have no #ySpell #yEffects, gain #ySpell #yEffect: Deal #b", " damage."]
+  },
+  "theScribe:AbsoluteZeroPower": {
+    "NAME": "Absolute Zero",
+    "DESCRIPTIONS": ["For #b", " turn, after this turn, start another turn. Retain your Hand, #yBlock and Energy", " turns, after this turn, start another turn. Retain your Hand, #yBlock and Energy"]
+  },
+  "theScribe:MaelstromPower": {
+    "NAME": "Deluge",
+    "DESCRIPTIONS": ["For the first card ", "you play each turn, if you are #yDrained, add an #yEcho of a random card from your deck to your hand that costs less than the card played.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
+  },
+  "theScribe:ScrollOfPoisonPower": {
+    "NAME": "Scroll Of Poison",
+    "DESCRIPTIONS": ["Whenever you take damage on your turn, apply that much poison to all enemies.", "Whenever you take damage on your turn, apply #b", " times that much poison to all enemies."]
+  },
+  "theScribe:ScribedScrollAcquirePower": {
+    "NAME": "Scribed Scroll",
+    "DESCRIPTIONS": ["At the start of your turn, if you do not have a Scribed Scroll in your hand, add one to your hand."]
+  }
+}
