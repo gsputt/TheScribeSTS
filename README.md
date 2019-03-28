@@ -9,3 +9,5 @@ https://docs.google.com/document/d/1UhQLhtyKlC9HhWRQZq7AQkVZdNJFc_90q3ntGqx8j4k/
 
 Spell Scribe Spreadsheet:
 https://docs.google.com/spreadsheets/d/1RnWWWux7knpMHxmUrtN3IV2i1oFARMrLzzJYb-ctRYk/edit#gid=0
+
+Test from inside IntelliJ
