@@ -55,7 +55,7 @@ public class ArcaneArcing extends AbstractScribeCard {
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = -1;
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DAMAGE = 3;
 
 
