@@ -129,16 +129,16 @@ public class ScribeMod implements
     public static final String SCRIBE_CONFLAGRATE = "cards/Conflagrate.png";
     public static final String SCRIBE_ABSOLUTE_ZERO = "cards/AbsoluteZero.png";
     public static final String SCRIBE_ANOMALOUS_TEXTS = "cards/AnomalousTexts.png";
-    public static final String SCRIBE_RECKLESS_RESPONSE = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_FORKED_BOLT = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_FOCUSED_BOLT = "cards/PlaceholderAttack.png";
-    public static final String SCRIBE_MAELSTROM = "cards/PlaceholderPower.png";
-    public static final String SCRIBE_CRIPPLING_CHARGE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_RECKLESS_RESPONSE = "cards/RecklessResponse.png";
+    public static final String SCRIBE_FORKED_BOLT = "cards/ForkedBolt.png";
+    public static final String SCRIBE_FOCUSED_BOLT = "cards/FocusingBolt.png";
+    public static final String SCRIBE_MAELSTROM = "cards/Deluge.png";
+    public static final String SCRIBE_CRIPPLING_CHARGE = "cards/CripplingCharge.png";
     public static final String SCRIBE_SCROLL_OF_POISON = "cards/ScrollOfPoison.png";
-    public static final String SCRIBE_CRYSTAL_SHIELD = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_FOCUSING_BARRIER = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_RECURRING_RIME = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_ARCANE_ARCING = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_CRYSTAL_SHIELD = "cards/CrystalShield.png";
+    public static final String SCRIBE_FOCUSING_BARRIER = "cards/FocusingBarriers.png";
+    public static final String SCRIBE_RECURRING_RIME = "cards/RecurringRime.png";
+    public static final String SCRIBE_ARCANE_ARCING = "cards/ArcaneArcing.png";
     public static final String SCRIBE_LIGHTNING_STRIKE = "cards/LightningStrike.png";
     public static final String SCRIBE_ICY_DEFEND = "cards/IcyDefend.png";
     public static final String SCRIBE_STARTER_MODIFIER = "cards/DetailedAnnotation.png";
@@ -177,8 +177,8 @@ public class ScribeMod implements
     public static final String ENERGIZED_POWER = "powers/ScribeEnergized.png";
     public static final String FLOW_LIKE_WATER_POWER = "powers/FlowLikeWaterPower.png";
     public static final String CAPACITANCE_SCROLL_POWER = "powers/CapacitanceScrollPower.png";
-    public static final String ABSOLUTE_ZERO_POWER = "powers/placeholder_power.png";
-    public static final String MAELSTROM_POWER = "powers/placeholder_power.png";
+    public static final String ABSOLUTE_ZERO_POWER = "powers/AbsoluteZeroPower.png";
+    public static final String MAELSTROM_POWER = "powers/DelugePower.png";
     public static final String SCROLL_OF_POISON_POWER = "powers/ScrollOfPoisonPower.png";
     public static final String SCRIBED_SCROLL_ACQUIRE_POWER = "powers/placeholder_power.png";
 
