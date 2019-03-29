@@ -310,6 +310,10 @@
 		"NAME": "Detailed Annotation",
 		"DESCRIPTION": "scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
 	},
+	"theScribe:ScrollOfShadows": {
+		"NAME": "Scroll of Shadows",
+		"DESCRIPTION": "Whenever you play the first card each turn, if it is a power, add an scribe:Echo of it to your hand. It costs 1 less."
+	},
 
 
 	"theScribe:DefaultAttackWithVariable": {

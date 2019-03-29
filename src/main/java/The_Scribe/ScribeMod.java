@@ -142,7 +142,8 @@ public class ScribeMod implements
     public static final String SCRIBE_LIGHTNING_STRIKE = "cards/LightningStrike.png";
     public static final String SCRIBE_ICY_DEFEND = "cards/IcyDefend.png";
     public static final String SCRIBE_STARTER_MODIFIER = "cards/DetailedAnnotation.png";
-    public static final String SCRIBE_COMMON_POWER = "cards/Power.png";
+    public static final String SCRIBE_SCROLL_OF_SHADOWS = "cards/PlaceholderPower.png";
+    public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
     public static final String SCRIBE_UNCOMMON_POWER = "cards/Power.png";
@@ -181,6 +182,7 @@ public class ScribeMod implements
     public static final String MAELSTROM_POWER = "powers/DelugePower.png";
     public static final String SCROLL_OF_POISON_POWER = "powers/ScrollOfPoisonPower.png";
     public static final String SCRIBED_SCROLL_ACQUIRE_POWER = "powers/placeholder_power.png";
+    public static final String SCROLL_OF_SHADOWS_POWER = "powers/placeholder_power.png";
 
     // Relic images
     public static final String STARTER_RELIC_1 = "relics/StarterRelic.png";
@@ -367,6 +369,7 @@ public class ScribeMod implements
         BaseMod.addCard(new LightningStrike());
         BaseMod.addCard(new IcyDefend());
         BaseMod.addCard(new StarterModifier());
+        BaseMod.addCard(new ScrollOfShadows());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -452,6 +455,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(LightningStrike.ID);
         UnlockTracker.unlockCard(IcyDefend.ID);
         UnlockTracker.unlockCard(StarterModifier.ID);
+        UnlockTracker.unlockCard(ScrollOfShadows.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

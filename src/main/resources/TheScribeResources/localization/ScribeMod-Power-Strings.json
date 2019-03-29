@@ -102,5 +102,9 @@
   "theScribe:ScribedScrollAcquirePower": {
     "NAME": "Scribed Scroll",
     "DESCRIPTIONS": ["At the start of your turn, if you do not have a Scribed Scroll in your hand, add one to your hand."]
+  },
+  "theScribe:ScrollOfShadowsPower": {
+    "NAME": "Scroll of Shadows",
+    "DESCRIPTIONS": ["For the first card ", "you play each turn, if it is a power, add an #yEcho of that power to your hand. It costs 1 less.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
   }
 }
