@@ -61,7 +61,8 @@ public class ScribedScrollAcquirePower extends AbstractPower implements Invisibl
         Iterator handIterator = AbstractDungeon.player.hand.group.iterator();
         while(handIterator.hasNext()) {
             AbstractCard c = (AbstractCard)handIterator.next();
-            if(c.cardID.equals(The_Scribe.ScribeMod.makeID("Cast_Spell")))
+            AbstractCard ScribedSpell = new Cast_Spell();
+            if(c.cardID.equals(ScribedSpell.cardID))
             {
                 return true;
             }

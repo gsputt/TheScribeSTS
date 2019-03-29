@@ -4,6 +4,7 @@ package The_Scribe.cards;
 
 
 import The_Scribe.actions.PurgeSpecificCardAction;
+import The_Scribe.actions.ScribeSelfDamageAction;
 import The_Scribe.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -202,12 +203,10 @@ public class Cast_Spell extends CustomCard {
 
         if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                if(!AbstractDungeon.getCurrRoom().isBattleOver && !AbstractDungeon.getCurrRoom().isBattleEnding()) {
-                    AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(p,
-                                    new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                    AbstractGameAction.AttackEffect.NONE));
-                }
+                AbstractDungeon.actionManager
+                        .addToBottom(new ScribeSelfDamageAction(p,
+                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
+                                AbstractGameAction.AttackEffect.NONE));
             }
         }
 
@@ -287,13 +286,11 @@ public class Cast_Spell extends CustomCard {
         }
         if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                if(!AbstractDungeon.getCurrRoom().isBattleOver && !AbstractDungeon.getCurrRoom().isBattleEnding()) {
-                    AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(p,
-                                    new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                    AbstractGameAction.AttackEffect.NONE));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
-                }
+                AbstractDungeon.actionManager
+                        .addToBottom(new ScribeSelfDamageAction(p,
+                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
+                                AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
             }
         }
 
@@ -344,12 +341,10 @@ public class Cast_Spell extends CustomCard {
 
         if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                if(!AbstractDungeon.getCurrRoom().isBattleOver && !AbstractDungeon.getCurrRoom().isBattleEnding()) {
-                    AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(p,
-                                    new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                    AbstractGameAction.AttackEffect.NONE));
-                }
+                AbstractDungeon.actionManager
+                        .addToBottom(new ScribeSelfDamageAction(p,
+                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
+                                AbstractGameAction.AttackEffect.NONE));
             }
         }
     }
@@ -411,13 +406,11 @@ public class Cast_Spell extends CustomCard {
 
         if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                if(!AbstractDungeon.getCurrRoom().isBattleOver && !AbstractDungeon.getCurrRoom().isBattleEnding()) {
-                    AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(p,
-                                    new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                    AbstractGameAction.AttackEffect.NONE));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
-                }
+                AbstractDungeon.actionManager
+                        .addToBottom(new ScribeSelfDamageAction(p,
+                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
+                                AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
             }
         }
     }
