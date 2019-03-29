@@ -136,7 +136,7 @@ public class ScribeMod implements
     public static final String SCRIBE_CRIPPLING_CHARGE = "cards/CripplingCharge.png";
     public static final String SCRIBE_SCROLL_OF_POISON = "cards/ScrollOfPoison.png";
     public static final String SCRIBE_CRYSTAL_SHIELD = "cards/CrystalShield.png";
-    public static final String SCRIBE_FOCUSING_BARRIER = "cards/FocusingBarriers.png";
+    public static final String SCRIBE_FOCUSING_BARRIER = "cards/FocusingBarrier.png";
     public static final String SCRIBE_RECURRING_RIME = "cards/RecurringRime.png";
     public static final String SCRIBE_ARCANE_ARCING = "cards/ArcaneArcing.png";
     public static final String SCRIBE_LIGHTNING_STRIKE = "cards/LightningStrike.png";
