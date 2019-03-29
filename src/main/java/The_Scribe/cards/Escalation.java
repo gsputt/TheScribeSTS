@@ -16,6 +16,8 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
+import java.util.Iterator;
+
 public class Escalation extends CustomCard {
 
     /*
@@ -49,6 +51,7 @@ public class Escalation extends CustomCard {
 
     private static final int COST = 2;
     private static final int DRAINED_AMOUNT = 1;
+    private static int cardsPlayedThisTurn = 0;
 
 
     // /STAT DECLARATION/
@@ -65,8 +68,22 @@ public class Escalation extends CustomCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EscalationPower(p, 1), 1));
+        applyPowers();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EscalationPower(p, 1, this.cardsPlayedThisTurn), 1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Drained(p, this.magicNumber), this.magicNumber));
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        int count = 0;
+        Iterator cardsPlayedThisTurnIterator = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
+
+        while(cardsPlayedThisTurnIterator.hasNext()) {
+            cardsPlayedThisTurnIterator.next();
+            ++count;
+        }
+        cardsPlayedThisTurn = count;
     }
 
     // Which card to return when making a copy of this card.

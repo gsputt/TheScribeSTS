@@ -45,7 +45,7 @@
   },
   "theScribe:EscalationPower": {
     "NAME": "Escalation",
-    "DESCRIPTIONS": ["For the first #ySpell #yEffect you gain each turn, gain #btwice as much of that #ySpell #yEffect."]
+    "DESCRIPTIONS": ["For the first card ", "you play each turn, if its a #ySpell #yEffect, add an #yEcho of that #ySpell #yEffect to your hand. It costs 0","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
   },
   "theScribe:ThornsDown": {
     "NAME": "Thorns Down",
@@ -93,7 +93,7 @@
   },
   "theScribe:MaelstromPower": {
     "NAME": "Deluge",
-    "DESCRIPTIONS": ["For the first card ", "you play each turn, if you are #yDrained, add an #yEcho of a random card from your deck to your hand that costs less than the card played.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
+    "DESCRIPTIONS": ["For the first card ", "you play each turn, if you are #yDrained, add an #yEcho of a random card from your deck to your hand that costs less than or equal to the card played. It costs 0.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
   },
   "theScribe:ScrollOfPoisonPower": {
     "NAME": "Scroll Of Poison",

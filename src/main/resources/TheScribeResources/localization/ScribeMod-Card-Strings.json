@@ -138,8 +138,8 @@
 	},
 	"theScribe:Escalation": {
 		"NAME": "Escalation",
-		"DESCRIPTION": "For the first scribe:Spell_Effect you gain each turn, gain twice as much of that scribe:Spell_Effect. NL Gain !M! scribe:Drained.",
-		"UPGRADE_DESCRIPTION": "Innate. NL For the first scribe:Spell_Effect you gain each turn, gain twice as much of that scribe:Spell_Effect. NL Gain !M! scribe:Drained."
+		"DESCRIPTION": "For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained.",
+		"UPGRADE_DESCRIPTION": "Innate. NL For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained."
 	},
 	"theScribe:Conversion": {
 		"NAME": "Conversion",
@@ -271,8 +271,8 @@
 	},
 	"theScribe:Maelstrom": {
 		"NAME": "Deluge",
-		"DESCRIPTION": "Whenever you play the first card each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less energy to your hand. NL Gain 2 scribe:Drained.",
-		"UPGRADE_DESCRIPTION": "Whenever you play the first two cards each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less energy to your hand. NL Gain 2 scribe:Drained."
+		"DESCRIPTION": "Whenever you play the first card each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained.",
+		"UPGRADE_DESCRIPTION": "Whenever you play the first two cards each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained."
 	},
 	"theScribe:CripplingCharge": {
 		"NAME": "Crippling Charge",

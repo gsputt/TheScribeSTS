@@ -589,7 +589,7 @@ public class ScribeMod implements
         BaseMod.addKeyword("scribe","Thunder", Thunder, "Any and all instances of Spell Effect: Damage.");
 
         final String[] Echo = {"Echo", "echo", "echoes"};
-        BaseMod.addKeyword("scribe","Echo", Echo, "Echoes are copies of cards that cost 0 with Ethereal and Exhaust.");
+        BaseMod.addKeyword("scribe","Echo", Echo, "Echoes are copies of cards with Ethereal and Exhaust.");
 
     }
 

@@ -104,7 +104,7 @@ public class MaelstromPower extends TwoAmountPower {
 
         while(masterDeckIterator.hasNext()) {
             AbstractCard c = (AbstractCard)masterDeckIterator.next();
-            if(c.cost < cardCost && c.cost >= -1) {
+            if(c.cost <= cardCost && c.cost >= -1) {
                 list.add(c);
             }
         }
