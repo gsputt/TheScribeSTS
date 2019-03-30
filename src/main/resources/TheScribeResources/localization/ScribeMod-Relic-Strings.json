@@ -45,7 +45,7 @@
 		"NAME": "Scribe's Skillbook",
 		"FLAVOR": "This appears to be an introduction to modular spellcasting. The pages are worn from heavy use.",
 		"DESCRIPTIONS": [
-			"The first time you play a #yscribe:Spell_Effect each turn, if you have no #ySpell #yEffects and no #ySpell #yModifiers, add an #yscribe:Echo of it to your hand.", " NL NL #yMulticlass Spell Scribe."
+			"The first card you play each turn costs 1 less.", " NL NL #yMulticlass Spell Scribe."
 		]
 	},
 

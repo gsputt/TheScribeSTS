@@ -13,4 +13,5 @@ public class ScribeCardTags {
     @SpireEnum public static AbstractCard.CardTags SPELL_SELF_DAMAGE;
     @SpireEnum public static AbstractCard.CardTags SPELLSTONE_EFFECT;
     @SpireEnum public static AbstractCard.CardTags SPELL_EFFECT_SCROLL;
+    @SpireEnum public static AbstractCard.CardTags REDUCED_COST_BY_ONE;
 }
