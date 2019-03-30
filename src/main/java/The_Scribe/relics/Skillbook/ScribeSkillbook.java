@@ -60,16 +60,47 @@ public class ScribeSkillbook extends SkillbookRelic {
     }
 
     @Override
+    public void onPlayerEndTurn() {
+        Iterator handIterator = AbstractDungeon.player.hand.group.iterator();
+        while(handIterator.hasNext()) {
+            AbstractCard c = (AbstractCard)handIterator.next();
+            if(c.hasTag(ScribeCardTags.REDUCED_COST_BY_ONE)) {
+                c.tags.remove(ScribeCardTags.REDUCED_COST_BY_ONE);
+            }
+        }
+
+        Iterator DrawPileIterator = AbstractDungeon.player.drawPile.group.iterator();
+        while(DrawPileIterator.hasNext()) {
+            AbstractCard c = (AbstractCard)DrawPileIterator.next();
+            if(c.hasTag(ScribeCardTags.REDUCED_COST_BY_ONE)) {
+                c.tags.remove(ScribeCardTags.REDUCED_COST_BY_ONE);
+            }
+        }
+
+        Iterator DiscardPileIterator = AbstractDungeon.player.discardPile.group.iterator();
+        while(handIterator.hasNext()) {
+            AbstractCard c = (AbstractCard)DiscardPileIterator.next();
+            if(c.hasTag(ScribeCardTags.REDUCED_COST_BY_ONE)) {
+                c.tags.remove(ScribeCardTags.REDUCED_COST_BY_ONE);
+            }
+        }
+
+    }
+
+    @Override
     public void onUseCard(AbstractCard c, UseCardAction uac) {
         if(this.counter == 0)
         {
-            c.tags.remove(ScribeCardTags.REDUCED_COST_BY_ONE);
-            changeWholeHandCost(1);
+            if(c.hasTag(ScribeCardTags.REDUCED_COST_BY_ONE))
+            {
+                c.tags.remove(ScribeCardTags.REDUCED_COST_BY_ONE);
+            }
+            changeTaggedInHandCost(1);
         }
         this.counter++;
     }
 
-    public void changeWholeHandCost(int amount)
+    public void changeTaggedInHandCost(int amount)
     {
         Iterator handIterator = AbstractDungeon.player.hand.group.iterator();
         while(handIterator.hasNext()) {
