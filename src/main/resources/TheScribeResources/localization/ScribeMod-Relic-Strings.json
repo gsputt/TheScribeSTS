@@ -28,10 +28,17 @@
 		]
 	},
 	"theScribe:PermafrostPen": {
-		"NAME": "Permafrost Pen",
-		"FLAVOR": "An ice cold writing instrument, adorned with a snowflake. \n Its chill numbs the nerves to pain.",
+	"NAME": "Permafrost Pen",
+	"FLAVOR": "An ice cold writing instrument, adorned with a snowflake. \n Its chill numbs the nerves to pain.",
+	"DESCRIPTIONS": [
+		"Whenever you play a card that gives a #yscribe:Spell_Effect, gain #b3 Block."
+	]
+},
+	"theScribe:AlchemicalAlter": {
+		"NAME": "Alchemical Alter",
+		"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
 		"DESCRIPTIONS": [
-			"Whenever you play a card that gives a #yscribe:Spell_Effect, gain #b3 Block."
+			"Whenever you would gain #yscribe:Spell_Effect: Damage, gain half of it as #ySpell #yEffect: #yPoison."
 		]
 	},
 	"theScribe:PlaceholderRelic2": {

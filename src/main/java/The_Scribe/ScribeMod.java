@@ -195,6 +195,8 @@ public class ScribeMod implements
     public static final String STORM_SCALE_OUTLINE = "relics/outline/StormScaleOutline.png";
     public static final String PERMAFROST_PEN = "relics/PermafrostPen.png";
     public static final String PERMAFROST_PEN_OUTLINE = "relics/outline/PermafrostPenOutline.png";
+    public static final String ALCHEMICAL_ALTER = "relics/AlchemicalAlter.png";
+    public static final String ALCHEMICAL_ALTER_OUTLINE = "relics/outline/AlchemicalAlterOutline.png";
 
 
     public static final String PLACEHOLDER_RELIC_2 = "relics/placeholder_relic2.png";
@@ -525,7 +527,7 @@ public class ScribeMod implements
         BaseMod.addRelicToCustomPool(new OsmoticFilter(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new StormScale(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new PermafrostPen(), AbstractCardEnum.SCRIBE_BLUE);
-
+        BaseMod.addRelicToCustomPool(new AlchemicalAlter(), AbstractCardEnum.SCRIBE_BLUE);
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
 
