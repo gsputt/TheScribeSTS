@@ -17,28 +17,28 @@
 		"NAME": "Osmotic Filter",
 		"FLAVOR": "A mysterious device that is cool to touch and hums very slightly. It spouts crystal clear water that is refreshing to drink.",
 		"DESCRIPTIONS": [
-			"Whenever you gain #yscribe:Drained, gain that much [E] at the start of your next turn."
+			"Whenever you gain #yscribe:Drained [REMOVE_SPACE], gain that much [E] at the start of your next turn."
 		]
 	},
 	"theScribe:StormScale": {
 		"NAME": "Storm Scale",
 		"FLAVOR": "A tough and shiny scale. \n Its innate ability to conduct electricity makes it a great foci for lightning-based spells.",
 		"DESCRIPTIONS": [
-			"Whenever you would gain #yscribe:Spell_Effect: Damage, Increase it by #b1 for each card played this turn."
+			"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, Increase it by #b1 for each card played this turn."
 		]
 	},
 	"theScribe:PermafrostPen": {
 	"NAME": "Permafrost Pen",
 	"FLAVOR": "An ice cold writing instrument, adorned with a snowflake. \n Its chill numbs the nerves to pain.",
 	"DESCRIPTIONS": [
-		"Whenever you play a card that gives a #yscribe:Spell_Effect, gain #b3 Block."
+		"Whenever you play a card that gives a #yscribe:Spell_Effect [REMOVE_SPACE], gain #b3 Block."
 	]
 },
 	"theScribe:AlchemicalAlter": {
 		"NAME": "Alchemical Alter",
 		"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
 		"DESCRIPTIONS": [
-			"Whenever you would gain #yscribe:Spell_Effect: Damage, gain half of it as #ySpell #yEffect: #yPoison."
+			"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
 		]
 	},
 	"theScribe:PlaceholderRelic2": {

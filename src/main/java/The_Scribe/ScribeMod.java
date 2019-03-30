@@ -576,8 +576,6 @@ public class ScribeMod implements
         final String[] SpellEffect = { "Spell Effect", "Spell Effects", "spell_effect", "spell_effects"};
         BaseMod.addKeyword("scribe","Spell Effect", SpellEffect, "Adds an effect to your next spell. Additionally adds a Scribed Scroll to your hand and at the start of every turn if you do not have one.");
 
-        final String[] SpellEffectButWithASemiColon = { "Spell Effect:", "Spell Effects:", "spell_effect:", "spell_effects:"};
-        BaseMod.addKeyword("scribe","Spell Effect:", SpellEffectButWithASemiColon, "Adds an effect to your next spell. Additionally adds a Scribed Scroll to your hand and at the start of every turn if you do not have one.");
 
         final String[] SpellModifier = { "Spell Modifier", "Spell Modifiers", "spell_modifier", "spell_modifiers"};
         BaseMod.addKeyword("scribe","Spell Modifier", SpellModifier, "Modifies the effects of your next spell.");
