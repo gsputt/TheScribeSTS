@@ -1,9 +1,12 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
+import The_Scribe.relics.Skillbook.ScribeSkillbook;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -197,6 +200,8 @@ public class ScribeMod implements
     public static final String PERMAFROST_PEN_OUTLINE = "relics/outline/PermafrostPenOutline.png";
     public static final String ALCHEMICAL_ALTER = "relics/AlchemicalAlter.png";
     public static final String ALCHEMICAL_ALTER_OUTLINE = "relics/outline/AlchemicalAlterOutline.png";
+    public static final String SKILLBOOK = "relics/placeholder_relic.png";
+    public static final String SKILLBOOK_OUTLINE = "relics/outline/placeholder_relic.png";
 
 
     public static final String PLACEHOLDER_RELIC_2 = "relics/placeholder_relic2.png";
@@ -269,6 +274,17 @@ public class ScribeMod implements
     }
 
     // ============== /SUBSCRIBE, CREATE THE COLOR, INITIALIZE/ =================
+
+    // ============== /CROSSOVER CHECKS/ ==============
+    public static final boolean hasAspiration;
+
+    static {
+        hasAspiration = Loader.isModLoaded("aspiration");
+        if (hasAspiration) {
+            logger.info("Detected Mod: Aspiration");
+        }
+    }
+    // ============== /CROSSOVER CHECKS/ ==============
 
 
     // ================ ADD CARDS ===================
@@ -530,6 +546,9 @@ public class ScribeMod implements
         BaseMod.addRelicToCustomPool(new AlchemicalAlter(), AbstractCardEnum.SCRIBE_BLUE);
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+        if(hasAspiration) {
+            BaseMod.addRelic(new ScribeSkillbook(), RelicType.SHARED);
+        }
 
         logger.info("Done adding relics!");
     }

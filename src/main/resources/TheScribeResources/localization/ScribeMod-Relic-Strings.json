@@ -35,12 +35,20 @@
 	]
 },
 	"theScribe:AlchemicalAlter": {
-		"NAME": "Alchemical Alter",
-		"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
+	"NAME": "Alchemical Alter",
+	"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
+	"DESCRIPTIONS": [
+		"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
+	]
+},
+	"theScribe:ScribeSkillbook": {
+		"NAME": "Scribe's Skillbook",
+		"FLAVOR": "This appears to be an introduction to modular spellcasting. The pages are worn from heavy use.",
 		"DESCRIPTIONS": [
-			"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
+			"The first time you play a #yscribe:Spell_Effect each turn, if you have no #ySpell #yEffects and no #ySpell #yModifiers, add an #yscribe:Echo of it to your hand.", " NL NL #yMulticlass Spell Scribe."
 		]
 	},
+
 	"theScribe:PlaceholderRelic2": {
 		"NAME": "Placeholder Relic 2",
 		"FLAVOR": "You feel stronger.",
