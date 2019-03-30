@@ -21,7 +21,6 @@ public class ScribeSkillbook extends SkillbookRelic {
     public static final String IMG = ScribeMod.makePath(ScribeMod.SKILLBOOK);
     public static final String OUTLINE = ScribeMod.makePath(ScribeMod.SKILLBOOK_OUTLINE);
     public static final ArrayList<PowerTip> pTips = null;
-    private static boolean isPlayerTurn = false;
 
     public ScribeSkillbook() {
         super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.BOSS, LandingSound.FLAT, pTips);
@@ -45,27 +44,18 @@ public class ScribeSkillbook extends SkillbookRelic {
     @Override
     public void atTurnStart() {
         this.counter = 0;
-        this.isPlayerTurn = true;
     }
 
-    @Override
-    public void onPlayerEndTurn() {
-        this.isPlayerTurn = false;
-    }
 
     @Override
     public void onCardDraw(AbstractCard drawnCard) {
         if(this.counter == 0)
         {
-            if(this.isPlayerTurn)
-            {
-                if(drawnCard.cost > 0)
-                {
+                if(drawnCard.cost > 0) {
                     drawnCard.setCostForTurn(drawnCard.costForTurn - 1);
                     drawnCard.isCostModifiedForTurn = true;
                     drawnCard.tags.add(ScribeCardTags.REDUCED_COST_BY_ONE);
                 }
-            }
         }
     }
 
