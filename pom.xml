@@ -51,13 +51,6 @@
             <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
         </dependency>
-        <dependency>
-            <groupId>watdis</groupId>
-            <artifactId>WatDis</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${Steam.path}/workshop/content/646570/1611701846/Aspiration.jar</systemPath>
-        </dependency>
     </dependencies>
 
 

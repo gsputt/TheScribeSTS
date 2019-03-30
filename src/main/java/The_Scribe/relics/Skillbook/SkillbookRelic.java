@@ -1,7 +1,8 @@
 package The_Scribe.relics.Skillbook;
 
-import aspiration.Aspiration;
-import aspiration.relics.skillbooks.SkillbookRelicDescription;
+import The_Scribe.ScribeMod;
+import basemod.abstracts.CustomRelic;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,43 +11,27 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
-public abstract class ScribeSkillbookRelic extends ScribeAspirationRelic implements SkillbookRelicDescription {
+public abstract class SkillbookRelic extends CustomRelic implements SkillbookRelicDescription {
 
-    protected ScribeSkillbookRelic(String setId, String imgName, String outlineName, RelicTier tier, LandingSound sfx) {
-        super(setId, imgName, outlineName, tier, sfx);
+
+    //For mods that want to add their own Skillbook and use Custom Relic
+    //pTips can be null or empty if no additional PowerTips are needed
+    protected SkillbookRelic(String setId, Texture img, Texture outline, RelicTier tier, LandingSound sfx, ArrayList<PowerTip> pTips) {
+        super(setId, img, outline, tier, sfx);
         tips.clear();
         tips.add(new PowerTip(name, description));
-        if(Aspiration.skillbookCardpool()) {
+        if(ScribeMod.skillbookCardpool()) {
             tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        }
+        if(pTips != null && !pTips.isEmpty()) {
+            tips.addAll(pTips);
         }
         initializeTips();
     }
 
-    protected ScribeSkillbookRelic(String setId, String imgName, String outlineName, RelicTier tier, LandingSound sfx, PowerTip pTip) {
-        super(setId, imgName, outlineName, tier, sfx);
-        tips.clear();
-        tips.add(new PowerTip(name, description));
-        if(Aspiration.skillbookCardpool()) {
-            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
-        }
-        tips.add(pTip);
-        initializeTips();
-    }
-
-    protected ScribeSkillbookRelic(String setId, String imgName, String outlineName, RelicTier tier, LandingSound sfx, ArrayList<PowerTip> pTips) {
-        super(setId, imgName, outlineName, tier, sfx);
-        tips.clear();
-        tips.add(new PowerTip(name, description));
-        if(Aspiration.skillbookCardpool()) {
-            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
-        }
-        tips.addAll(pTips);
-        initializeTips();
-    }
-
-    public static boolean hasScribeSkillbookRelic(AbstractPlayer p) {
+    public static boolean hasSkillbookRelic(AbstractPlayer p) {
         for(AbstractRelic r : p.relics) {
-            if(r instanceof ScribeSkillbookRelic) {
+            if(r instanceof SkillbookRelic) {
                 return true;
             }
         }

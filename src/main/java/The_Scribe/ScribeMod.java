@@ -2,13 +2,17 @@ package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
 import The_Scribe.relics.Skillbook.ScribeSkillbook;
+import basemod.ModLabeledToggleButton;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -27,6 +31,9 @@ import The_Scribe.cards.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
+import java.util.Properties;
 
 @SpireInitializer
 public class ScribeMod implements
@@ -200,8 +207,8 @@ public class ScribeMod implements
     public static final String PERMAFROST_PEN_OUTLINE = "relics/outline/PermafrostPenOutline.png";
     public static final String ALCHEMICAL_ALTER = "relics/AlchemicalAlter.png";
     public static final String ALCHEMICAL_ALTER_OUTLINE = "relics/outline/AlchemicalAlterOutline.png";
-    public static final String SKILLBOOK = "relics/placeholder_relic.png";
-    public static final String SKILLBOOK_OUTLINE = "relics/outline/placeholder_relic.png";
+    public static final String SKILLBOOK = "relics/ScribeSkillbook.png";
+    public static final String SKILLBOOK_OUTLINE = "relics/outline/ScribeSkillbookOutline.png";
 
 
     public static final String PLACEHOLDER_RELIC_2 = "relics/placeholder_relic2.png";
@@ -225,6 +232,9 @@ public class ScribeMod implements
     // Animations atlas and JSON files
     public static final String THE_SCRIBE_SKELETON_ATLAS = "char/scribe/skeleton.atlas";
     public static final String THE_SCRIBE_SKELETON_JSON = "char/scribe/skeleton.json";
+
+
+    private static SpireConfig modConfig = null;
 
     // =============== /INPUT TEXTURE LOCATION/ =================
 
@@ -271,6 +281,14 @@ public class ScribeMod implements
         logger.info("Initializing ScribeMod Mod. Feed Cookies to continue");
         ScribeMod The_Scribe = new ScribeMod();
         logger.info(" ScribeMod Mod Initialized - Cookies have been fed");
+
+        try {
+            Properties defaults = new Properties();
+            defaults.put("SkillbookCardpool", Boolean.toString(true));
+            modConfig = new SpireConfig("Aspiration", "Config", defaults);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // ============== /SUBSCRIBE, CREATE THE COLOR, INITIALIZE/ =================
@@ -284,6 +302,15 @@ public class ScribeMod implements
             logger.info("Detected Mod: Aspiration");
         }
     }
+
+    public static boolean skillbookCardpool()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("SkillbookCardpool");
+    }
+
     // ============== /CROSSOVER CHECKS/ ==============
 
 
@@ -630,9 +657,27 @@ public class ScribeMod implements
 
         // Create the Mod Menu
         ModPanel settingsPanel = new ModPanel();
-        settingsPanel.addUIElement(new ModLabel("ScribeMod doesn't have any settings!", 400.0f, 700.0f,
-                settingsPanel, (me) -> {
-        }));
+        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton("Allow Scribe's Skillbook to add cards from the Spell Scribe to card rewards screens.", 350.0F, 700.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("SkillbookCardpool", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        if(hasAspiration) {
+            settingsPanel.addUIElement(skillbookBtn);
+        }
+        else
+        {
+            settingsPanel.addUIElement(new ModLabel("ScribeMod doesn't have any settings!", 400.0f, 700.0f,
+                    settingsPanel, (me) -> {
+            }));
+        }
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         logger.info("Done loading badge Image and mod options");
