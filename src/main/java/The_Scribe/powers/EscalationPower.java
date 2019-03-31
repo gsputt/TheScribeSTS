@@ -57,12 +57,12 @@ public class EscalationPower extends TwoAmountPower {
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (this.amount2 < this.amount) {
-            AbstractCard c = card;
-            if (c.hasTag(ScribeCardTags.SPELL_ATTACK) || c.hasTag(ScribeCardTags.SPELL_BLOCK)
-                    || c.hasTag(ScribeCardTags.SPELL_CLARITY) || c.hasTag(ScribeCardTags.SPELL_POISON)
-                    || c.hasTag(ScribeCardTags.SPELL_WEAK) || c.hasTag(ScribeCardTags.SPELL_SELF_DAMAGE)
-                    || c.hasTag(ScribeCardTags.SPELLSTONE_EFFECT) || c.hasTag(ScribeCardTags.SPELL_EFFECT_SCROLL)) {
+        AbstractCard c = card;
+        if (c.hasTag(ScribeCardTags.SPELL_ATTACK) || c.hasTag(ScribeCardTags.SPELL_BLOCK)
+                || c.hasTag(ScribeCardTags.SPELL_CLARITY) || c.hasTag(ScribeCardTags.SPELL_POISON)
+                || c.hasTag(ScribeCardTags.SPELL_WEAK) || c.hasTag(ScribeCardTags.SPELL_SELF_DAMAGE)
+                || c.hasTag(ScribeCardTags.SPELLSTONE_EFFECT) || c.hasTag(ScribeCardTags.SPELL_EFFECT_SCROLL)) {
+            if (this.amount2 < this.amount) {
                 if (c != null) {
                     c = c.makeStatEquivalentCopy();
                     c.freeToPlayOnce = true;
@@ -83,9 +83,9 @@ public class EscalationPower extends TwoAmountPower {
                     }
                     this.flashWithoutSound();
                 }
-                this.amount2++;
-                updateDescription();
             }
+            this.amount2++;
+            updateDescription();
         }
     }
 
