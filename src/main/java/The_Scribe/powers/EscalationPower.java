@@ -83,10 +83,10 @@ public class EscalationPower extends TwoAmountPower {
                     }
                     this.flashWithoutSound();
                 }
+                this.amount2++;
+                updateDescription();
             }
         }
-        this.amount2++;
-        updateDescription();
     }
 
     @Override

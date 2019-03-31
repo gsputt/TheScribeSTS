@@ -45,7 +45,7 @@
   },
   "theScribe:EscalationPower": {
     "NAME": "Escalation",
-    "DESCRIPTIONS": ["For the first card ", "you play each turn, if its a #ySpell #yEffect, add an #yEcho of that #ySpell #yEffect to your hand. It costs 0","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
+    "DESCRIPTIONS": ["For the first #ySpell #yEffect ", "you play each turn, add an #yEcho of that #ySpell #yEffect to your hand. It costs 0.","For the first #b", " #ySpell #yEffects ", " #b", " #ySpell #yEffect has been played this turn.", " #ySpell #yEffects have been played this turn."]
   },
   "theScribe:ThornsDown": {
     "NAME": "Thorns Down",

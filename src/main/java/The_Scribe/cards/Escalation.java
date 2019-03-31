@@ -1,5 +1,6 @@
 package The_Scribe.cards;
 
+import The_Scribe.patches.ScribeCardTags;
 import The_Scribe.powers.Drained;
 import The_Scribe.powers.EscalationPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -77,11 +78,17 @@ public class Escalation extends CustomCard {
     public void applyPowers() {
         super.applyPowers();
         int count = 0;
+
         Iterator cardsPlayedThisTurnIterator = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
 
         while(cardsPlayedThisTurnIterator.hasNext()) {
-            cardsPlayedThisTurnIterator.next();
-            ++count;
+            AbstractCard c = (AbstractCard)cardsPlayedThisTurnIterator.next();
+            if (c.hasTag(ScribeCardTags.SPELL_ATTACK) || c.hasTag(ScribeCardTags.SPELL_BLOCK)
+                    || c.hasTag(ScribeCardTags.SPELL_CLARITY) || c.hasTag(ScribeCardTags.SPELL_POISON)
+                    || c.hasTag(ScribeCardTags.SPELL_WEAK) || c.hasTag(ScribeCardTags.SPELL_SELF_DAMAGE)
+                    || c.hasTag(ScribeCardTags.SPELLSTONE_EFFECT) || c.hasTag(ScribeCardTags.SPELL_EFFECT_SCROLL)) {
+                ++count;
+            }
         }
         cardsPlayedThisTurn = count;
     }
