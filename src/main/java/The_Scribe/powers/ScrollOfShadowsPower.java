@@ -71,7 +71,9 @@ public class ScrollOfShadowsPower extends TwoAmountPower {
                         c.isEthereal = true;
                         c.rawDescription += " NL Ethereal.";
                     }
-                    c.name = "Echo: " + c.name;
+                    if(!c.name.contains("Echo: ")) {
+                        c.name = "Echo: " + c.name;
+                    }
                     c.initializeDescription();
                     if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(c));

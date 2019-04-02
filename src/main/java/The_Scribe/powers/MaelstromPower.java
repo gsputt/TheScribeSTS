@@ -28,7 +28,6 @@ public class MaelstromPower extends TwoAmountPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = ScribeMod.makePath(ScribeMod.MAELSTROM_POWER);
-    private static ArrayList<UUID> UUIDlist = new ArrayList();
 
     public MaelstromPower(AbstractCreature owner, int amount, int amount2) {
         this.name = NAME;
@@ -62,7 +61,7 @@ public class MaelstromPower extends TwoAmountPower {
                 AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.cardRandomRng, card.costForTurn);
                 if(c != null) {
                     c = c.makeStatEquivalentCopy();
-                    c.freeToPlayOnce = true;
+                    c.setCostForTurn(0);
                     if(c.exhaust == false) {
                         c.exhaust = true;
                         c.rawDescription += " NL Exhaust.";
@@ -72,7 +71,9 @@ public class MaelstromPower extends TwoAmountPower {
                         c.isEthereal = true;
                         c.rawDescription += " NL Ethereal.";
                     }
-                    c.name = "Echo: " + c.name;
+                    if(!c.name.contains("Echo: ")) {
+                        c.name = "Echo: " + c.name;
+                    }
                     c.initializeDescription();
                     if(AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE)
                     {

@@ -3,7 +3,7 @@
 		"NAME": "Spell Scribe's Scroll",
 		"FLAVOR": "Inscribed with an \"S\" it radiates arcane energies.",
 		"DESCRIPTIONS": [
-			"At the start of each combat, you can choose 1 of 3 random cards to shuffle into your draw pile."
+			"At the start of each combat, choose 1 of 3 cards to shuffle into your draw pile."
 		]
 	},
 	"theScribe:StarterRelic2": {
