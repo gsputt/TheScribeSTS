@@ -49,6 +49,11 @@ public abstract class AbstractScribeCard extends CustomCard {
     public boolean isSelfDamageModified;
     public boolean upgradeSelfDamage;
 
+    public int spellBlock;
+    public int baseSpellBlock;
+    public boolean isSpellBlockModified;
+    public boolean upgradeSpellBlock;
+
     public int anomalousTextsVariable;
     public int baseAnomalousTextsVariable;
     public boolean isAnomalousTextsVariableModified;
@@ -60,6 +65,15 @@ public abstract class AbstractScribeCard extends CustomCard {
         if(this.anomalousTextsVariable > this.baseAnomalousTextsVariable || amount > 0)
         {
             this.isAnomalousTextsVariableModified = true;
+        }
+    }
+
+    public void upgradeSpellBlock(int amount)
+    {
+        this.spellBlock += amount;
+        if(this.spellBlock > this.spellBlock || amount > 0)
+        {
+            this.isSpellBlockModified = true;
         }
     }
 

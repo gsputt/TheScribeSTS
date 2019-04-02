@@ -16,6 +16,7 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class Ice extends AbstractScribeCard {
 
@@ -41,6 +42,7 @@ public class Ice extends AbstractScribeCard {
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -48,19 +50,22 @@ public class Ice extends AbstractScribeCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardTarget TARGET = CardTarget.ALL;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
     private static final int BLOCK = 7;
     private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int WEAK_AMOUNT = 1;
 
     // /STAT DECLARATION/
 
     public Ice() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = BLOCK;
+        this.baseSpellBlock = BLOCK;
+        this.spellBlock = this.baseSpellBlock;
+        this.baseMagicNumber = WEAK_AMOUNT;
         this.magicNumber = this.baseMagicNumber;
         tags.add(ScribeCardTags.SPELL_BLOCK);
     }
@@ -68,8 +73,19 @@ public class Ice extends AbstractScribeCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.spellBlock), this.spellBlock));
         this.ScribedScrollAcquire();
+        if(this.upgraded) {
+            int i = 0;
+            AbstractMonster targetMonster;
+            while (i < AbstractDungeon.getCurrRoom().monsters.monsters.size()) {
+                targetMonster = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
+                if (!(targetMonster.isDead || targetMonster.currentHealth <= 0 || targetMonster.halfDead)) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+                }
+                i++;
+            }
+        }
     }
 
 
@@ -84,7 +100,8 @@ public class Ice extends AbstractScribeCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
+            this.upgradeSpellBlock(UPGRADE_PLUS_BLOCK);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

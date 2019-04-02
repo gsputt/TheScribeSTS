@@ -31,7 +31,8 @@
 	},
 	"theScribe:Frost": {
 		"NAME": "Freeze",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! Block."
+		"DESCRIPTION": "scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block.",
+		"UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block."
 	},
 	"theScribe:Dark": {
 		"NAME": "Eldritch",

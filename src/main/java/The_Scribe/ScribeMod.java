@@ -338,6 +338,7 @@ public class ScribeMod implements
         BaseMod.addDynamicVariable(new BetterSpellAttack());
         BaseMod.addDynamicVariable(new BetterSelfDamage());
         BaseMod.addDynamicVariable(new AnomalousTextsVariable());
+        BaseMod.addDynamicVariable(new BetterSpellBlock());
 
 
         logger.info("Adding cards");
