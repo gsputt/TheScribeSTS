@@ -78,8 +78,7 @@
 	},
 	"theScribe:MirrorImage": {
 		"NAME": "Mirror Image",
-		"DESCRIPTION": "Gain !B! Block.",
-		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: NL Gain !M! Block."
+		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: NL Gain !M! Block."
 	},
 	"theScribe:Meditate": {
 		"NAME": "Meditate",

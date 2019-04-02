@@ -48,8 +48,9 @@ public class MirrorImage extends AbstractScribeCard {
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int BLOCK = 6;
-    private static final int BLOCK_POWER = 5;
+    private static final int BLOCK = 4;
+    private static final int BLOCK_POWER = 4;
+    private static final int UPGRADE_BLOCK = 2;
 
 
     // /STAT DECLARATION/
@@ -60,10 +61,7 @@ public class MirrorImage extends AbstractScribeCard {
         this.baseBlock = BLOCK;
         this.baseMagicNumber = BLOCK_POWER;
         this.magicNumber = this.baseMagicNumber;
-        if(tags.contains(ScribeCardTags.SPELL_BLOCK))
-        {
-            tags.remove(ScribeCardTags.SPELL_BLOCK);
-        }
+        tags.add(ScribeCardTags.SPELL_BLOCK);
     }
 
     // Actions the card should do.
@@ -88,9 +86,9 @@ public class MirrorImage extends AbstractScribeCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(UPGRADE_BLOCK);
+            this.upgradeBlock(UPGRADE_BLOCK);
             this.initializeDescription();
-            tags.add(ScribeCardTags.SPELL_BLOCK);
         }
     }
 }
