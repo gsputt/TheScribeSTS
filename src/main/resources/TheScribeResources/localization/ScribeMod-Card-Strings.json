@@ -88,7 +88,7 @@
 	},
 	"theScribe:MagicMissiles": {
 		"NAME": "Magic Missiles",
-		"DESCRIPTION": "Deal !D! damage. NL Hits twice. NL For each unique scribe:Spell_Effect or scribe:Spell_Modifier, Hits 1 additional time. NL (Hits !M! Times.)"
+		"DESCRIPTION": "Deal !D! damage twice. NL For each unique scribe:Spell_Effect or scribe:Spell_Modifier, Hits 1 additional time. NL (Hits !M! Times.)"
 	},
 	"theScribe:PoisonGas": {
 		"NAME": "Poison Gas",
