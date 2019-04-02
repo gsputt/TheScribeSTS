@@ -130,7 +130,7 @@ public class ScribeMod implements
     public static final String SCRIBE_INSCRIBE_DEATH = "cards/InscribeDeath.png";
     public static final String SCRIBE_WEIRD_BLAST = "cards/WeirdBlast.png";
     public static final String SCRIBE_WEIRD_SHIELD  = "cards/WeirdShield.png";
-    public static final String SCRIBE_STATIC_CAGE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_STATIC_CAGE = "cards/StaticCage.png";
     public static final String SCRIBE_TELUM_SPELLSTONE = "cards/TelumSpellstone.png";
     public static final String SCRIBE_FLOW_LIKE_WATER = "cards/FlowLikeWater.png";
     public static final String SCRIBE_CAPACITANCE_SCROLL = "cards/CapacitanceScroll.png";
