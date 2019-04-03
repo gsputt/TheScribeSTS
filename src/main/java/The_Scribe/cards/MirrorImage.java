@@ -69,7 +69,6 @@ public class MirrorImage extends AbstractScribeCard {
         AbstractDungeon.actionManager.addToBottom(
                 new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

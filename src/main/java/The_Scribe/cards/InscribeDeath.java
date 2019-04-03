@@ -82,7 +82,6 @@ public class InscribeDeath extends AbstractScribeCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
 

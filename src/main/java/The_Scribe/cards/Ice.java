@@ -74,7 +74,6 @@ public class Ice extends AbstractScribeCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.spellBlock), this.spellBlock));
-        this.ScribedScrollAcquire();
         if(this.upgraded) {
             int i = 0;
             AbstractMonster targetMonster;

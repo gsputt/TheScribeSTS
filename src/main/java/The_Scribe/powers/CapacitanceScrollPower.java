@@ -1,16 +1,10 @@
 package The_Scribe.powers;
 
-import The_Scribe.cards.AbstractScribeCard;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import The_Scribe.unused.unusedPowers.SpellVulnerable;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.*;
@@ -73,7 +67,6 @@ public class CapacitanceScrollPower extends AbstractPower {
         }
         if(!check) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpellAttack(this.owner, this.amount), this.amount));
-            AbstractScribeCard.ScribedScrollAcquire();
         }
     }
 

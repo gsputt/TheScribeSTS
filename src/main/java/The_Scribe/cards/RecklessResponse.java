@@ -97,7 +97,6 @@ public class RecklessResponse extends AbstractScribeCard {
             }
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, this.baseSelfDamage), this.baseSelfDamage));
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

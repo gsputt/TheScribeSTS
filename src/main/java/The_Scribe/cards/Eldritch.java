@@ -2,7 +2,6 @@ package The_Scribe.cards;
 
 import The_Scribe.patches.ScribeCardTags;
 import The_Scribe.powers.SpellPoison;
-import The_Scribe.powers.SpellVulnerable;
 import The_Scribe.powers.SpellWeak;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,16 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-
-import basemod.helpers.ModalChoice;
-import basemod.helpers.ModalChoiceBuilder;
-import basemod.helpers.TooltipInfo;
-
-import java.util.List;
 
 public class Eldritch extends AbstractScribeCard {
 
@@ -77,7 +68,6 @@ public class Eldritch extends AbstractScribeCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellWeak(p, WEAK_AMOUNT), WEAK_AMOUNT));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPoison(p, POISON_AMOUNT), POISON_AMOUNT));
-        this.ScribedScrollAcquire();
     }
 
 

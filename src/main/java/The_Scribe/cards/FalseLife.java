@@ -1,9 +1,6 @@
 package The_Scribe.cards;
 
 import The_Scribe.powers.FalseLifePower;
-import The_Scribe.powers.SpellPoison;
-import The_Scribe.powers.SpellVulnerable;
-import The_Scribe.powers.SpellWeak;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,12 +13,6 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-
-import basemod.helpers.ModalChoice;
-import basemod.helpers.ModalChoiceBuilder;
-import basemod.helpers.TooltipInfo;
-
-import java.util.List;
 
 public class FalseLife extends CustomCard {
 

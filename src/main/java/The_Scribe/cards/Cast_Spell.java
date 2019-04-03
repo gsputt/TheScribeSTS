@@ -3,9 +3,9 @@ package The_Scribe.cards;
 
 
 
-import The_Scribe.actions.PurgeSpecificCardAction;
 import The_Scribe.actions.ScribeSelfDamageAction;
 import The_Scribe.powers.*;
+import The_Scribe.unused.unusedPowers.SpellVulnerable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

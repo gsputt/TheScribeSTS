@@ -65,7 +65,6 @@ public class BluntWeapons extends AbstractScribeCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellWeak(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

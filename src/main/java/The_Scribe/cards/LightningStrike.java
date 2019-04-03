@@ -72,7 +72,6 @@ public class LightningStrike extends AbstractScribeCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
-        this.ScribedScrollAcquire();
     }
 
 

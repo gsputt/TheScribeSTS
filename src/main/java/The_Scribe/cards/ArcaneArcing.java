@@ -83,13 +83,9 @@ public class ArcaneArcing extends AbstractScribeCard {
         for(int i = 0; i < this.energyOnUse + ChemicalXVariable; i++)
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
-            spellAttackAcquire = true;
         }
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
-        }
-        if(spellAttackAcquire) {
-            this.ScribedScrollAcquire();
         }
     }
 

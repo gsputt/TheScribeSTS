@@ -1,6 +1,6 @@
 package The_Scribe.unused.unusedCards;
 
-import The_Scribe.powers.SpellVulnerable;
+import The_Scribe.unused.unusedPowers.SpellVulnerable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

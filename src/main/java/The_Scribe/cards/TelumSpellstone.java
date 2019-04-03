@@ -78,7 +78,6 @@ public class TelumSpellstone extends AbstractScribeCard {
                         AbstractDungeon.player,
                         new SpellAttack(AbstractDungeon.player,
                                 this.spellDamage), this.spellDamage));
-        this.ScribedScrollAcquire();
     }
 
 

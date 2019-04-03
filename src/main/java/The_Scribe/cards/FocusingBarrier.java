@@ -77,7 +77,6 @@ public class FocusingBarrier extends AbstractScribeCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellEffectiveness(p, this.effectivity), this.effectivity));
-        this.ScribedScrollAcquire();
     }
 
 

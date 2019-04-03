@@ -72,7 +72,6 @@ public class IcyDefend extends AbstractScribeCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
 

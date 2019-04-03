@@ -1,11 +1,10 @@
 package The_Scribe.unused.unusedVariables;
 
 import The_Scribe.powers.SpellEffectiveness;
-import The_Scribe.powers.SpellVulnerable;
+import The_Scribe.unused.unusedPowers.SpellVulnerable;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class VulnerableDark extends DynamicVariable
 {   // Custom Dynamic Variables are what you do if you need your card text to display a cool, changing number that the base game doesn't provide.

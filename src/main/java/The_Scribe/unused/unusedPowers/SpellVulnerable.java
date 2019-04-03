@@ -1,6 +1,7 @@
-package The_Scribe.powers;
+package The_Scribe.unused.unusedPowers;
 
 import The_Scribe.ScribeMod;
+import The_Scribe.cards.AbstractScribeCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -31,6 +32,7 @@ public class SpellVulnerable extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+        AbstractScribeCard.ScribedScrollAcquire();
     }
 
     public void stackPower(int stackAmount) {

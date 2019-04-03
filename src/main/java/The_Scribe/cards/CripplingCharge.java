@@ -81,7 +81,6 @@ public class CripplingCharge extends AbstractScribeCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellEffectiveness(p, -this.effectivity), -this.effectivity));
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

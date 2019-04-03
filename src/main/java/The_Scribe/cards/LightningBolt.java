@@ -90,7 +90,6 @@ public class LightningBolt extends AbstractScribeCard {
                 AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

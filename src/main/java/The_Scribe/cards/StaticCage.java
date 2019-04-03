@@ -73,7 +73,6 @@ public class StaticCage extends AbstractScribeCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new StaticCageEffect(p.hb.cX, p.hb.cY), 0F));
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
-        this.ScribedScrollAcquire();
     }
 
 

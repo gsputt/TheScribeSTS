@@ -73,7 +73,6 @@ public class Overcharge extends AbstractScribeCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, SELF_DAMAGE), SELF_DAMAGE));
-        this.ScribedScrollAcquire();
     }
 
 

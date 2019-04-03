@@ -65,7 +65,6 @@ public class ForkedBolt extends AbstractScribeCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Cast_Spell(), 1));
         //AbstractDungeon.actionManager.addToBottom(new FetchAction(AbstractDungeon.player.drawPile, hasSpellAttackTag(), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new MoveSpecificTaggedCardsToHandTheyCost0ThisTurnAction(this.magicNumber, ScribeCardTags.SPELL_ATTACK));
     }

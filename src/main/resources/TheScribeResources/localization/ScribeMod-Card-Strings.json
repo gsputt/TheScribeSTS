@@ -263,7 +263,7 @@
 	},
 	"theScribe:ForkedBolt": {
 		"NAME": "Forked Bolt",
-		"DESCRIPTION": "Add a Scribed Spell to your hand. NL Place !M! random cards that give scribe:Spell_Effect: damage from your draw pile into your hand. NL They cost 0 this turn. NL Exhaust."
+		"DESCRIPTION": "Place !M! random cards that give scribe:Spell_Effect: damage from your draw pile into your hand. NL They cost 0 this turn. NL Exhaust."
 	},
 	"theScribe:FocusedBolt": {
 		"NAME": "Focusing Bolt",
@@ -280,7 +280,7 @@
 	},
 	"theScribe:ScrollOfPoison": {
 		"NAME": "Scroll Of Poison",
-		"DESCRIPTION": "Whenever you take damage on your turn, apply that much poison to all enemies."
+		"DESCRIPTION": "Whenever you take damage on your turn, apply that much poison to ALL enemies."
 	},
 	"theScribe:CrystalShield": {
 		"NAME": "Crystal Shield",

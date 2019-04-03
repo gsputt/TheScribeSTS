@@ -69,7 +69,6 @@ public class Clarity extends AbstractScribeCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellClarity(p, this.magicNumber), this.magicNumber));
-        this.ScribedScrollAcquire();
     }
 
 

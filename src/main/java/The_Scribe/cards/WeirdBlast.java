@@ -85,7 +85,6 @@ public class WeirdBlast extends AbstractScribeCard {
         {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         }
-        this.ScribedScrollAcquire();
     }
 
     // Which card to return when making a copy of this card.

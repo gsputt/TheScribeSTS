@@ -78,7 +78,6 @@ public class Thunder extends AbstractScribeCard {
         CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
-        this.ScribedScrollAcquire();
     }
 
 
