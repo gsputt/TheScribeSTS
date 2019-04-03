@@ -3,26 +3,16 @@ package The_Scribe.cards;
 import The_Scribe.patches.ScribeCardTags;
 import The_Scribe.powers.SpellAttack;
 import The_Scribe.powers.SpellEffectiveness;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
-
-import java.util.Iterator;
 
 public class CripplingCharge extends AbstractScribeCard {
 

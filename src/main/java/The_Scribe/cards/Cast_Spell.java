@@ -109,7 +109,6 @@ public class Cast_Spell extends CustomCard {
         {
 
             if(targetAllEnemies) {
-                this.isMultiDamage = true;
                 theScribeAdditionalCastsTargetAll(p);
             }
             else {
@@ -120,7 +119,6 @@ public class Cast_Spell extends CustomCard {
 
         }
         if(targetAllEnemies) {
-            this.isMultiDamage = true;
             theScribeCastTargetAll(p);
         }
         else {
@@ -422,10 +420,12 @@ public class Cast_Spell extends CustomCard {
         if(AbstractDungeon.player.hasPower(SpellTargetsAll.POWER_ID)) {
             target = TARGET_ALL;
             targetAllEnemies = true;
+            this.isMultiDamage = true;
         }
         else {
             target = TARGET;
             targetAllEnemies = false;
+            this.isMultiDamage = false;
         }
 
         if (AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
