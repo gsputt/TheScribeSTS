@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.BaseMod;
@@ -38,7 +39,8 @@ import java.util.Properties;
 @SpireInitializer
 public class ScribeMod implements
         PostInitializeSubscriber, EditCardsSubscriber, EditStringsSubscriber,
-        EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber
+        EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber,
+        PostBattleSubscriber, OnStartBattleSubscriber
         {
     //PrePlayerUpdateSubscriber, OnReceivePowerPower
 
@@ -683,8 +685,25 @@ public class ScribeMod implements
         logger.info("Done loading badge Image and mod options");
 
     }
-
     // =============== / POST-INITIALIZE/ =================
+
+
+            //SCRIBED SCROLL STUFF
+    @Override
+    public void receivePostBattle(AbstractRoom battleRoom)
+    {
+        AbstractScribeCard.ScribedScrollAcquireCounter = 0;
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room)
+    {
+        AbstractScribeCard.ScribedScrollAcquireCounter = 0;
+    }
+            //SCRIBED SCROLL STUFF
+
+
+
 
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.

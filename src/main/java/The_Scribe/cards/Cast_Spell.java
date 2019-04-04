@@ -521,7 +521,7 @@ public class Cast_Spell extends CustomCard {
     {
         if(AbstractDungeon.player.hasPower(ScribedScrollAcquirePower.POWER_ID))
         {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
                     AbstractDungeon.player, AbstractDungeon.player, ScribedScrollAcquirePower.POWER_ID));
         }
     }
