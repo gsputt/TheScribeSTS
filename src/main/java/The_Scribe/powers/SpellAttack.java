@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.cards.AbstractScribeCard;
+import The_Scribe.cards.Clarity;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
@@ -38,6 +39,8 @@ public class SpellAttack extends AbstractPower {
         amountToCast = this.amount;
         AbstractScribeCard.ScribedScrollAcquire();
     }
+
+
 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;

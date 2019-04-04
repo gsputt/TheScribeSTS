@@ -31,7 +31,6 @@ public class ScribedScrollAcquirePower extends AbstractPower implements Invisibl
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.amount = -1;
         this.updateDescription();
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
