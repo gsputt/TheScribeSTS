@@ -263,7 +263,7 @@
 	},
 	"theScribe:ForkedBolt": {
 		"NAME": "Forked Bolt",
-		"DESCRIPTION": "Place !M! random cards that give scribe:Spell_Effect: damage from your draw pile into your hand. NL They cost 0 this turn. NL Exhaust."
+		"DESCRIPTION": "Add !M! scribe:Echoes of random cards that give scribe:Spell_Effect: damage from your deck into your hand. NL They cost 0 this turn. NL Exhaust."
 	},
 	"theScribe:FocusedBolt": {
 		"NAME": "Focusing Bolt",

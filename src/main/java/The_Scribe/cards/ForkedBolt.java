@@ -3,6 +3,7 @@ package The_Scribe.cards;
 
 import The_Scribe.actions.MoveSpecificTaggedCardsToHandTheyCost0ThisTurnAction;
 import The_Scribe.patches.ScribeCardTags;
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,6 +14,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ForkedBolt extends AbstractScribeCard {
 
@@ -65,15 +72,54 @@ public class ForkedBolt extends AbstractScribeCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //AbstractDungeon.actionManager.addToBottom(new FetchAction(AbstractDungeon.player.drawPile, hasSpellAttackTag(), this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new MoveSpecificTaggedCardsToHandTheyCost0ThisTurnAction(this.magicNumber, ScribeCardTags.SPELL_ATTACK));
+        int i = 0;
+        while(i < this.magicNumber)
+        {
+            AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.cardRandomRng, ScribeCardTags.SPELL_ATTACK);
+            if(c != null) {
+                c = c.makeStatEquivalentCopy();
+                c.setCostForTurn(0);
+                if (c.exhaust == false) {
+                    c.exhaust = true;
+                    c.rawDescription += " NL Exhaust.";
+                }
+                if (c.isEthereal == false) {
+                    c.isEthereal = true;
+                    c.rawDescription += " NL Ethereal.";
+                }
+                if (!c.name.contains("Echo: ")) {
+                    c.name = "Echo: " + c.name;
+                }
+                c.initializeDescription();
+                if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
+                    AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(c));
+                } else {
+                    AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(c));
+                }
+                i++;
+            }
+        }
     }
 
-    /* public static Predicate<AbstractCard> hasSpellAttackTag()
-    {
-        return check -> check.hasTag(ScribeCardTags.SPELL_ATTACK);
+    private static AbstractCard returnTrulyRandomCardFromMasterDeckListInCombat(Random rng, AbstractCard.CardTags tag) {
+        ArrayList<AbstractCard> list = new ArrayList();
+        Iterator masterDeckIterator = AbstractDungeon.player.masterDeck.group.iterator();
+
+        while(masterDeckIterator.hasNext()) {
+            AbstractCard c = (AbstractCard)masterDeckIterator.next();
+            if(c.hasTag(tag)) {
+                list.add(c);
+            }
+        }
+
+        if(list.size() <= 0)
+        {
+            return null;
+        }
+        else {
+            return (AbstractCard) list.get(rng.random(list.size() - 1));
+        }
     }
-    */
 
     // Which card to return when making a copy of this card.
     @Override
