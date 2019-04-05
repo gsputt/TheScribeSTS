@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import The_Scribe.actions.WordsOfPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -49,20 +50,27 @@ public class WordsOfPowerPower extends TwoAmountPower {
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if(this.amount2 >= 1) {
             if(power.type == PowerType.BUFF) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new WordsOfPowerAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng),
-                                new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), 1));
+                if(!(power instanceof InvisiblePower)) {
+                    dealDamage();
+                }
             }
         }
         else {
             if(power.type == PowerType.BUFF) {
                 if(power.amount < 0) {
-                    AbstractDungeon.actionManager.addToBottom(
-                            new WordsOfPowerAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng),
-                                    new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), 1));
+                    if(!(power instanceof InvisiblePower)) {
+                        dealDamage();
+                    }
                 }
             }
         }
+    }
+
+    private void dealDamage()
+    {
+        AbstractDungeon.actionManager.addToBottom(
+                new WordsOfPowerAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng),
+                        new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS), 1));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
