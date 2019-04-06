@@ -115,6 +115,9 @@ public class MagicMissiles extends CustomCard {
         if (AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
             this.hitTimes += 1;
         }
+        if (AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+            this.hitTimes += 1;
+        }
         this.baseMagicNumber = this.magicNumber = this.hitTimes;
         super.applyPowers();
     }

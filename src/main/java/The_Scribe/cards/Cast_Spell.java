@@ -4,12 +4,13 @@ package The_Scribe.cards;
 
 
 import The_Scribe.actions.ScribeSelfDamageAction;
+import The_Scribe.actions.ChainedSpellTargetingAction;
 import The_Scribe.powers.*;
 import The_Scribe.unused.unusedPowers.SpellVulnerable;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,10 +27,11 @@ import The_Scribe.patches.*;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 
 public class Cast_Spell extends CustomCard {
@@ -60,7 +62,6 @@ public class Cast_Spell extends CustomCard {
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
-    private static final CardTarget TARGET_ALL = CardTarget.ALL;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
@@ -82,10 +83,17 @@ public class Cast_Spell extends CustomCard {
     private static int SpellEffectivityCounter = 0;
     private static int SelfDamage = 0;
     private static int SelfDamageCounter = 0;
+    private static int SpellChainingNumber = 0;
+
+    private ChainedSpellTargetingAction chainedSpell = null;
+    public static ArrayList<AbstractMonster> ChainedSpellTargetMonstersList = new ArrayList<>();
 
     public static double SpellEffectivenessModifier = 1;
 
-    private static boolean targetAllEnemies = false;
+    private static AbstractMonster targetMonster = null;
+
+
+    private int counter = 0;
 
     // /STAT DECLARATION/
 
@@ -105,25 +113,18 @@ public class Cast_Spell extends CustomCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(!ChainedSpellTargetMonstersList.contains(m))
+        {
+            ChainedSpellTargetMonstersList.add(m);
+        }
         while(Split > 0)
         {
-
-            if(targetAllEnemies) {
-                theScribeAdditionalCastsTargetAll(p);
-            }
-            else {
-                theScribeAdditionalCasts(p, m);
-            }
+            theScribeAdditionalCasts(p, m);
             Split--;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSplit(p, -1), -1));
 
         }
-        if(targetAllEnemies) {
-            theScribeCastTargetAll(p);
-        }
-        else {
-            theScribeCast(p, m);
-        }
+        theScribeCast(p, m);
         removeScribedScrollPower();
     }
 
@@ -132,6 +133,33 @@ public class Cast_Spell extends CustomCard {
         theScribeGetPowers();
         super.applyPowers();
         theScribeSetDescriptions();
+    }
+
+
+    @Override
+    public void update()
+    {
+        super.update();
+
+        if(AbstractDungeon.player != null) {
+            if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+                if (AbstractDungeon.player.isHoveringDropZone && AbstractDungeon.getCurrRoom().monsters.hoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+                    if (this.counter == 0) {
+                        chainedSpell = new ChainedSpellTargetingAction(this, true);
+                        this.counter++;
+                    }
+                } else {
+                    if (chainedSpell != null) {
+                        chainedSpell.end();
+                        chainedSpell = null;
+                        ChainedSpellTargetMonstersList = new ArrayList<>();
+                    }
+                    if (this.counter != 0) {
+                        this.counter = 0;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -150,161 +178,22 @@ public class Cast_Spell extends CustomCard {
         }
     }
 
-    private void theScribeAdditionalCastsTargetAll(AbstractPlayer p) {
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
-                Iterator monstersLightning = AbstractDungeon.getMonsters().monsters.iterator();
-                AbstractMonster monsterVFX;
-                while (monstersLightning.hasNext()) {
-                    monsterVFX = (AbstractMonster) monstersLightning.next();
-                    if (!monsterVFX.isDeadOrEscaped() && !monsterVFX.halfDead) {
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(monsterVFX.hb.cX, monsterVFX.hb.cY, AbstractGameAction.AttackEffect.NONE)));
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(monsterVFX.drawX, monsterVFX.drawY)));
-                    }
-                }
-                CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
-                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-            }
-        }
-
-        if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
-            }
-        }
-
-        Iterator monstersDebuff = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-        AbstractMonster monsterApplyDebuff;
-        while(monstersDebuff.hasNext()) {
-            monsterApplyDebuff = (AbstractMonster) monstersDebuff.next();
-            if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new PoisonPower(monsterApplyDebuff, p, DarkPoison), DarkPoison));
-                }
-            }
-            if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new VulnerablePower(monsterApplyDebuff, DarkVulnerable, false), DarkVulnerable));
-                }
-            }
-            if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new WeakPower(monsterApplyDebuff, DarkWeak, false), DarkWeak));
-                }
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToTop(new GainEnergyAction(Clarity));
-            }
-        }
-
-        if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
-            if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager
-                        .addToBottom(new ScribeSelfDamageAction(p,
-                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                AbstractGameAction.AttackEffect.NONE));
-            }
-        }
-
-    }
-
-    private void theScribeCastTargetAll(AbstractPlayer p) {
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            if(AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
-                Iterator monstersLightning = AbstractDungeon.getMonsters().monsters.iterator();
-                AbstractMonster monsterVFX;
-                while (monstersLightning.hasNext()) {
-                    monsterVFX = (AbstractMonster) monstersLightning.next();
-                    if (!monsterVFX.isDeadOrEscaped() && !monsterVFX.halfDead) {
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(monsterVFX.hb.cX, monsterVFX.hb.cY, AbstractGameAction.AttackEffect.NONE)));
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(monsterVFX.drawX, monsterVFX.drawY)));
-                    }
-                }
-                CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
-                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount));
-            }
-        }
-
-        if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, -AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount));
-            }
-        }
-
-        Iterator monstersDebuff = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-        AbstractMonster monsterApplyDebuff;
-        while(monstersDebuff.hasNext()) {
-            monsterApplyDebuff = (AbstractMonster) monstersDebuff.next();
-            if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new PoisonPower(monsterApplyDebuff, p, DarkPoison), DarkPoison));
-                }
-            }
-            if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new VulnerablePower(monsterApplyDebuff, DarkVulnerable, false), DarkVulnerable));
-                }
-            }
-            if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-                if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new WeakPower(monsterApplyDebuff, DarkWeak, false), DarkWeak));
-                }
-            }
-        }
-
-        if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPoison(p, -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount));
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellVulnerable(p, -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount));
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellWeak(p, -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount));
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToTop(new GainEnergyAction(Clarity));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellClarity(p, -AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount));
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount != 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellEffectiveness(p, -AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount));
-            }
-        }
-        if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
-            if(AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager
-                        .addToBottom(new ScribeSelfDamageAction(p,
-                                new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
-                                AbstractGameAction.AttackEffect.NONE));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
-            }
-        }
-
-    }
-
     private void theScribeAdditionalCasts(AbstractPlayer p, AbstractMonster m) {
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE)));
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
-                CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
-                AbstractDungeon.actionManager
-                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
-                                new DamageInfo(p, this.damage, this.damageTypeForTurn),
-                                AbstractGameAction.AttackEffect.NONE));
+        int variableNameThatIsntUsed = 0;
+        while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+            targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+            if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
+                if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(targetMonster.drawX, targetMonster.drawY)));
+                    CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+                    AbstractDungeon.actionManager
+                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                                    new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                                    AbstractGameAction.AttackEffect.NONE));
+                }
             }
+            variableNameThatIsntUsed++;
         }
 
         if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
@@ -313,22 +202,27 @@ public class Cast_Spell extends CustomCard {
             }
         }
 
-        if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, DarkPoison), DarkPoison));
+        variableNameThatIsntUsed = 0;
+        while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+            targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+            if (AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
+                if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new PoisonPower(targetMonster, p, DarkPoison), DarkPoison));
+                }
             }
-        }
 
-        if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, DarkVulnerable, false), DarkVulnerable));
+            if (AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
+                if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new VulnerablePower(targetMonster, DarkVulnerable, false), DarkVulnerable));
+                }
             }
-        }
 
-        if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
+            if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
+                if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(targetMonster, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
+                }
             }
+            variableNameThatIsntUsed++;
         }
 
         if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
@@ -348,17 +242,25 @@ public class Cast_Spell extends CustomCard {
     }
 
     private void theScribeCast(AbstractPlayer p, AbstractMonster m) {
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
+        int variableNameThatIsntUsed = 0;
+        if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE)));
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
-                CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
-                AbstractDungeon.actionManager
-                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
-                                new DamageInfo(p, this.damage, this.damageTypeForTurn),
-                                AbstractGameAction.AttackEffect.NONE));
+                while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+                    targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(targetMonster.drawX, targetMonster.drawY)));
+                    CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
+                    AbstractDungeon.actionManager
+                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                                    new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                                    AbstractGameAction.AttackEffect.NONE));
+
+                    variableNameThatIsntUsed++;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount));
             }
+
         }
 
         if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
@@ -368,23 +270,39 @@ public class Cast_Spell extends CustomCard {
             }
         }
 
-        if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
+
+        if (AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, DarkPoison), DarkPoison));
+                variableNameThatIsntUsed = 0;
+                while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+                    targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new PoisonPower(targetMonster, p, DarkPoison), DarkPoison));
+                    variableNameThatIsntUsed++;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPoison(p, -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount));
             }
         }
 
         if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, DarkVulnerable, false), DarkVulnerable));
+                variableNameThatIsntUsed = 0;
+                while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+                    targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new VulnerablePower(targetMonster, DarkVulnerable, false), DarkVulnerable));
+                    variableNameThatIsntUsed++;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellVulnerable(p, -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount));
             }
         }
 
         if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
+                variableNameThatIsntUsed = 0;
+                while(variableNameThatIsntUsed < ChainedSpellTargetMonstersList.size()) {
+                    targetMonster = ChainedSpellTargetMonstersList.get(variableNameThatIsntUsed);
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(targetMonster, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
+                    variableNameThatIsntUsed++;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellWeak(p, -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount));
             }
         }
@@ -411,21 +329,24 @@ public class Cast_Spell extends CustomCard {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount));
             }
         }
+
+        if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+            if(AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount > 0) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellChaining(p, -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount));
+            }
+        }
     }
 
 
     private void theScribeGetPowers() {
         SpellEffectivenessModifier = 1;
 
-        if(AbstractDungeon.player.hasPower(SpellTargetsAll.POWER_ID)) {
-            target = TARGET_ALL;
-            targetAllEnemies = true;
-            this.isMultiDamage = true;
+        if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+            SpellChainingNumber = AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount;
         }
-        else {
-            target = TARGET;
-            targetAllEnemies = false;
-            this.isMultiDamage = false;
+        else
+        {
+            SpellChainingNumber = 0;
         }
 
         if (AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
@@ -569,8 +490,11 @@ public class Cast_Spell extends CustomCard {
         if(Split > 0) {
             this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[8];
         }
-        if(targetAllEnemies) {
+        if(SpellChainingNumber == 1) {
             this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[10];
+        }
+        else if(SpellChainingNumber > 1) {
+            this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[13];
         }
         if(descriptionCounter >= 2) {
             this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[12];

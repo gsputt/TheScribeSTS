@@ -2,6 +2,7 @@ package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
 import The_Scribe.relics.Skillbook.ScribeSkillbook;
+import The_Scribe.unused.unusedCards.OpenMind;
 import basemod.ModLabeledToggleButton;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -155,6 +156,8 @@ public class ScribeMod implements
     public static final String SCRIBE_ICY_DEFEND = "cards/IcyDefend.png";
     public static final String SCRIBE_STARTER_MODIFIER = "cards/DetailedAnnotation.png";
     public static final String SCRIBE_SCROLL_OF_SHADOWS = "cards/PlaceholderPower.png";
+    public static final String SCRIBE_SCROLL_OF_CHAINING = "cards/PlaceholderPower.png";
+    public static final String SCRIBE_STATIC_SERIES = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -195,6 +198,8 @@ public class ScribeMod implements
     public static final String SCROLL_OF_POISON_POWER = "powers/ScrollOfPoisonPower.png";
     public static final String SCRIBED_SCROLL_ACQUIRE_POWER = "powers/placeholder_power.png";
     public static final String SCROLL_OF_SHADOWS_POWER = "powers/placeholder_power.png";
+    public static final String SPELL_CHAIN = "powers/placeholder_power.png";
+    public static final String SCROLL_OF_CHAINING_POWER = "powers/placeholder_power.png";
 
     // Relic images
     public static final String STARTER_RELIC_1 = "relics/StarterRelic.png";
@@ -341,6 +346,7 @@ public class ScribeMod implements
         BaseMod.addDynamicVariable(new BetterSelfDamage());
         BaseMod.addDynamicVariable(new AnomalousTextsVariable());
         BaseMod.addDynamicVariable(new BetterSpellBlock());
+        BaseMod.addDynamicVariable(new ChainingVariable());
 
 
         logger.info("Adding cards");
@@ -369,7 +375,7 @@ public class ScribeMod implements
         //BaseMod.addCard(new AirPrison());
         BaseMod.addCard(new BluntWeapons());
         BaseMod.addCard(new IcicleBlast());
-        BaseMod.addCard(new OpenMind());
+        //BaseMod.addCard(new OpenMind());
         BaseMod.addCard(new PriceOfKnowledge());
         BaseMod.addCard(new BarrierOfLight());
        //BaseMod.addCard(new Manablast());
@@ -418,6 +424,8 @@ public class ScribeMod implements
         BaseMod.addCard(new IcyDefend());
         BaseMod.addCard(new StarterModifier());
         BaseMod.addCard(new ScrollOfShadows());
+        BaseMod.addCard(new ScrollOfChaining());
+        BaseMod.addCard(new StaticSeries());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -455,7 +463,7 @@ public class ScribeMod implements
         //UnlockTracker.unlockCard(AirPrison.ID);
         UnlockTracker.unlockCard(BluntWeapons.ID);
         UnlockTracker.unlockCard(IcicleBlast.ID);
-        UnlockTracker.unlockCard(OpenMind.ID);
+        //UnlockTracker.unlockCard(OpenMind.ID);
         UnlockTracker.unlockCard(PriceOfKnowledge.ID);
         UnlockTracker.unlockCard(BarrierOfLight.ID);
         //UnlockTracker.unlockCard(Manablast.ID);
@@ -504,6 +512,8 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(IcyDefend.ID);
         UnlockTracker.unlockCard(StarterModifier.ID);
         UnlockTracker.unlockCard(ScrollOfShadows.ID);
+        UnlockTracker.unlockCard(ScrollOfChaining.ID);
+        UnlockTracker.unlockCard(StaticSeries.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

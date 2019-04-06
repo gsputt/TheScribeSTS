@@ -15,16 +15,16 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class SpellTargetsAll extends AbstractPower {
+public class SpellChaining extends AbstractPower {
 
-    public static final String POWER_ID = The_Scribe.ScribeMod.makeID("SpellTargetsAll");
+    public static final String POWER_ID = The_Scribe.ScribeMod.makeID("SpellChaining");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SPELL_TARGETS_ALL);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SPELL_CHAIN);
     public static int amountToCast = 0;
 
-    public SpellTargetsAll(AbstractCreature owner, int amount) {
+    public SpellChaining(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -34,13 +34,11 @@ public class SpellTargetsAll extends AbstractPower {
         this.isTurnBased = false;
         this.img = new Texture(IMG);
         this.canGoNegative = false;
-        amountToCast = this.amount;
     }
 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        amountToCast = this.amount;
         if (this.amount <= 0) {
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
@@ -49,7 +47,13 @@ public class SpellTargetsAll extends AbstractPower {
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        if(this.amount  == 1) {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + DESCRIPTIONS[3];
+        }
+        else
+        {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+        }
 
     }
 

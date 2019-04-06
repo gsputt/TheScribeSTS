@@ -18,7 +18,7 @@
 		"EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
 			"(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
 			"(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
-			"(Gain !Clarity! Energy.)", "(Targets all enemies.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)"]
+			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets."]
 	},
 	"theScribe:ArcaneBarrier": {
 		"NAME": "Arcane Barrier",
@@ -313,6 +313,15 @@
 	"theScribe:ScrollOfShadows": {
 		"NAME": "Scroll of Shadows",
 		"DESCRIPTION": "Whenever you play the first card each turn, if it is a power, add an scribe:Echo of it to your hand. It costs 1 less."
+	},
+	"theScribe:ScrollOfChaining": {
+		"NAME": "Scroll of Chaining",
+		"DESCRIPTION": "At the start of your turn, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once.",
+		"UPGRADE_DESCRIPTION": "At the start of your turn and when you play this, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
+	},
+	"theScribe:StaticSeries": {
+		"NAME": "Static Series",
+		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
 	},
 
 

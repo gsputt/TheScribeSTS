@@ -1,7 +1,7 @@
-package The_Scribe.cards;
+package The_Scribe.unused.unusedCards;
 
 import The_Scribe.powers.Drained;
-import The_Scribe.powers.SpellTargetsAll;
+import The_Scribe.unused.unusedPowers.SpellTargetsAll;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

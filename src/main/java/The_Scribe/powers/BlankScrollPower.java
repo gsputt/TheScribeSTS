@@ -74,6 +74,9 @@ public class BlankScrollPower extends AbstractPower {
         if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
             check = true;
         }
+        if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+            check = true;
+        }
         if(!check) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpellEffectiveness(this.owner, this.amount), this.amount));
         }

@@ -58,7 +58,7 @@ public class MaelstromPower extends TwoAmountPower {
         {
             if(AbstractDungeon.player.hasPower(Drained.POWER_ID))
             {
-                AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.cardRandomRng, card.costForTurn);
+                AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.miscRng, card.costForTurn);
                 if(c != null) {
                     c = c.makeStatEquivalentCopy();
                     c.setCostForTurn(0);

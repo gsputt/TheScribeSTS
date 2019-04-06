@@ -106,5 +106,13 @@
   "theScribe:ScrollOfShadowsPower": {
     "NAME": "Scroll of Shadows",
     "DESCRIPTIONS": ["For the first card ", "you play each turn, if it is a power, add an #yEcho of that power to your hand. It costs 1 less.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
+  },
+  "theScribe:SpellChaining": {
+    "NAME": "Modifier: Chaining",
+    "DESCRIPTIONS": ["Your spells hit #b", " additional enemy. ", " additional enemies. ","Chained spells cannot hit the same enemy multiple times."]
+  },
+  "theScribe:ScrollOfChainingPower": {
+    "NAME": "Scroll Of Chaining",
+    "DESCRIPTIONS": ["Gain #b", " #ySpell #yModifier [REMOVE_SPACE]: Chaining at the start of your turn."]
   }
 }
