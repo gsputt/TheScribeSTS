@@ -114,9 +114,6 @@ public class Cast_Spell extends CustomCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
-            ChainedSpellTargetMonstersList = new ArrayList<>();
-        }
         if(!ChainedSpellTargetMonstersList.contains(m))
         {
             ChainedSpellTargetMonstersList.add(m);
@@ -142,30 +139,34 @@ public class Cast_Spell extends CustomCard {
 
     public void theScribeCastSkillOrAttack()
     {
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID) && AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
+        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             this.type = CardType.ATTACK;
-            this.target = CardTarget.SELF_AND_ENEMY;
             this.textureImg = IMG_ATTACK;
-            if (IMG_ATTACK != null) {
-                this.loadCardImage(IMG_ATTACK);
-            }
-        }
-        else if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            this.type = CardType.ATTACK;
-            this.target = CardTarget.ENEMY;
-            this.textureImg = IMG_ATTACK;
-            if (IMG_ATTACK != null) {
-                this.loadCardImage(IMG_ATTACK);
-            }
+            this.loadCardImage(IMG_ATTACK);
         }
         else {
             this.type = CardType.SKILL;
-            this.target = CardTarget.SELF;
             this.textureImg = IMG_SKILL;
-            if (IMG_SKILL != null) {
-                this.loadCardImage(IMG_SKILL);
-            }
+            this.loadCardImage(IMG_SKILL);
         }
+
+        if((AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)
+                || AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)
+                || AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)
+                || AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID))
+                && (AbstractDungeon.player.hasPower(SpellBlock.POWER_ID) || AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)
+                || AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)))
+        {
+            this.target = CardTarget.SELF_AND_ENEMY;
+        }
+        else if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID) || AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)
+                || AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
+            this.target = CardTarget.SELF;
+        }
+        else {
+            this.target = CardTarget.ENEMY;
+        }
+
     }
 
     @Override
@@ -175,13 +176,28 @@ public class Cast_Spell extends CustomCard {
 
         if(AbstractDungeon.player != null) {
             if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-                if (AbstractDungeon.player.isHoveringDropZone && AbstractDungeon.getCurrRoom().monsters.hoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
-                    if (this.counter == 0) {
-                        chainedSpell = new ChainedSpellTargetingAction(this, true);
-                        this.counter++;
+                if (AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+                    if (AbstractDungeon.player.isHoveringDropZone && AbstractDungeon.getCurrRoom().monsters.hoveredMonster != null) {
+                        if (this.counter == 0) {
+                            chainedSpell = new ChainedSpellTargetingAction(this, true);
+                            this.counter++;
+                        }
+                    } else {
+                        if (chainedSpell != null) {
+                            chainedSpell.end();
+                            chainedSpell = null;
+                        }
+                        if (this.counter != 0) {
+                            this.counter = 0;
+                        }
                     }
                 }
-                else {
+                else
+                {
+                    if(ChainedSpellTargetMonstersList.size() > 1)
+                    {
+                        ChainedSpellTargetMonstersList = new ArrayList<>();
+                    }
                     if (chainedSpell != null) {
                         chainedSpell.end();
                         chainedSpell = null;
@@ -365,6 +381,7 @@ public class Cast_Spell extends CustomCard {
         if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount > 0) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellChaining(p, -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount, true));
+
             }
         }
     }
