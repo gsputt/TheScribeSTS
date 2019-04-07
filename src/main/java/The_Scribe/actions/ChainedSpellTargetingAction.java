@@ -67,7 +67,9 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
                     while (monsterIterator.hasNext()) {
                         monster = monsterIterator.next();
                         if (!monster.equals(AbstractDungeon.getCurrRoom().monsters.hoveredMonster)) {
-                            monsterArray.add(monster);
+                            if(!monster.isDeadOrEscaped() && monster.currentHealth > 0) {
+                                monsterArray.add(monster);
+                            }
                         }
                     }
                     if (!(monsterArray.size() <= 0)) {
@@ -77,9 +79,9 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
                         {
                             ChainingAmount = AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount;
                         }
-                        if(ChainingAmount > AbstractDungeon.getCurrRoom().monsters.monsters.size())
+                        if(ChainingAmount > monsterArray.size())
                         {
-                            ChainingAmount = AbstractDungeon.getCurrRoom().monsters.monsters.size()-1;
+                            ChainingAmount = monsterArray.size();
                         }
                         while (i < ChainingAmount) { // change to < ChainingAmount
                             AbstractMonster processing = getRandomMonsterFromMonsterArray(AbstractDungeon.miscRng, monsterArray);
@@ -88,7 +90,7 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
                             } else {
                                 processedArray.add(processing);
                                 i++;
-                            }
+                            }//Infinite while loop?
                         }
                         while (processedArray.size() > 0) {
                             returnArray.add(processedArray.get(0));

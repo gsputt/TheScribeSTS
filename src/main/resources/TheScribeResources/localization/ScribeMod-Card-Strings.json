@@ -18,7 +18,7 @@
 		"EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
 			"(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
 			"(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
-			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets."]
+			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets.)"]
 	},
 	"theScribe:ArcaneBarrier": {
 		"NAME": "Arcane Barrier",

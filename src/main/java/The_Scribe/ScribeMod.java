@@ -158,6 +158,7 @@ public class ScribeMod implements
     public static final String SCRIBE_SCROLL_OF_SHADOWS = "cards/PlaceholderPower.png";
     public static final String SCRIBE_SCROLL_OF_CHAINING = "cards/PlaceholderPower.png";
     public static final String SCRIBE_STATIC_SERIES = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_CAST_SKILL = "cards/CastSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
