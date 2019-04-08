@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,6 +33,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static The_Scribe.patches.ScribeHoveredMonsterPatch.scribeHoveredMonster;
 
@@ -96,6 +98,8 @@ public class Cast_Spell extends CustomCard {
     private static AbstractMonster targetMonster = null;
     private AbstractMonster monsterToCheck = null;
 
+    private static boolean dontUpdateTheArrayListImUsingIt = false;
+
     private int counter = 0;
 
     // /STAT DECLARATION/
@@ -117,6 +121,7 @@ public class Cast_Spell extends CustomCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        dontUpdateTheArrayListImUsingIt = true;
         if(!ChainedSpellTargetMonstersList.contains(m))
         {
             ChainedSpellTargetMonstersList.add(m);
@@ -130,7 +135,7 @@ public class Cast_Spell extends CustomCard {
         }
         theScribeCast(p, m);
         removeScribedScrollPower();
-
+        dontUpdateTheArrayListImUsingIt = false;
     }
 
     public void applyPowers()
@@ -184,34 +189,33 @@ public class Cast_Spell extends CustomCard {
         if(AbstractDungeon.player != null) {
             if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 
+                if (AbstractDungeon.player.isHoveringDropZone && !dontUpdateTheArrayListImUsingIt) {
+                    if (scribeHoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
 
-                if (AbstractDungeon.player.isHoveringDropZone && scribeHoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+                        if (this.counter == 0) {
+                            chainedSpell = new ChainedSpellTargetingAction(this, true);
+                            this.counter++;
+                            this.monsterToCheck = scribeHoveredMonster;
+                        }
+                        if (this.counter != 0 && this.monsterToCheck != scribeHoveredMonster) {
+                            //System.out.println("Changed Target");
+                            if (chainedSpell != null) {
+                                chainedSpell.end();
+                                chainedSpell = null;
 
-                    if (this.counter == 0) {
-                        chainedSpell = new ChainedSpellTargetingAction(this, true);
-                        this.counter++;
-                        this.monsterToCheck = scribeHoveredMonster;
-                    }
-                    if(this.counter != 0 && this.monsterToCheck != scribeHoveredMonster)
-                    {
-                        System.out.println("Changed Target");
+                            }
+                            if (this.counter != 0) {
+                                this.counter = 0;
+                            }
+                        }
+                    } else {
                         if (chainedSpell != null) {
                             chainedSpell.end();
                             chainedSpell = null;
-
                         }
                         if (this.counter != 0) {
                             this.counter = 0;
                         }
-                    }
-                }
-                else {
-                    if (chainedSpell != null) {
-                        chainedSpell.end();
-                        chainedSpell = null;
-                    }
-                    if (this.counter != 0) {
-                        this.counter = 0;
                     }
                 }
             }
@@ -235,9 +239,10 @@ public class Cast_Spell extends CustomCard {
     }
 
     private void theScribeAdditionalCasts(AbstractPlayer p, AbstractMonster m) {
-        int i = 0;
-        while(i < ChainedSpellTargetMonstersList.size()) {
-            targetMonster = ChainedSpellTargetMonstersList.get(i);
+        Iterator monsterList = ChainedSpellTargetMonstersList.iterator();
+        while(monsterList.hasNext())
+        {
+            targetMonster = (AbstractMonster)monsterList.next();
             if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
                 if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
@@ -249,7 +254,6 @@ public class Cast_Spell extends CustomCard {
                                     AbstractGameAction.AttackEffect.NONE, true));
                 }
             }
-            i++;
         }
 
         if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
@@ -258,9 +262,10 @@ public class Cast_Spell extends CustomCard {
             }
         }
 
-        int j = 0;
-        while(j < ChainedSpellTargetMonstersList.size()) {
-            targetMonster = ChainedSpellTargetMonstersList.get(j);
+        monsterList = ChainedSpellTargetMonstersList.iterator();
+        while(monsterList.hasNext())
+        {
+            targetMonster = (AbstractMonster)monsterList.next();
             if (AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
                 if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new PoisonPower(targetMonster, p, DarkPoison), DarkPoison, true));
@@ -278,7 +283,6 @@ public class Cast_Spell extends CustomCard {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(targetMonster, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
                 }
             }
-            j++;
         }
 
         if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
@@ -298,11 +302,13 @@ public class Cast_Spell extends CustomCard {
     }
 
     private void theScribeCast(AbstractPlayer p, AbstractMonster m) {
-        int i = 0;
         if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
-                while(i < ChainedSpellTargetMonstersList.size()) {
-                    targetMonster = ChainedSpellTargetMonstersList.get(i);
+                Iterator monsterList = ChainedSpellTargetMonstersList.iterator();
+                while(monsterList.hasNext())
+                {
+                    targetMonster = (AbstractMonster)monsterList.next();
+                    //System.out.println("theScribeCast LIGHTNING: " + targetMonster);
 
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(targetMonster.drawX, targetMonster.drawY)));
@@ -312,7 +318,6 @@ public class Cast_Spell extends CustomCard {
                                     new DamageInfo(p, this.damage, this.damageTypeForTurn),
                                     AbstractGameAction.AttackEffect.NONE, true));
 
-                    i++;
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount, true));
             }
@@ -327,9 +332,12 @@ public class Cast_Spell extends CustomCard {
         }
 
         //Applying Powers to Enemies
-        int j = 0;
-        while(j < ChainedSpellTargetMonstersList.size()) {
-            targetMonster = ChainedSpellTargetMonstersList.get(j);
+        //System.out.println("Targets List Size: " + ChainedSpellTargetMonstersList.size());
+        Iterator monsterList = ChainedSpellTargetMonstersList.iterator();
+        while(monsterList.hasNext())
+        {
+            targetMonster = (AbstractMonster)monsterList.next();
+            //System.out.println("theScribeCast SPELL-POISON-VULNERABLE-WEAK: " + targetMonster);
             if (AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
                 if (AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new PoisonPower(targetMonster, p, DarkPoison), DarkPoison, true));
@@ -347,7 +355,6 @@ public class Cast_Spell extends CustomCard {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(targetMonster, DarkWeak, false), DarkWeak, true, AbstractGameAction.AttackEffect.NONE));
                 }
             }
-            j++;
         }
 
         //Removing Powers from player

@@ -50,7 +50,7 @@ public class Ice extends AbstractScribeCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ALL;
+    private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
@@ -99,6 +99,7 @@ public class Ice extends AbstractScribeCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.target = CardTarget.ALL;
             this.upgradeSpellBlock(UPGRADE_PLUS_BLOCK);
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
