@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.random.Random;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static The_Scribe.patches.ScribeHoveredMonsterPatch.scribeHoveredMonster;
+
 public class ChainedSpellTargetingAction implements RenderSubscriber {
     private boolean isVisible;
     private AbstractMonster monster;
@@ -59,15 +61,15 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
     {
         ArrayList<AbstractMonster> returnArray = new ArrayList<>();
         if(this.card == AbstractDungeon.player.hoveredCard && AbstractDungeon.player.isHoveringDropZone) {
-            if (AbstractDungeon.getCurrRoom().monsters.hoveredMonster != null && !AbstractDungeon.getCurrRoom().monsters.hoveredMonster.isDead && !AbstractDungeon.getCurrRoom().monsters.hoveredMonster.escaped) {
+            if (scribeHoveredMonster != null && !scribeHoveredMonster.isDeadOrEscaped()) {
                 if (AbstractDungeon.getCurrRoom().monsters.monsters.size() > 1) {
                     Iterator<AbstractMonster> monsterIterator = AbstractDungeon.getMonsters().monsters.iterator();
                     ArrayList<AbstractMonster> monsterArray = new ArrayList<>();
                     ArrayList<AbstractMonster> processedArray = new ArrayList<>();
                     while (monsterIterator.hasNext()) {
                         monster = monsterIterator.next();
-                        if (!monster.equals(AbstractDungeon.getCurrRoom().monsters.hoveredMonster)) {
-                            if(!monster.isDeadOrEscaped() && monster.currentHealth > 0) {
+                        if (!monster.equals(scribeHoveredMonster)) {
+                            if(!monster.isDeadOrEscaped() && monster.currentHealth > 0 && !monster.halfDead) {
                                 monsterArray.add(monster);
                             }
                         }

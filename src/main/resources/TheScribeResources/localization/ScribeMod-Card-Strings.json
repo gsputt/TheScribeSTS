@@ -323,6 +323,10 @@
 		"NAME": "Static Series",
 		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
 	},
+	"theScribe:ScriptedStarfall": {
+		"NAME": "Scripted Starfall",
+		"DESCRIPTION": "Gain 1 Drained. Retain. At the end of your turn, deal !SCRIBEM2! damage to all Enemies. NL For each turn you hold this card in your hand, its damage is increased by !M!."
+	},
 
 
 	"theScribe:DefaultAttackWithVariable": {

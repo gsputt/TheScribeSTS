@@ -65,6 +65,20 @@ public abstract class AbstractScribeCard extends CustomCard {
     public boolean isAnomalousTextsVariableModified;
     public boolean upgradeAnomalousTextsVariable;
 
+    public int secondMagicNumber;
+    public int baseSecondMagicNumber;
+    public boolean isSecondMagicNumberModified;
+    public boolean upgradeSecondMagicNumber;
+
+    public void upgradeSecondMagicNumber(int amount)
+    {
+        this.secondMagicNumber += amount;
+        if(this.secondMagicNumber > this.baseSecondMagicNumber || amount > 0)
+        {
+            this.isSecondMagicNumberModified = true;
+        }
+    }
+
     public void upgradeAnomalousTextsVariable(int amount)
     {
         this.anomalousTextsVariable += amount;

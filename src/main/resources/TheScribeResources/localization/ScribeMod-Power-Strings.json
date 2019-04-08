@@ -114,5 +114,9 @@
   "theScribe:ScrollOfChainingPower": {
     "NAME": "Scroll Of Chaining",
     "DESCRIPTIONS": ["Gain #b", " #ySpell #yModifier [REMOVE_SPACE]: Chaining at the start of your turn."]
+  },
+  "theScribe:ScriptedStarfallPower": {
+    "NAME": "Scripted Starfall",
+    "DESCRIPTIONS": ["At the end of your turn, deal #b", " damage to ALL enemies."]
   }
 }

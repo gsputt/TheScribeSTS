@@ -1,12 +1,14 @@
 package The_Scribe.cards;
 
-import The_Scribe.effects.IcicleBlastEffect;
-import The_Scribe.powers.ThornsDown;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.powers.Drained;
+import The_Scribe.powers.ScriptedStarfallPower;
+import The_Scribe.powers.SpellBlock;
+import The_Scribe.powers.SpellSplit;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,9 +20,8 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-import com.megacrit.cardcrawl.powers.ThornsPower;
 
-public class IcicleBlast extends CustomCard {
+public class ScriptedStarfall extends AbstractScribeCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -32,7 +33,7 @@ public class IcicleBlast extends CustomCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = ScribeMod.makeID("IcicleBlast");
+    public static final String ID = ScribeMod.makeID("ScriptedStarfall");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // Yes, you totally can use "defaultModResources/images/cards/Attack.png" instead and that would work.
@@ -40,55 +41,59 @@ public class IcicleBlast extends CustomCard {
     // Using makePath is good practice once you get the hand of things, as it prevents you from
     // having to change *every single card/file/path* if the image path changes due to updates or your personal preference.
 
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_ICICLE_BLAST);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_SCRIPTED_STARFALL);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int UPGRADE_RATE = 1;
-    private static final double RATE = 0.5;
+    private static final int BASE_DAMAGE = 1;
+    private static final int INCREASE = 1;
+    private static final int UPGRADE_INCREASE = 1;
+    private static final int DRAINED = 1;
+
 
     // /STAT DECLARATION/
 
-    public IcicleBlast() {
+    public ScriptedStarfall() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 0;
-        this.magicNumber = baseMagicNumber;
+        this.baseMagicNumber = INCREASE;
+        this.magicNumber = this.baseMagicNumber;
+        this.baseSecondMagicNumber = BASE_DAMAGE;
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        this.baseDrained = DRAINED;
+        this.drained = this.baseDrained;
+        AlwaysRetainField.alwaysRetain.set(this, true);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.upgraded) {
-            this.baseMagicNumber = p.currentBlock * UPGRADE_RATE;
-        }
-        else {
-            this.baseMagicNumber = (int)(p.currentBlock * RATE);
-        }
-        this.magicNumber = baseMagicNumber;
-        if(AbstractDungeon.player.currentBlock > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, this.magicNumber), this.magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsDown(p, this.magicNumber), this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Drained(p, this.drained), this.drained));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ScriptedStarfallPower(p, this.secondMagicNumber), this.secondMagicNumber));
+    }
+
+    @Override
+    public void triggerOnEndOfTurnForPlayingCard() {
+        this.secondMagicNumber += this.magicNumber;
+        this.isSecondMagicNumberModified = true;
     }
 
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new IcicleBlast();
+        return new ScriptedStarfall();
     }
 
     // Upgraded stats.
@@ -96,7 +101,7 @@ public class IcicleBlast extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(UPGRADE_INCREASE);
             this.initializeDescription();
         }
     }

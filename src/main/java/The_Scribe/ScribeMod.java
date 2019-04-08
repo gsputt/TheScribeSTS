@@ -159,6 +159,7 @@ public class ScribeMod implements
     public static final String SCRIBE_SCROLL_OF_CHAINING = "cards/PlaceholderPower.png";
     public static final String SCRIBE_STATIC_SERIES = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_CAST_SKILL = "cards/CastSkill.png";
+    public static final String SCRIBE_SCRIPTED_STARFALL = "cards/PlaceholderPower.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -201,6 +202,8 @@ public class ScribeMod implements
     public static final String SCROLL_OF_SHADOWS_POWER = "powers/placeholder_power.png";
     public static final String SPELL_CHAIN = "powers/placeholder_power.png";
     public static final String SCROLL_OF_CHAINING_POWER = "powers/placeholder_power.png";
+    public static final String SCRIPTED_STARFALL_POWER = "powers/placeholder_power.png";
+
 
     // Relic images
     public static final String STARTER_RELIC_1 = "relics/StarterRelic.png";
@@ -303,11 +306,16 @@ public class ScribeMod implements
 
     // ============== /CROSSOVER CHECKS/ ==============
     public static final boolean hasAspiration;
+    public static final boolean hasDisciple;
 
     static {
         hasAspiration = Loader.isModLoaded("aspiration");
         if (hasAspiration) {
             logger.info("Detected Mod: Aspiration");
+        }
+        hasDisciple = Loader.isModLoaded("chronomuncher");
+        if(hasDisciple) {
+            logger.info("Detected Mod: The Disciple");
         }
     }
 
@@ -348,6 +356,7 @@ public class ScribeMod implements
         BaseMod.addDynamicVariable(new AnomalousTextsVariable());
         BaseMod.addDynamicVariable(new BetterSpellBlock());
         BaseMod.addDynamicVariable(new ChainingVariable());
+        BaseMod.addDynamicVariable(new SecondMagicNumberVariable());
 
 
         logger.info("Adding cards");
@@ -427,6 +436,7 @@ public class ScribeMod implements
         BaseMod.addCard(new ScrollOfShadows());
         BaseMod.addCard(new ScrollOfChaining());
         BaseMod.addCard(new StaticSeries());
+        BaseMod.addCard(new ScriptedStarfall());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -515,6 +525,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ScrollOfShadows.ID);
         UnlockTracker.unlockCard(ScrollOfChaining.ID);
         UnlockTracker.unlockCard(StaticSeries.ID);
+        UnlockTracker.unlockCard(ScriptedStarfall.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);
