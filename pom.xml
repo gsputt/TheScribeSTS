@@ -51,6 +51,14 @@
             <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
         </dependency>
+        <dependency>
+            <groupId>conspire</groupId>
+            <artifactId>Conspire</artifactId>
+            <version>1.6.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1612329757/Conspire.jar</systemPath>
+            <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
+        </dependency>
     </dependencies>
 
 

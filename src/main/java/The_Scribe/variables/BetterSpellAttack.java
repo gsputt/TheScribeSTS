@@ -46,10 +46,12 @@ public class BetterSpellAttack extends DynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractScribeCard) {
+        if(card instanceof AbstractScribeCard) {
             AbstractScribeCard card1 = (AbstractScribeCard) card;
-            return card1.isSpellDamageModified;
-        } else {
+            return card1.upgradeSpellDamage;
+        }
+        else
+        {
             return false;
         }
         // Set to true if this value is changed on upgrade

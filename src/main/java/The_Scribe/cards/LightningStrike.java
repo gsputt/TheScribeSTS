@@ -2,6 +2,7 @@ package The_Scribe.cards;
 
 import The_Scribe.effects.LightningJumpEffect;
 import The_Scribe.patches.ScribeCardTags;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -66,6 +67,7 @@ public class LightningStrike extends AbstractScribeCard {
         this.spellDamage = this.baseSpellDamage;
         tags.add(ScribeCardTags.SPELL_ATTACK);
         tags.add(AbstractCard.CardTags.STRIKE);
+        tags.add(BaseModCardTags.BASIC_STRIKE);
     }
 
     // Actions the card should do.

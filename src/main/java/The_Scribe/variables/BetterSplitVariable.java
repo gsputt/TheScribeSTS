@@ -46,10 +46,12 @@ public class BetterSplitVariable extends DynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractScribeCard) {
+        if(card instanceof AbstractScribeCard) {
             AbstractScribeCard card1 = (AbstractScribeCard) card;
-            return card1.isSplitModified;
-        } else {
+            return card1.upgradeSplit;
+        }
+        else
+        {
             return false;
         }
         // Set to true if this value is changed on upgrade

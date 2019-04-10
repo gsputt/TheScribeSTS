@@ -72,82 +72,59 @@ public abstract class AbstractScribeCard extends CustomCard {
 
     public void upgradeSecondMagicNumber(int amount)
     {
-        this.secondMagicNumber += amount;
-        if(this.secondMagicNumber > this.baseSecondMagicNumber || amount > 0)
-        {
-            this.isSecondMagicNumberModified = true;
-        }
+        this.baseSecondMagicNumber += amount;
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        this.upgradeSecondMagicNumber = true;
     }
 
     public void upgradeAnomalousTextsVariable(int amount)
     {
-        this.anomalousTextsVariable += amount;
-        if(this.anomalousTextsVariable > this.baseAnomalousTextsVariable || amount > 0)
-        {
-            this.isAnomalousTextsVariableModified = true;
-        }
+        this.baseAnomalousTextsVariable += amount;
+        this.anomalousTextsVariable = this.baseAnomalousTextsVariable;
+        this.upgradeAnomalousTextsVariable = true;
     }
 
     public void upgradeSpellBlock(int amount)
     {
-        this.spellBlock += amount;
-        if(this.spellBlock > this.spellBlock || amount > 0)
-        {
-            this.isSpellBlockModified = true;
-        }
+        this.baseSpellBlock += amount;
+        this.spellBlock = this.baseSpellBlock;
+        this.upgradeSpellBlock = true;
     }
 
     public void upgradeSelfDamage(int amount)
     {
-        this.selfDamage += amount;
-        if(this.selfDamage > this.baseSelfDamage || amount > 0)
-        {
-            this.isSelfDamageModified = true;
-        }
+        this.baseSelfDamage += amount;
+        this.selfDamage = this.baseSelfDamage;
+        this.upgradeSelfDamage = true;
     }
 
     public void upgradeSpellDamage(int amount)
     {
-        this.spellDamage += amount;
-        if (this.spellDamage > this.baseSpellDamage || amount > 0)
-        {
-            this.isSpellDamageModified = true;
-        }
+        this.baseSpellDamage += amount;
+        this.spellDamage = this.baseSpellDamage;
+        this.upgradeSpellDamage = true;
     }
 
     public void upgradeDrained(int amount)
     {
-        this.drained += amount;
-        if (this.drained > this.baseDrained || amount > 0)
-        {
-            this.isDrainedModified = true;
-        }
+        this.baseDrained += amount;
+        this.drained = this.baseDrained;
+        this.upgradeDrained = true;
     }
 
     public void upgradeSplit(int amount)
     {
-        this.split += amount;
-        if (this.split > this.baseSplit || amount > 0)
-        {
-            this.isSplitModified = true;
-        }
+        this.baseSplit += amount;
+        this.split = this.baseSplit;
+        this.upgradeSplit = true;
     }
 
 
     public void upgradeEffectivity(int amount)
     {
-        this.effectivity += amount;
-
-        /*if (AbstractDungeon.player != null) {
-            if (AbstractDungeon.player.drawPile.contains(this) || AbstractDungeon.player.hand.contains(this) || AbstractDungeon.player.discardPile.contains(this) || AbstractDungeon.player.exhaustPile.contains(this)){
-                //do something
-            }
-
-        }*/
-        if (this.effectivity > this.baseEffectivity || amount > 0)
-        {
-            this.isEffectivityModified = true;
-        }
+        this.baseEffectivity += amount;
+        this.effectivity = this.baseEffectivity;
+        this.upgradeEffectivity = true;
     }
 
 }

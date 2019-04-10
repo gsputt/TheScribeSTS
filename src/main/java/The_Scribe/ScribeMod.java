@@ -307,6 +307,7 @@ public class ScribeMod implements
     // ============== /CROSSOVER CHECKS/ ==============
     public static final boolean hasAspiration;
     public static final boolean hasDisciple;
+    public static final boolean hasConspire;
 
     static {
         hasAspiration = Loader.isModLoaded("aspiration");
@@ -316,6 +317,10 @@ public class ScribeMod implements
         hasDisciple = Loader.isModLoaded("chronomuncher");
         if(hasDisciple) {
             logger.info("Detected Mod: The Disciple");
+        }
+        hasConspire = Loader.isModLoaded("conspire");
+        if(hasConspire) {
+            logger.info("Detected Mod: Conspire");
         }
     }
 
