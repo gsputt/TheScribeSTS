@@ -45,7 +45,7 @@ public class BlankScrollPower extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         boolean check = false;
         if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             check = true;

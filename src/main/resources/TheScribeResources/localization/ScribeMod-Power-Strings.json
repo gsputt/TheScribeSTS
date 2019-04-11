@@ -1,36 +1,36 @@
 {
-"theScribe:SpellAttack": {
-        "NAME": "Effect: Thunder",
-        "DESCRIPTIONS": ["Your next spell cast will deal #b", " damage."]
-},
-"theScribe:SpellBlock": {
-                "NAME": "Effect: Freeze",
-                "DESCRIPTIONS": ["Your next spell cast will give you #b", " #yBlock."]
-},
-"theScribe:SpellPoison": {
-                "NAME": "Effect: Poison",
-                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yPoison to the enemy."]
-},
-"theScribe:SpellVulnerable": {
-                "NAME": "Effect: Vulnerable",
-                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yVulnerable to the enemy."]
-},
-"theScribe:SpellWeak": {
-                "NAME": "Effect: Weak",
-                "DESCRIPTIONS": ["Your next spell cast applies #b", " #yWeak to the enemy."]
-},
-"theScribe:SpellSplit": {
-                "NAME": "Modifier: Additional Casts",
-                "DESCRIPTIONS": ["Your next spell casts #b", " more times."]
-},
-"theScribe:BloodMagicksPower": {
-                "NAME": "Blood Magicks",
-                "DESCRIPTIONS": ["Cards use #btwice their cost in HP instead of Energy", "Cards cost HP instead of Energy."]
-},
-"theScribe:SpellClarity": {
-                "NAME": "Effect: Clarity",
-                "DESCRIPTIONS": ["Your next spell cast gives you #b", " [E]."]
-},
+  "theScribe:SpellAttack": {
+    "NAME": "Effect: Thunder",
+    "DESCRIPTIONS": ["Your next spell cast will deal #b", " damage."]
+  },
+  "theScribe:SpellBlock": {
+    "NAME": "Effect: Freeze",
+    "DESCRIPTIONS": ["Your next spell cast will give you #b", " #yBlock."]
+  },
+  "theScribe:SpellPoison": {
+    "NAME": "Effect: Poison",
+    "DESCRIPTIONS": ["Your next spell cast applies #b", " #yPoison to the enemy."]
+  },
+  "theScribe:SpellVulnerable": {
+    "NAME": "Effect: Vulnerable",
+    "DESCRIPTIONS": ["Your next spell cast applies #b", " #yVulnerable to the enemy."]
+  },
+  "theScribe:SpellWeak": {
+    "NAME": "Effect: Weak",
+    "DESCRIPTIONS": ["Your next spell cast applies #b", " #yWeak to the enemy."]
+  },
+  "theScribe:SpellSplit": {
+    "NAME": "Modifier: Additional Casts",
+    "DESCRIPTIONS": ["Your next spell casts #b", " more times."]
+  },
+  "theScribe:BloodMagicksPower": {
+    "NAME": "Blood Magicks",
+    "DESCRIPTIONS": ["Cards use #btwice their cost in HP instead of Energy", "Cards cost HP instead of Energy."]
+  },
+  "theScribe:SpellClarity": {
+    "NAME": "Effect: Clarity",
+    "DESCRIPTIONS": ["Your next spell cast gives you #b", " [E]."]
+  },
   "theScribe:SpellEffectiveness": {
     "NAME": "Modifier: Effectiveness",
     "DESCRIPTIONS": ["Your next spell cast is #b", "% as effective."]
@@ -96,7 +96,7 @@
     "DESCRIPTIONS": ["For the first card ", "you play each turn, if you are #yDrained, add an #yEcho of a random card from your deck to your hand that costs less than or equal to the card played. It costs 0.","For the first #b", " cards ", " #b", " card has been played this turn.", " cards have been played this turn."]
   },
   "theScribe:ScrollOfPoisonPower": {
-    "NAME": "Scroll Of Poison",
+    "NAME": "Scroll of Poison",
     "DESCRIPTIONS": ["Whenever you take damage on your turn, apply that much poison to all enemies.", "Whenever you take damage on your turn, apply #b", " times that much poison to all enemies."]
   },
   "theScribe:ScribedScrollAcquirePower": {
@@ -112,11 +112,15 @@
     "DESCRIPTIONS": ["Your spells hit #b", " additional enemy. ", " additional enemies. ","Chained spells cannot hit the same enemy multiple times."]
   },
   "theScribe:ScrollOfChainingPower": {
-    "NAME": "Scroll Of Chaining",
+    "NAME": "Scroll of Chaining",
     "DESCRIPTIONS": ["Gain #b", " #ySpell #yModifier [REMOVE_SPACE]: Chaining at the start of your turn."]
   },
   "theScribe:ScriptedStarfallPower": {
     "NAME": "Scripted Starfall",
     "DESCRIPTIONS": ["At the end of your turn, deal #b", " damage to ALL enemies."]
+  },
+  "theScribe:ScrollOfScryingPower": {
+    "NAME": "Scroll of Scrying",
+    "DESCRIPTIONS": ["At the end of your turn, you may place ", "a card", " cards"," from your hand on top of your draw pile. The first ", " you draw each turn ", "costs ", "cost ", " 1 less."]
   }
 }

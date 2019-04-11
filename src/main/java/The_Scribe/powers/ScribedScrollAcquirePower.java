@@ -36,6 +36,7 @@ public class ScribedScrollAcquirePower extends AbstractPower implements Invisibl
         this.isTurnBased = false;
         this.img = new Texture(IMG);
         this.canGoNegative = false;
+        this.priority = -190;
 
         if(!checkForScribedSpell())
         {

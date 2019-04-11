@@ -1,8 +1,7 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
-import The_Scribe.relics.Skillbook.ScribeSkillbook;
-import The_Scribe.unused.unusedCards.OpenMind;
+import The_Scribe.unused.unsusedRelics.Skillbook.ScribeSkillbook;
 import basemod.ModLabeledToggleButton;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -160,6 +159,8 @@ public class ScribeMod implements
     public static final String SCRIBE_STATIC_SERIES = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_CAST_SKILL = "cards/CastSkill.png";
     public static final String SCRIBE_SCRIPTED_STARFALL = "cards/PlaceholderPower.png";
+    public static final String SCRIBE_TIME_DILATION = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_SCROLL_OF_SCRYING = "cards/PlaceholderPower.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -203,6 +204,7 @@ public class ScribeMod implements
     public static final String SPELL_CHAIN = "powers/placeholder_power.png";
     public static final String SCROLL_OF_CHAINING_POWER = "powers/placeholder_power.png";
     public static final String SCRIPTED_STARFALL_POWER = "powers/placeholder_power.png";
+    public static final String SCROLL_OF_SCRYING_POWER = "powers/placeholder_power.png";
 
 
     // Relic images
@@ -218,8 +220,12 @@ public class ScribeMod implements
     public static final String PERMAFROST_PEN_OUTLINE = "relics/outline/PermafrostPenOutline.png";
     public static final String ALCHEMICAL_ALTER = "relics/AlchemicalAlter.png";
     public static final String ALCHEMICAL_ALTER_OUTLINE = "relics/outline/AlchemicalAlterOutline.png";
+    public static final String CLARITY_BOSS_RELIC = "relics/InvisibleInkwell.png";
+    public static final String CLARITY_BOSS_RELIC_OUTLINE = "relics/outline/InvisibleInkwellOutline.png";
+
     public static final String SKILLBOOK = "relics/ScribeSkillbook.png";
     public static final String SKILLBOOK_OUTLINE = "relics/outline/ScribeSkillbookOutline.png";
+
 
 
     public static final String PLACEHOLDER_RELIC_2 = "relics/placeholder_relic2.png";
@@ -442,6 +448,8 @@ public class ScribeMod implements
         BaseMod.addCard(new ScrollOfChaining());
         BaseMod.addCard(new StaticSeries());
         BaseMod.addCard(new ScriptedStarfall());
+        BaseMod.addCard(new TimeDilation());
+        BaseMod.addCard(new ScrollOfScrying());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -531,6 +539,8 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ScrollOfChaining.ID);
         UnlockTracker.unlockCard(StaticSeries.ID);
         UnlockTracker.unlockCard(ScriptedStarfall.ID);
+        UnlockTracker.unlockCard(TimeDilation.ID);
+        UnlockTracker.unlockCard(ScrollOfScrying.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);
@@ -601,10 +611,11 @@ public class ScribeMod implements
         BaseMod.addRelicToCustomPool(new StormScale(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new PermafrostPen(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new AlchemicalAlter(), AbstractCardEnum.SCRIBE_BLUE);
+        BaseMod.addRelicToCustomPool(new ClarityBossRelic(), AbstractCardEnum.SCRIBE_BLUE);
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         if(hasAspiration) {
-            BaseMod.addRelic(new ScribeSkillbook(), RelicType.SHARED);
+            //BaseMod.addRelic(new ScribeSkillbook(), RelicType.SHARED);
         }
 
         logger.info("Done adding relics!");
@@ -644,13 +655,13 @@ public class ScribeMod implements
     @Override
     public void receiveEditKeywords() {
         final String[] Cast = { "Cast", "casts", "cast"};
-        BaseMod.addKeyword("scribe", "Cast", Cast, "Use up all your stored Spell Effects and Spell Modifiers to cause effects. Additionally causes Scribed Scrolls to stop being added to your hand until another Spell Effect is played.");
+        BaseMod.addKeyword("scribe", "Cast", Cast, "Use up all your stored Spell Effects and Spell Modifiers to cause effects. Additionally causes Scribed Spells to stop being added to your hand until another Spell Effect is played.");
 
         final String[] Spectral = { "Spectral", "spectral"};
         BaseMod.addKeyword("scribe","Spectral", Spectral, "Purged from your hand at the end of your turn.");
 
         final String[] SpellEffect = { "Spell Effect", "Spell Effects", "spell_effect", "spell_effects"};
-        BaseMod.addKeyword("scribe","Spell Effect", SpellEffect, "Adds an effect to your next spell. Additionally adds a Scribed Scroll to your hand and at the start of every turn if you do not have one.");
+        BaseMod.addKeyword("scribe","Spell Effect", SpellEffect, "Adds an effect to your next spell. Additionally adds a Scribed Spell to your hand and at the start of every turn if you do not have one.");
 
         final String[] SpellModifier = { "Spell Modifier", "Spell Modifiers", "spell_modifier", "spell_modifiers"};
         BaseMod.addKeyword("scribe","Spell Modifier", SpellModifier, "Modifies the effects of your next spell.");
@@ -699,7 +710,7 @@ public class ScribeMod implements
                     }
                 });
         if(hasAspiration) {
-            settingsPanel.addUIElement(skillbookBtn);
+            //settingsPanel.addUIElement(skillbookBtn);
         }
         else
         {

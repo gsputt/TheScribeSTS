@@ -1,7 +1,7 @@
 package The_Scribe.patches;
 
 import The_Scribe.ScribeMod;
-import The_Scribe.relics.Skillbook.SkillbookRelic;
+import The_Scribe.unused.unsusedRelics.Skillbook.SkillbookRelic;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.VoidCard;

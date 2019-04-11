@@ -28,7 +28,7 @@ public class StormScale extends CustomRelic implements OnReceivePowerRelic, OnAf
     public static final String OUTLINE = ScribeMod.makePath(ScribeMod.STORM_SCALE_OUTLINE);
 
     public StormScale() {
-        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.COMMON, LandingSound.CLINK);
     }
 
     @Override

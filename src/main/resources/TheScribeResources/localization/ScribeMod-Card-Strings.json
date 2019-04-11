@@ -325,7 +325,15 @@
 	},
 	"theScribe:ScriptedStarfall": {
 		"NAME": "Scripted Starfall",
-		"DESCRIPTION": "Gain 1 Drained. Retain. At the end of your turn, deal !SCRIBEM2! damage to all Enemies. NL For each turn you hold this card in your hand, its damage is increased by !M!."
+		"DESCRIPTION": "Retain. Innate. At the end of your turn, deal !SCRIBEM2! damage to ALL enemies. NL Increase the damage by !M! for each turn this remains in your hand."
+	},
+	"theScribe:TimeDilation": {
+		"NAME": "Time Dilation",
+		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply !M! Slow."
+	},
+	"theScribe:ScrollOfScrying": {
+		"NAME": "Scroll of Scrying",
+		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. At the end of your turn, you may place a card from your hand on top of your draw pile. The first card you draw each turn costs 1 less."
 	},
 
 

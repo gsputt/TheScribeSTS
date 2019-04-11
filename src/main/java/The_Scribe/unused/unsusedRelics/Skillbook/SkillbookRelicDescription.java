@@ -1,4 +1,4 @@
-package The_Scribe.relics.Skillbook;
+package The_Scribe.unused.unsusedRelics.Skillbook;
 
 import The_Scribe.ScribeMod;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

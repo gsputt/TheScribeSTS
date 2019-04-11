@@ -1,13 +1,10 @@
 package The_Scribe.cards;
 
-import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.effects.TimeDilationEffect;
 import The_Scribe.powers.Drained;
-import The_Scribe.powers.ScriptedStarfallPower;
-import The_Scribe.powers.SpellBlock;
-import The_Scribe.powers.SpellSplit;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
+import The_Scribe.powers.SpellAttack;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,13 +12,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.powers.SlowPower;
 
-public class ScriptedStarfall extends AbstractScribeCard {
+public class TimeDilation extends AbstractScribeCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -33,7 +28,7 @@ public class ScriptedStarfall extends AbstractScribeCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = ScribeMod.makeID("ScriptedStarfall");
+    public static final String ID = ScribeMod.makeID("TimeDilation");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // Yes, you totally can use "defaultModResources/images/cards/Attack.png" instead and that would work.
@@ -41,7 +36,7 @@ public class ScriptedStarfall extends AbstractScribeCard {
     // Using makePath is good practice once you get the hand of things, as it prevents you from
     // having to change *every single card/file/path* if the image path changes due to updates or your personal preference.
 
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_SCRIPTED_STARFALL);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_TIME_DILATION);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -52,45 +47,40 @@ public class ScriptedStarfall extends AbstractScribeCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int BASE_DAMAGE = 3;
-    private static final int INCREASE = 2;
-    private static final int UPGRADE_INCREASE = 1;
+    private static final int UPGRADED_COST = 0;
+    private static final int DRAINED = 1;
+    private static final int AMOUNT = 0;
 
 
     // /STAT DECLARATION/
 
-    public ScriptedStarfall() {
+    public TimeDilation() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = INCREASE;
+        this.baseMagicNumber = AMOUNT;
         this.magicNumber = this.baseMagicNumber;
-        this.baseSecondMagicNumber = BASE_DAMAGE;
-        this.secondMagicNumber = this.baseSecondMagicNumber;
-        AlwaysRetainField.alwaysRetain.set(this, true);
-        this.isInnate = true;
+        this.baseDrained = DRAINED;
+        this.drained = this.baseDrained;
+        this.exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ScriptedStarfallPower(p, this.secondMagicNumber), this.secondMagicNumber));
-    }
-
-    @Override
-    public void triggerOnEndOfTurnForPlayingCard() {
-        this.secondMagicNumber += this.magicNumber;
-        this.isSecondMagicNumberModified = true;
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Drained(p, this.drained), this.drained));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new TimeDilationEffect(m.hb.cX, m.hb.cY)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SlowPower(m, this.magicNumber), this.magicNumber));
     }
 
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new ScriptedStarfall();
+        return new TimeDilation();
     }
 
     // Upgraded stats.
@@ -98,7 +88,7 @@ public class ScriptedStarfall extends AbstractScribeCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_INCREASE);
+            this.upgradeBaseCost(UPGRADED_COST);
             this.initializeDescription();
         }
     }

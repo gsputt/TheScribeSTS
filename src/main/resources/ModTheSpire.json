@@ -3,7 +3,7 @@
   "name": "The Spell Scribe",
   "author_list": ["Left Click", "ComingVirus"],
   "description": "The Spell Scribe: An attempt to create a character that uses modular spells as a core concept.\n\nUse Spell Effects and Spell Modifiers to create modular spells.\n\nThis mod is currently a WIP. Feedback is appreciated.",
-  "version": "0.5.7",
+  "version": "0.5.9",
   "sts_version": "01-17-2019",
   "mts_version": "3.8.0",
   "dependencies": ["basemod", "stslib"]

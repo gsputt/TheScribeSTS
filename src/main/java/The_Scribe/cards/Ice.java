@@ -80,7 +80,7 @@ public class Ice extends AbstractScribeCard {
             while (i < AbstractDungeon.getCurrRoom().monsters.monsters.size()) {
                 targetMonster = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
                 if (!(targetMonster.isDead || targetMonster.currentHealth <= 0 || targetMonster.halfDead)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new WeakPower(targetMonster, this.magicNumber, false), this.magicNumber));
                 }
                 i++;
             }

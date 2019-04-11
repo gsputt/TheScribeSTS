@@ -41,6 +41,14 @@
 		"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
 	]
 },
+	"theScribe:ClarityBossRelic": {
+		"NAME": "Invisible Inkwell",
+		"FLAVOR": "An ornate Inkwell that spills forth an endless torrent of nothing. \n You quickly lose track of spells scribed with this \"ink\".",
+		"DESCRIPTIONS": [
+			"Gain \" [REMOVE_SPACE]#ySpell #yEffect [REMOVE_SPACE]: Gain 1 [E] [REMOVE_SPACE]\" at the start of each turn. At the end of each turn, lose all #yscribe:Spell_Effects and #yscribe:Spell_Modifiers [REMOVE_SPACE]."
+		]
+	},
+
 	"theScribe:ScribeSkillbook": {
 		"NAME": "Scribe's Skillbook",
 		"FLAVOR": "This appears to be an introduction to modular spellcasting. The pages are worn from heavy use.",

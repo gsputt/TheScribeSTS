@@ -38,7 +38,7 @@ public class PermafrostPen extends CustomRelic {
     private static final int BLOCK_AMOUNT = 3;
 
     public PermafrostPen() {
-        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
