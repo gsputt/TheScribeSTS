@@ -55,7 +55,16 @@ public class BlankScrollPower extends AbstractPower implements CloneablePowerInt
     @Override
     public void atStartOfTurnPostDraw() {
         boolean check = false;
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
+
+        for(AbstractPower p : AbstractDungeon.player.powers)
+        {
+            if(p instanceof SpellsInterface)
+            {
+                check = true;
+            }
+        }
+
+        /*if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             check = true;
         }
         if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
@@ -84,7 +93,7 @@ public class BlankScrollPower extends AbstractPower implements CloneablePowerInt
         }
         if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
             check = true;
-        }
+        }*/
         if(!check) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpellEffectiveness(this.owner, this.amount), this.amount));
         }

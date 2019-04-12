@@ -18,7 +18,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.powers.SpellAttack;
 
-public class FocusedBolt extends AbstractScribeCard {
+public class FocusedBolt extends AbstractScribeCard implements SpellEffectInterface, SpellModifierInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

@@ -18,7 +18,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class Ice extends AbstractScribeCard {
+public class Ice extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

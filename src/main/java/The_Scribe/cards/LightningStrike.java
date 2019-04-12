@@ -18,7 +18,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.powers.SpellAttack;
 
-public class LightningStrike extends AbstractScribeCard {
+public class LightningStrike extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

@@ -110,6 +110,7 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
         this.isVisible = false;
         this.returnedArray = null;
         this.counter = 0;
+        BaseMod.unsubscribe(this);
     }
 
 

@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.Iterator;
 
-public class RecklessResponse extends AbstractScribeCard {
+public class RecklessResponse extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

@@ -16,7 +16,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
 
-public class BlankScroll extends CustomCard {
+public class BlankScroll extends CustomCard implements SpellModifierInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

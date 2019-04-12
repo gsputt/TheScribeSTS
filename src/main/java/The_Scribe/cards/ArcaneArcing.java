@@ -19,7 +19,7 @@ import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.powers.SpellAttack;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class ArcaneArcing extends AbstractScribeCard {
+public class ArcaneArcing extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

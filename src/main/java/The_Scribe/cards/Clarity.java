@@ -17,7 +17,7 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class Clarity extends AbstractScribeCard {
+public class Clarity extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.Iterator;
 
-public class LightningBolt extends AbstractScribeCard {
+public class LightningBolt extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

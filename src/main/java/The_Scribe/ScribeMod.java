@@ -1,9 +1,8 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
-import The_Scribe.unused.unsusedRelics.Skillbook.ScribeSkillbook;
+import The_Scribe.interfaces.onRemovePowerHook;
 import basemod.ModLabeledToggleButton;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -17,6 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -34,6 +34,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 @SpireInitializer
@@ -41,7 +42,7 @@ public class ScribeMod implements
         PostInitializeSubscriber, EditCardsSubscriber, EditStringsSubscriber,
         EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber,
         PostBattleSubscriber, OnStartBattleSubscriber
-        {
+{
     //PrePlayerUpdateSubscriber, OnReceivePowerPower
 
     public static final Logger logger = LogManager.getLogger(ScribeMod.class.getName());
@@ -95,7 +96,7 @@ public class ScribeMod implements
     public static final String SCRIBE_THWACK = "cards/Thwack.png";
     public static final String SCRIBE_CLARITY = "cards/Clarity.png";
     public static final String SCRIBE_FOCUSED = "cards/Focused.png";
-    public static final String SCRIBE_GHOST_REALM = "cards/GhostRealm.png";
+    public static final String SCRIBE_GHOST_REALM = "cards/PlaceholderPower.png";
     public static final String SCRIBE_SACRIFICE_RITUAL = "cards/SacrificeRitual.png";
     public static final String SCRIBE_ECHO = "cards/Echo.png";
     public static final String SCRIBE_LIGHTNING_BOLT = "cards/LightningBolt.png";
@@ -251,7 +252,39 @@ public class ScribeMod implements
     public static final String THE_SCRIBE_SKELETON_JSON = "char/scribe/skeleton.json";
 
 
+    //private static ArrayList<onRemovePowerHook> onRemovePowerSubscribers = new ArrayList<>();
+
     private static SpireConfig modConfig = null;
+
+    /*// =============== /CUSTOM SUBSCRIBER STUFF/ ==================
+    public static void subscribe(ISubscriber subscriber){
+        subscribeIfInstance(onRemovePowerSubscribers, subscriber, onRemovePowerHook.class);
+    }
+
+    public static void unsubscribe(ISubscriber subscriber){
+        unsubscribeIfInstance(onRemovePowerSubscribers, subscriber, onRemovePowerHook.class);
+    }
+
+    private static <T> void unsubscribeIfInstance(ArrayList<T> list, ISubscriber sub, Class<T> clazz) {
+        if (clazz.isInstance(sub)) {
+            list.remove(clazz.cast(sub));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> void subscribeIfInstance(ArrayList<T> list, ISubscriber sub, Class<T> clazz) {
+        if (clazz.isInstance(sub)) {
+            list.add((T) sub);
+        }
+    }
+
+    public static void publishOnRemovePower(AbstractPower power)
+    {
+        for (onRemovePowerHook subscriber : onRemovePowerSubscribers) {
+            subscriber.receiveRemovedPower(power);
+        }
+    }
+    // =============== /CUSTOM SUBSCRIBER STUFF/ ==================*/
 
     // =============== /INPUT TEXTURE LOCATION/ =================
 
@@ -385,7 +418,7 @@ public class ScribeMod implements
         BaseMod.addCard(new Thwack());
         BaseMod.addCard(new Clarity());
         BaseMod.addCard(new Focused());
-        //BaseMod.addCard(new Ghost_Realm()); //ADD BACK LATER WHEN REWORKED
+        BaseMod.addCard(new Ghost_Realm()); //ADD BACK LATER WHEN REWORKED
         BaseMod.addCard(new SacrificeRitual());
         BaseMod.addCard(new Echo());
         BaseMod.addCard(new LightningBolt());
@@ -399,7 +432,7 @@ public class ScribeMod implements
         //BaseMod.addCard(new OpenMind());
         BaseMod.addCard(new PriceOfKnowledge());
         BaseMod.addCard(new BarrierOfLight());
-       //BaseMod.addCard(new Manablast());
+        //BaseMod.addCard(new Manablast());
         //BaseMod.addCard(new EldritchApplyPoison());
         //BaseMod.addCard(new EldritchApplyVulnerable());
         //BaseMod.addCard(new EldritchApplyWeak());
@@ -476,7 +509,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(Thwack.ID);
         UnlockTracker.unlockCard(Clarity.ID);
         UnlockTracker.unlockCard(Focused.ID);
-        //UnlockTracker.unlockCard(Ghost_Realm.ID); //ADD BACK LATER WHEN REWORKED
+        UnlockTracker.unlockCard(Ghost_Realm.ID); //ADD BACK LATER WHEN REWORKED
         UnlockTracker.unlockCard(SacrificeRitual.ID);
         UnlockTracker.unlockCard(Echo.ID);
         UnlockTracker.unlockCard(LightningBolt.ID);
@@ -726,7 +759,7 @@ public class ScribeMod implements
     // =============== / POST-INITIALIZE/ =================
 
 
-            //SCRIBED SCROLL STUFF
+    //SCRIBED SCROLL STUFF
     @Override
     public void receivePostBattle(AbstractRoom battleRoom)
     {
@@ -738,7 +771,7 @@ public class ScribeMod implements
     {
         AbstractScribeCard.ScribedScrollAcquireCounter = 0;
     }
-            //SCRIBED SCROLL STUFF
+    //SCRIBED SCROLL STUFF
 
 
 

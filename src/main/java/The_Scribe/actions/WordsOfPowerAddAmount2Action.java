@@ -29,6 +29,7 @@ public class WordsOfPowerAddAmount2Action extends AbstractGameAction {
         if(target.hasPower(WordsOfPowerPower.POWER_ID)) {
             if (target.getPower(WordsOfPowerPower.POWER_ID) instanceof TwoAmountPower) {
                 ((TwoAmountPower)target.getPower(WordsOfPowerPower.POWER_ID)).amount2 += this.amount2Apply;
+                target.getPower(WordsOfPowerPower.POWER_ID).updateDescription();
             }
         }
         this.isDone = true;

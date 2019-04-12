@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import The_Scribe.interfaces.onRemovePowerHook;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
@@ -17,7 +18,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class WordsOfPowerPower extends TwoAmountPower implements CloneablePowerInterface {
+public class WordsOfPowerPower extends TwoAmountPower implements CloneablePowerInterface, onRemovePowerHook {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("WordsOfPowerPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,6 +37,7 @@ public class WordsOfPowerPower extends TwoAmountPower implements CloneablePowerI
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         this.amount2 += amount2;
+        this.updateDescription();
     }
 
 
@@ -54,20 +56,21 @@ public class WordsOfPowerPower extends TwoAmountPower implements CloneablePowerI
     }
 
     @Override
+    public void receiveRemovedPower(AbstractPower power)
+    {
+        if(power.type == PowerType.BUFF) {
+            if(!(power instanceof InvisiblePower)) {
+                dealDamage();
+            }
+        }
+    }
+
+    @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if(this.amount2 >= 1) {
             if(power.type == PowerType.BUFF) {
                 if(!(power instanceof InvisiblePower)) {
                     dealDamage();
-                }
-            }
-        }
-        else {
-            if(power.type == PowerType.BUFF) {
-                if(power.amount < 0) {
-                    if(!(power instanceof InvisiblePower)) {
-                        dealDamage();
-                    }
                 }
             }
         }

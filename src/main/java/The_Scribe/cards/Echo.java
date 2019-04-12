@@ -16,7 +16,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class Echo extends CustomCard {
+public class Echo extends CustomCard implements SpellModifierInterface, SpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

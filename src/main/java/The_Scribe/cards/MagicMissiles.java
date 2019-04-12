@@ -91,6 +91,14 @@ public class MagicMissiles extends CustomCard {
     {
         hitTimes = BASE_HIT_TIMES;
 
+        for(AbstractPower power: AbstractDungeon.player.powers)
+        {
+            if(power instanceof SpellsInterface)
+            {
+                hitTimes += 1;
+            }
+        }
+        /*
         if (AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
             hitTimes += 1;
         }
@@ -120,7 +128,7 @@ public class MagicMissiles extends CustomCard {
         }
         if (AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
             hitTimes += 1;
-        }
+        }*/
         this.baseMagicNumber = this.magicNumber = hitTimes;
         super.applyPowers();
     }

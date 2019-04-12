@@ -1,6 +1,8 @@
 package The_Scribe.powers;
 
 import The_Scribe.cards.Escalation;
+import The_Scribe.cards.SpellEffectInterface;
+import The_Scribe.cards.SpellModifierInterface;
 import The_Scribe.patches.ScribeCardTags;
 import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
@@ -66,10 +68,7 @@ public class EscalationPower extends TwoAmountPower implements CloneablePowerInt
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         AbstractCard c = card;
-        if (c.hasTag(ScribeCardTags.SPELL_ATTACK) || c.hasTag(ScribeCardTags.SPELL_BLOCK)
-                || c.hasTag(ScribeCardTags.SPELL_CLARITY) || c.hasTag(ScribeCardTags.SPELL_POISON)
-                || c.hasTag(ScribeCardTags.SPELL_WEAK) || c.hasTag(ScribeCardTags.SPELL_SELF_DAMAGE)
-                || c.hasTag(ScribeCardTags.SPELLSTONE_EFFECT) || c.hasTag(ScribeCardTags.SPELL_EFFECT_SCROLL)) {
+        if (c instanceof SpellEffectInterface) {
             if (this.amount2 < this.amount) {
                 if (c != null) {
                     c = c.makeStatEquivalentCopy();

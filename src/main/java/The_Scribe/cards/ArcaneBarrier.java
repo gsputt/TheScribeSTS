@@ -15,7 +15,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.powers.SpellBlock;
 
-public class ArcaneBarrier extends AbstractScribeCard {
+public class ArcaneBarrier extends AbstractScribeCard implements SpellEffectInterface, SpellModifierInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

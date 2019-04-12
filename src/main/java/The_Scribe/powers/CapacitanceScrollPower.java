@@ -51,26 +51,12 @@ public class CapacitanceScrollPower extends AbstractPower implements CloneablePo
     @Override
     public void atStartOfTurnPostDraw() {
         boolean check = false;
-        if(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-            check = true;
-        }
-        if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-            check = true;
+        for(AbstractPower p : AbstractDungeon.player.powers)
+        {
+            if(p instanceof SpellEffectInterface)
+            {
+                check = true;
+            }
         }
         if(!check) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpellAttack(this.owner, this.amount), this.amount));

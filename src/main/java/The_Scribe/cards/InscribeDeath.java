@@ -24,7 +24,7 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.Iterator;
 
-public class InscribeDeath extends AbstractScribeCard {
+public class InscribeDeath extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

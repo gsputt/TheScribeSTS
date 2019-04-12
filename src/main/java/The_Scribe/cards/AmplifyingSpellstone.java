@@ -1,8 +1,6 @@
 package The_Scribe.cards;
 
-import The_Scribe.powers.Drained;
 import The_Scribe.powers.SpellEffectiveness;
-import The_Scribe.powers.SpellSplit;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,7 +16,7 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class AmplifyingSpellstone extends AbstractScribeCard {
+public class AmplifyingSpellstone extends AbstractScribeCard implements SpellModifierInterface, SpellsInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

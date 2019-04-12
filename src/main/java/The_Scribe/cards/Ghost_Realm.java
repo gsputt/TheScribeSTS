@@ -1,4 +1,4 @@
-package The_Scribe.unused.unusedCards;
+package The_Scribe.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -52,7 +52,7 @@ public class Ghost_Realm extends CustomCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final int TURNS = 2;
     private static final int UPGRADE_PLUS_TURNS = 1;
 

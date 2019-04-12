@@ -61,7 +61,7 @@
 		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Modifier: NL Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
 	},
 	"theScribe:Ghost_Realm": {
-		"NAME": "Ghost Realm",
+		"NAME": "Spectral Scroll",
 		"DESCRIPTION": "You and ALL enemies gain !M! Intangible."
 	},
 	"theScribe:SacrificeRitual": {
