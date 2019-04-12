@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.effects.IcicleBlastEffect;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -17,7 +18,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class StemTheFlowPower extends AbstractPower implements OnReceivePowerPower {
+public class StemTheFlowPower extends AbstractPower implements OnReceivePowerPower, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("StemTheFlowPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -39,6 +40,12 @@ public class StemTheFlowPower extends AbstractPower implements OnReceivePowerPow
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new StemTheFlowPower(this.owner, this.amount);
     }
 
     @Override

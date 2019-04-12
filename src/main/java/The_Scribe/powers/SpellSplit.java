@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,7 +16,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class SpellSplit extends AbstractPower {
+public class SpellSplit extends AbstractPower implements SpellModifierInterface, SpellsInterface, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("SpellSplit");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -35,6 +36,12 @@ public class SpellSplit extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new SpellSplit(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

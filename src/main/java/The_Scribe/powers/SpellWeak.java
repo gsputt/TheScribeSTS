@@ -2,6 +2,7 @@ package The_Scribe.powers;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.cards.AbstractScribeCard;
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 //Gain 1 dex for the turn for each card played.
 
-public class SpellWeak extends AbstractPower {
+public class SpellWeak extends AbstractPower implements SpellEffectInterface, SpellsInterface, CloneablePowerInterface {
 
     public static final String POWER_ID = ScribeMod.makeID("SpellWeak");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -33,6 +34,12 @@ public class SpellWeak extends AbstractPower {
         this.canGoNegative = false;
         amountToCast = this.amount;
         AbstractScribeCard.ScribedScrollAcquire();
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new SpellWeak(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

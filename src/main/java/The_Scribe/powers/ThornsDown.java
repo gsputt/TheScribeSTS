@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.effects.IcicleBlastEffect;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -15,7 +16,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ThornsDown extends AbstractPower {
+public class ThornsDown extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("ThornsDown");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -35,6 +36,12 @@ public class ThornsDown extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new ThornsDown(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

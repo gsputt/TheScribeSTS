@@ -324,7 +324,7 @@ public class Cast_Spell extends CustomCard {
 
                     i++;
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellAttack.POWER_ID));
             }
 
         }
@@ -332,7 +332,7 @@ public class Cast_Spell extends CustomCard {
         if(AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount > 0) {
                 AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block, true));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, -AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellBlock.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellBlock.POWER_ID));
             }
         }
 
@@ -367,32 +367,32 @@ public class Cast_Spell extends CustomCard {
         if(AbstractDungeon.player.hasPower(SpellPoison.POWER_ID))
         {
             if(AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPoison(p, -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellPoison.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellPoison.POWER_ID));
             }
         }
         if(AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID))
         {
             if(AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellVulnerable(p, -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellVulnerable.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellVulnerable.POWER_ID));
             }
         }
         if(AbstractDungeon.player.hasPower(SpellWeak.POWER_ID))
         {
             if(AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellWeak(p, -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellWeak.POWER_ID));
             }
         }
 
         if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount > 0) {
                 AbstractDungeon.actionManager.addToTop(new GainEnergyAction(Clarity));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellClarity(p, -AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellClarity.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellClarity.POWER_ID));
             }
         }
 
         if(AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount != 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellEffectiveness(p, -AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellEffectiveness.POWER_ID));
             }
         }
 
@@ -402,14 +402,13 @@ public class Cast_Spell extends CustomCard {
                         .addToBottom(new ScribeSelfDamageAction(p,
                                 new DamageInfo(p, SelfDamage, DamageInfo.DamageType.THORNS),
                                 AbstractGameAction.AttackEffect.NONE, true));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellSelfDamage.POWER_ID).amount, true));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellSelfDamage.POWER_ID));
             }
         }
 
         if(AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
             if(AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellChaining(p, -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount), -AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount, true));
-
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SpellChaining.POWER_ID));
             }
         }
     }

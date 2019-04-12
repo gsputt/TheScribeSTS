@@ -3,6 +3,7 @@ package The_Scribe.powers;
 import The_Scribe.actions.ScrollOfScryingAction;
 import The_Scribe.patches.ScribeCardTags;
 import basemod.BaseMod;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
@@ -27,7 +28,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ScrollOfScryingPower extends AbstractPower implements OnCardDrawPower {
+public class ScrollOfScryingPower extends AbstractPower implements OnCardDrawPower, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("ScrollOfScryingPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -47,6 +48,12 @@ public class ScrollOfScryingPower extends AbstractPower implements OnCardDrawPow
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         this.cardsDrawn = 190;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new ScrollOfScryingPower(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

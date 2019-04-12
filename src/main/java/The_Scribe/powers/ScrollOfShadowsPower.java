@@ -2,6 +2,7 @@ package The_Scribe.powers;
 
 import The_Scribe.patches.ScribeCardTags;
 import basemod.BaseMod;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
@@ -24,7 +25,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ScrollOfShadowsPower extends TwoAmountPower {
+public class ScrollOfShadowsPower extends TwoAmountPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("ScrollOfShadowsPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -45,6 +46,12 @@ public class ScrollOfShadowsPower extends TwoAmountPower {
         this.amount2 = amount2;
         this.canGoNegative2 = false;
         updateDescription();
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new ScrollOfShadowsPower(this.owner, this.amount, this.amount2);
     }
 
     public void stackPower(int stackAmount) {

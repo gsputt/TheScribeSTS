@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
@@ -18,7 +19,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class FalseLifePower extends AbstractPower {
+public class FalseLifePower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("FalseLifePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -38,6 +39,12 @@ public class FalseLifePower extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new FalseLifePower(this.owner, this.amount);
     }
 
     @Override

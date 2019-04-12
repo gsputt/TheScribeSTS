@@ -1,5 +1,7 @@
 package The_Scribe.powers;
 
+import The_Scribe.unused.unusedCards.BloodMagicks;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -17,7 +19,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 //Gain 1 dex for the turn for each card played.
 
-public class BloodMagicksPower extends AbstractPower {
+public class BloodMagicksPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("BloodMagicksPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -40,6 +42,12 @@ public class BloodMagicksPower extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new BloodMagicksPower(this.owner, this.amount);
     }
 
     public void onPlayCard(AbstractCard card, AbstractMonster m) {

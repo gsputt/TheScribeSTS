@@ -381,11 +381,11 @@ public class ScribeMod implements
         BaseMod.addCard(new Ice());
         BaseMod.addCard(new Eldritch());
         BaseMod.addCard(new Split());
-        BaseMod.addCard(new BloodMagicks());
+        //BaseMod.addCard(new BloodMagicks()); //ADD BACK LATER WHEN REWORKED
         BaseMod.addCard(new Thwack());
         BaseMod.addCard(new Clarity());
         BaseMod.addCard(new Focused());
-        BaseMod.addCard(new Ghost_Realm());
+        //BaseMod.addCard(new Ghost_Realm()); //ADD BACK LATER WHEN REWORKED
         BaseMod.addCard(new SacrificeRitual());
         BaseMod.addCard(new Echo());
         BaseMod.addCard(new LightningBolt());
@@ -472,11 +472,11 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(Ice.ID);
         UnlockTracker.unlockCard(Eldritch.ID);
         UnlockTracker.unlockCard(Split.ID);
-        UnlockTracker.unlockCard(BloodMagicks.ID);
+        //UnlockTracker.unlockCard(BloodMagicks.ID); //ADD BACK LATER WHEN REWORKED
         UnlockTracker.unlockCard(Thwack.ID);
         UnlockTracker.unlockCard(Clarity.ID);
         UnlockTracker.unlockCard(Focused.ID);
-        UnlockTracker.unlockCard(Ghost_Realm.ID);
+        //UnlockTracker.unlockCard(Ghost_Realm.ID); //ADD BACK LATER WHEN REWORKED
         UnlockTracker.unlockCard(SacrificeRitual.ID);
         UnlockTracker.unlockCard(Echo.ID);
         UnlockTracker.unlockCard(LightningBolt.ID);

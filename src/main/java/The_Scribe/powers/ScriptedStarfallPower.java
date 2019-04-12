@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.effects.ScriptedStarfallEffect;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -20,7 +21,7 @@ import java.util.Iterator;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ScriptedStarfallPower extends AbstractPower {
+public class ScriptedStarfallPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("ScriptedStarfallPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -40,6 +41,12 @@ public class ScriptedStarfallPower extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new ScriptedStarfallPower(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

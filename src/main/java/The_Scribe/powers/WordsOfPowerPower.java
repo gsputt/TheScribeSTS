@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -16,7 +17,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class WordsOfPowerPower extends TwoAmountPower {
+public class WordsOfPowerPower extends TwoAmountPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("WordsOfPowerPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -37,6 +38,12 @@ public class WordsOfPowerPower extends TwoAmountPower {
         this.amount2 += amount2;
     }
 
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new WordsOfPowerPower(this.owner, this.amount, this.amount2);
+    }
 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;

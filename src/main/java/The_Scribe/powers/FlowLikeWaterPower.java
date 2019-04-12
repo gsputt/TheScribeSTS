@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -18,7 +19,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class FlowLikeWaterPower extends AbstractPower {
+public class FlowLikeWaterPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("FlowLikeWaterPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,6 +37,12 @@ public class FlowLikeWaterPower extends AbstractPower {
         this.isTurnBased = false;
         this.img = new Texture(IMG);
         this.canGoNegative = false;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new FlowLikeWaterPower(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

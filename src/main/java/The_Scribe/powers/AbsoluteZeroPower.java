@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.actions.NewTurnAction;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -19,7 +20,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class AbsoluteZeroPower extends AbstractPower {
+public class AbsoluteZeroPower extends AbstractPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("AbsoluteZeroPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -39,6 +40,12 @@ public class AbsoluteZeroPower extends AbstractPower {
         this.img = new Texture(IMG);
         this.canGoNegative = false;
         amountToCast = this.amount;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new AbsoluteZeroPower(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

@@ -18,6 +18,9 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.ArrayList;
 
 public class MagicMissiles extends CustomCard {
 
@@ -89,36 +92,36 @@ public class MagicMissiles extends CustomCard {
         hitTimes = BASE_HIT_TIMES;
 
         if (AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellSplit.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if(AbstractDungeon.player.hasPower(SpellClarity.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellBlock.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellPoison.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellVulnerable.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellSelfDamage.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
         if (AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
-            this.hitTimes += 1;
+            hitTimes += 1;
         }
-        this.baseMagicNumber = this.magicNumber = this.hitTimes;
+        this.baseMagicNumber = this.magicNumber = hitTimes;
         super.applyPowers();
     }
 

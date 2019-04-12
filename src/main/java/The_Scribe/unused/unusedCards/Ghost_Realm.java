@@ -1,4 +1,4 @@
-package The_Scribe.cards;
+package The_Scribe.unused.unusedCards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,8 +14,6 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 

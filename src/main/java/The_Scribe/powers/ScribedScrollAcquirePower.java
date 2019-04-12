@@ -2,6 +2,7 @@ package The_Scribe.powers;
 
 import The_Scribe.cards.Cast_Spell;
 import basemod.BaseMod;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,7 +18,7 @@ import java.util.Iterator;
 
 //Gain 1 dex for the turn for each card played.
 
-public class ScribedScrollAcquirePower extends AbstractPower implements InvisiblePower {
+public class ScribedScrollAcquirePower extends AbstractPower implements InvisiblePower, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("ScribedScrollAcquirePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -45,6 +46,12 @@ public class ScribedScrollAcquirePower extends AbstractPower implements Invisibl
             }
         }
 
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new ScribedScrollAcquirePower(this.owner);
     }
 
     @Override

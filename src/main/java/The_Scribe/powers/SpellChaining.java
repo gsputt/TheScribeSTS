@@ -1,5 +1,6 @@
 package The_Scribe.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,7 +16,7 @@ import The_Scribe.ScribeMod;
 
 //Gain 1 dex for the turn for each card played.
 
-public class SpellChaining extends AbstractPower {
+public class SpellChaining extends AbstractPower implements SpellModifierInterface, SpellsInterface, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("SpellChaining");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -34,6 +35,12 @@ public class SpellChaining extends AbstractPower {
         this.isTurnBased = false;
         this.img = new Texture(IMG);
         this.canGoNegative = false;
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new SpellChaining(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

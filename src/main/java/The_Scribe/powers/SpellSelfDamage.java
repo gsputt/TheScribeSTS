@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import The_Scribe.cards.AbstractScribeCard;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.powers.*;
 import The_Scribe.ScribeMod;
 
 
-public class SpellSelfDamage extends AbstractPower {
+public class SpellSelfDamage extends AbstractPower implements SpellEffectInterface, SpellsInterface, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("SpellSelfDamage");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,6 +37,12 @@ public class SpellSelfDamage extends AbstractPower {
         this.canGoNegative = false;
         amountToCast = this.amount;
         AbstractScribeCard.ScribedScrollAcquire();
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new SpellSelfDamage(this.owner, this.amount);
     }
 
     public void stackPower(int stackAmount) {

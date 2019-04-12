@@ -1,6 +1,7 @@
 package The_Scribe.powers;
 
 import basemod.BaseMod;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import The_Scribe.ScribeMod;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
@@ -21,7 +23,7 @@ import java.util.UUID;
 
 //Gain 1 dex for the turn for each card played.
 
-public class MaelstromPower extends TwoAmountPower {
+public class MaelstromPower extends TwoAmountPower implements CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("MaelstromPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -42,6 +44,12 @@ public class MaelstromPower extends TwoAmountPower {
         this.amount2 = amount2;
         this.canGoNegative2 = false;
         updateDescription();
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new MaelstromPower(this.owner, this.amount, this.amount2);
     }
 
     public void stackPower(int stackAmount) {
