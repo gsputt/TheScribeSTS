@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class CripplingCharge extends AbstractScribeCard implements SpellEffectInterface, SpellModifierInterface, SpellsInterface{
+public class CripplingCharge extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellModifierInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

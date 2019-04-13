@@ -1,8 +1,6 @@
 package The_Scribe.cards;
 
 import The_Scribe.effects.MagicMissilesEffect;
-import The_Scribe.powers.*;
-import The_Scribe.unused.unusedPowers.SpellVulnerable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -19,8 +17,6 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import java.util.ArrayList;
 
 public class MagicMissiles extends CustomCard {
 
@@ -93,7 +89,7 @@ public class MagicMissiles extends CustomCard {
 
         for(AbstractPower power: AbstractDungeon.player.powers)
         {
-            if(power instanceof SpellsInterface)
+            if(power instanceof CardSpellsInterface)
             {
                 hitTimes += 1;
             }

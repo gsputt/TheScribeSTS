@@ -1,9 +1,7 @@
 package The_Scribe.cards;
 
 import The_Scribe.patches.ScribeCardTags;
-import The_Scribe.powers.Drained;
 import The_Scribe.powers.SpellAttack;
-import The_Scribe.powers.SpellSplit;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class TelumSpellstone extends AbstractScribeCard implements SpellEffectInterface, SpellsInterface{
+public class TelumSpellstone extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

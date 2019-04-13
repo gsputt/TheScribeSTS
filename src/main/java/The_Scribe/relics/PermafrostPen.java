@@ -1,6 +1,6 @@
 package The_Scribe.relics;
 
-import The_Scribe.cards.SpellEffectInterface;
+import The_Scribe.cards.CardSpellEffectInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,7 +31,7 @@ public class PermafrostPen extends CustomRelic {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if(c instanceof SpellEffectInterface)
+        if(c instanceof CardSpellEffectInterface)
         {
             AbstractDungeon.actionManager.addToBottom(
                     new com.megacrit.cardcrawl.actions.common.GainBlockAction(

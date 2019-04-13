@@ -29,7 +29,7 @@
   },
   "theScribe:SpellClarity": {
     "NAME": "Effect: Clarity",
-    "DESCRIPTIONS": ["Your next spell cast gives you #b", " [E]."]
+    "DESCRIPTIONS": ["Your next spell cast gives you #b", " [E] [REMOVE_SPACE]."]
   },
   "theScribe:SpellEffectiveness": {
     "NAME": "Modifier: Effectiveness",

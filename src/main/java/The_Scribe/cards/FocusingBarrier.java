@@ -1,14 +1,10 @@
 package The_Scribe.cards;
 
-import The_Scribe.effects.LightningJumpEffect;
 import The_Scribe.patches.ScribeCardTags;
 import The_Scribe.powers.SpellBlock;
 import The_Scribe.powers.SpellEffectiveness;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,9 +13,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-import The_Scribe.powers.SpellAttack;
 
-public class FocusingBarrier extends AbstractScribeCard implements SpellEffectInterface, SpellModifierInterface, SpellsInterface {
+public class FocusingBarrier extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellModifierInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards

@@ -1,21 +1,12 @@
 package The_Scribe.powers;
 
-import The_Scribe.cards.Escalation;
-import The_Scribe.cards.SpellEffectInterface;
-import The_Scribe.cards.SpellModifierInterface;
-import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.cards.CardSpellEffectInterface;
 import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -68,7 +59,7 @@ public class EscalationPower extends TwoAmountPower implements CloneablePowerInt
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         AbstractCard c = card;
-        if (c instanceof SpellEffectInterface) {
+        if (c instanceof CardSpellEffectInterface) {
             if (this.amount2 < this.amount) {
                 if (c != null) {
                     c = c.makeStatEquivalentCopy();

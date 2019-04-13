@@ -10,12 +10,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class Focused extends AbstractScribeCard implements SpellModifierInterface, SpellsInterface {
+public class Focused extends AbstractScribeCard implements CardSpellModifierInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
