@@ -61,7 +61,7 @@
   },
   "theScribe:BlankScrollPower": {
     "NAME": "Blank Scroll",
-    "DESCRIPTIONS": ["At the start of your turn, if you have no #ySpell #yEffects or #ySpell #yModifiers, Gain #b", "% #ySpell #yEffectiveness."]
+    "DESCRIPTIONS": ["Your spell now starts with \" #ySpell #yModifier [REMOVE_SPACE]: Gain #b","% #ySpell #yEffectiveness [REMOVE_SPACE].\""]
   },
   "theScribe:WordsOfPowerPower": {
     "NAME": "Words of Power",
@@ -85,7 +85,7 @@
   },
   "theScribe:CapacitanceScrollPower": {
     "NAME": "Capacitance Scroll",
-    "DESCRIPTIONS": ["At the start of your turn, if you have no #ySpell #yEffects, gain #ySpell #yEffect: Deal #b", " damage."]
+    "DESCRIPTIONS": ["Your spell now starts with \" #ySpell #yEffect [REMOVE_SPACE]: Deal #b", " damage.\""]
   },
   "theScribe:AbsoluteZeroPower": {
     "NAME": "Absolute Zero",
@@ -122,5 +122,9 @@
   "theScribe:ScrollOfScryingPower": {
     "NAME": "Scroll of Scrying",
     "DESCRIPTIONS": ["At the end of your turn, you may place ", "a card", " cards"," from your hand on top of your draw pile. The first ", " you draw each turn ", "costs ", "cost ", " 1 less."]
+  },
+  "theScribe:SpellPiercingBolts": {
+    "NAME": "Modifier: Piercing Bolts",
+    "DESCRIPTIONS": ["Your #yThunder deals ", " times damage when hitting an enemy with block."]
   }
 }

@@ -16,7 +16,7 @@ import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
 
-public class BlankScroll extends CustomCard implements CardSpellModifierInterface, CardSpellsInterface {
+public class BlankScroll extends AbstractScribeCard implements CardSpellModifierInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -54,21 +54,21 @@ public class BlankScroll extends CustomCard implements CardSpellModifierInterfac
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int AMOUNT = 25;
-    private static final int UPGRADED_AMOUNT = 25;
+    private static final int AMOUNT = 1;
 
     // /STAT DECLARATION/
 
     public BlankScroll() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = AMOUNT;
-        this.magicNumber = baseMagicNumber;
+        this.baseEffectivity = AMOUNT;
+        this.effectivity = baseEffectivity;
+        this.isInnate = false;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BlankScrollPower(p, this.magicNumber/25), this.magicNumber/25));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BlankScrollPower(p, this.effectivity), this.effectivity));
     }
 
 
@@ -83,7 +83,8 @@ public class BlankScroll extends CustomCard implements CardSpellModifierInterfac
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADED_AMOUNT);
+            this.isInnate = true;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

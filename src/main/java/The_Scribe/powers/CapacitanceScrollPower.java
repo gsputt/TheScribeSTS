@@ -48,22 +48,6 @@ public class CapacitanceScrollPower extends AbstractPower implements CloneablePo
         return new CapacitanceScrollPower(this.owner, this.amount);
     }
 
-    @Override
-    public void atStartOfTurnPostDraw() {
-        boolean check = false;
-        for(AbstractPower p : AbstractDungeon.player.powers)
-        {
-            if(p instanceof SpellEffectInterface)
-            {
-                check = true;
-            }
-        }
-        if(!check) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpellAttack(this.owner, this.amount), this.amount));
-        }
-    }
-
-
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {

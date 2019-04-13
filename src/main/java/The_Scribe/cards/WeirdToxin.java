@@ -1,8 +1,10 @@
 package The_Scribe.cards;
 
 import The_Scribe.patches.ScribeCardTags;
-import The_Scribe.powers.CapacitanceScrollPower;
+import The_Scribe.powers.SpellPoison;
+import The_Scribe.powers.SpellSelfDamage;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,13 +12,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
+public class WeirdToxin extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -28,7 +29,7 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
 
     // TEXT DECLARATION
 
-    public static final String ID = ScribeMod.makeID("CapacitanceScroll");
+    public static final String ID = ScribeMod.makeID("WeirdToxin");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // Yes, you totally can use "defaultModResources/images/cards/Attack.png" instead and that would work.
@@ -36,11 +37,11 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
     // Using makePath is good practice once you get the hand of things, as it prevents you from
     // having to change *every single card/file/path* if the image path changes due to updates or your personal preference.
 
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_CAPACITANCE_SCROLL);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_WEIRD_TOXIN);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -48,35 +49,42 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
-    private static final int COST = 1;
-    private static final int AMOUNT = 3;
-    private static final int UPGRADE_AMOUNT = 3;
+    private static final int COST = 0;
+    private static final int POISON = 6;
+    private static final int DRAW_CARD_AMOUNT = 1;
+    private static final int DEBUFF_AMOUNT = 1;
 
     // /STAT DECLARATION/
 
-    public CapacitanceScroll() {
+    public WeirdToxin() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = AMOUNT;
+        this.baseMagicNumber = POISON;
         this.magicNumber = this.baseMagicNumber;
-        this.isInnate = false;
-        tags.add(ScribeCardTags.SPELL_EFFECT_SCROLL);
+        this.baseSecondMagicNumber = DEBUFF_AMOUNT;
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        tags.add(ScribeCardTags.SPELL_POISON);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CapacitanceScrollPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPoison(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.secondMagicNumber, false), this.secondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.secondMagicNumber, false), this.secondMagicNumber));
+        if(this.upgraded)
+        {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, DRAW_CARD_AMOUNT));
+        }
     }
-
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new CapacitanceScroll();
+        return new WeirdToxin();
     }
 
     // Upgraded stats.
@@ -84,7 +92,7 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_AMOUNT);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

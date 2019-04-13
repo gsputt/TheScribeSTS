@@ -1,7 +1,7 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
-import The_Scribe.interfaces.onRemovePowerHook;
+import The_Scribe.unused.unusedCards.BloodBulwark;
 import basemod.ModLabeledToggleButton;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -34,7 +33,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Properties;
 
 @SpireInitializer
@@ -162,6 +160,11 @@ public class ScribeMod implements
     public static final String SCRIBE_SCRIPTED_STARFALL = "cards/PlaceholderPower.png";
     public static final String SCRIBE_TIME_DILATION = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_SCROLL_OF_SCRYING = "cards/PlaceholderPower.png";
+    public static final String SCRIBE_PIERCING_BOLTS = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_CATALYTIC_CATASTROPHE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_WEIRD_TOXIN = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_GLACIAL_GUARD = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_FROSTVENOM_TOXIN = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -206,6 +209,7 @@ public class ScribeMod implements
     public static final String SCROLL_OF_CHAINING_POWER = "powers/placeholder_power.png";
     public static final String SCRIPTED_STARFALL_POWER = "powers/placeholder_power.png";
     public static final String SCROLL_OF_SCRYING_POWER = "powers/placeholder_power.png";
+    public static final String SPELL_PIERCING_BOLTS = "powers/placeholder_power.png";
 
 
     // Relic images
@@ -449,7 +453,7 @@ public class ScribeMod implements
         BaseMod.addCard(new ScindoSpellstone());
         BaseMod.addCard(new BlankScroll());
         BaseMod.addCard(new StemTheFlow());
-        BaseMod.addCard(new BloodBulwark());
+        //BaseMod.addCard(new BloodBulwark());
         BaseMod.addCard(new FalseLife());
         BaseMod.addCard(new WordsOfPower());
         BaseMod.addCard(new InscribeDeath());
@@ -483,6 +487,11 @@ public class ScribeMod implements
         BaseMod.addCard(new ScriptedStarfall());
         BaseMod.addCard(new TimeDilation());
         BaseMod.addCard(new ScrollOfScrying());
+        BaseMod.addCard(new PiercingBolts());
+        BaseMod.addCard(new CatalyticCatastrophe());
+        BaseMod.addCard(new WeirdToxin());
+        BaseMod.addCard(new GlacialGuard());
+        BaseMod.addCard(new FrostvenomToxin());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -540,7 +549,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ScindoSpellstone.ID);
         UnlockTracker.unlockCard(BlankScroll.ID);
         UnlockTracker.unlockCard(StemTheFlow.ID);
-        UnlockTracker.unlockCard(BloodBulwark.ID);
+        //UnlockTracker.unlockCard(BloodBulwark.ID);
         UnlockTracker.unlockCard(FalseLife.ID);
         UnlockTracker.unlockCard(WordsOfPower.ID);
         UnlockTracker.unlockCard(InscribeDeath.ID);
@@ -574,6 +583,11 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ScriptedStarfall.ID);
         UnlockTracker.unlockCard(TimeDilation.ID);
         UnlockTracker.unlockCard(ScrollOfScrying.ID);
+        UnlockTracker.unlockCard(PiercingBolts.ID);
+        UnlockTracker.unlockCard(CatalyticCatastrophe.ID);
+        UnlockTracker.unlockCard(WeirdToxin.ID);
+        UnlockTracker.unlockCard(GlacialGuard.ID);
+        UnlockTracker.unlockCard(FrostvenomToxin.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

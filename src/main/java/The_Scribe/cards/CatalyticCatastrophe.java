@@ -1,7 +1,6 @@
 package The_Scribe.cards;
 
-import The_Scribe.patches.ScribeCardTags;
-import The_Scribe.powers.CapacitanceScrollPower;
+import The_Scribe.actions.CatalyticCatastropheAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,8 +14,9 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 
-public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
+public class CatalyticCatastrophe extends CustomCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -28,7 +28,7 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
 
     // TEXT DECLARATION
 
-    public static final String ID = ScribeMod.makeID("CapacitanceScroll");
+    public static final String ID = ScribeMod.makeID("CatalyticCatastrophe");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // Yes, you totally can use "defaultModResources/images/cards/Attack.png" instead and that would work.
@@ -36,47 +36,45 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
     // Using makePath is good practice once you get the hand of things, as it prevents you from
     // having to change *every single card/file/path* if the image path changes due to updates or your personal preference.
 
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_CAPACITANCE_SCROLL);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_CATALYTIC_CATASTROPHE);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int AMOUNT = 3;
-    private static final int UPGRADE_AMOUNT = 3;
+    private static final int POISON = 2;
+    private static final int UPGRADE_POISON = 2;
 
     // /STAT DECLARATION/
 
-    public CapacitanceScroll() {
+    public CatalyticCatastrophe() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = AMOUNT;
+        this.baseMagicNumber = POISON;
         this.magicNumber = this.baseMagicNumber;
-        this.isInnate = false;
-        tags.add(ScribeCardTags.SPELL_EFFECT_SCROLL);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new CapacitanceScrollPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new CatalyticCatastropheAction(m, p));
     }
 
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new CapacitanceScroll();
+        return new CatalyticCatastrophe();
     }
 
     // Upgraded stats.
@@ -84,7 +82,7 @@ public class CapacitanceScroll extends AbstractScribeCard implements CardSpellEf
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_POISON);
             this.initializeDescription();
         }
     }

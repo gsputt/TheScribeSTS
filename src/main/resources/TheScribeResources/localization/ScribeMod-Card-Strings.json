@@ -14,11 +14,11 @@
 	},
 	"theScribe:Cast_Spell": {
 		"NAME": "Scribed Spell",
-		"DESCRIPTION": "scribe:Cast, Exhaust, Ethereal.",
+		"DESCRIPTION": "scribe:Cast, Purge, scribe:Spectral.",
 		"EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
 			"(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
 			"(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
-			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets.)"]
+			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets.)", "(Deals ", " times damage to enemies with block.)"]
 	},
 	"theScribe:ArcaneBarrier": {
 		"NAME": "Arcane Barrier",
@@ -185,7 +185,8 @@
 	},
 	"theScribe:BlankScroll": {
 		"NAME": "Blank Scroll",
-		"DESCRIPTION": "At the start of your turn, if you have no scribe:Spell_Effects or scribe:Spell_Modifiers, NL gain !M! % scribe:Spell_Effectiveness."
+		"DESCRIPTION": "Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \"",
+		"UPGRADE_DESCRIPTION": "Innate. NL Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \""
 	},
 	"theScribe:WordsOfPower": {
 		"NAME": "Words of Power",
@@ -233,8 +234,7 @@
 	},
 	"theScribe:CapacitanceScroll": {
 		"NAME": "Capacitance Scroll",
-		"DESCRIPTION": "At the start of your turn, if you have no scribe:Spell_Effects, gain scribe:Spell_Effect: Deal !M! damage.",
-		"UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, if you have no scribe:Spell_Effects, gain scribe:Spell_Effect: Deal !M! damage."
+		"DESCRIPTION": "Your spell now starts with \" scribe:Spell_Effect: Deal !M! damage.\""
 	},
 	"theScribe:Incendio": {
 		"NAME": "Incendio",
@@ -329,13 +329,35 @@
 	},
 	"theScribe:TimeDilation": {
 		"NAME": "Time Dilation",
-		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply !M! Slow."
+		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply Slow."
 	},
 	"theScribe:ScrollOfScrying": {
 		"NAME": "Scroll of Scrying",
 		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. At the end of your turn, you may place a card from your hand on top of your draw pile. The first card you draw each turn costs 1 less."
 	},
-
+	"theScribe:PiercingBolts": {
+		"NAME": "Piercing Bolts",
+		"DESCRIPTION": "scribe:Spell_Modifier: Your scribe:Thunder deals double damage when hitting an enemy with Block. NL Stacks diminishingly.",
+		"UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: your scribe:Thunder deals 2.5 times damage when hitting an enemy with Block. NL Stacks diminishingly"
+	},
+	"theScribe:CatalyticCatastrophe": {
+		"NAME": "Catalytic Catastrophe",
+		"DESCRIPTION": "Apply !M! Poison. Remove all stacks of Poison. Deal all damage Poison would have dealt."
+	},
+	"theScribe:WeirdToxin": {
+		"NAME": "Weird Toxin",
+		"DESCRIPTION": "Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison.",
+		"UPGRADE_DESCRIPTION": "Draw a card. NL Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison."
+	},
+	"theScribe:GlacialGuard": {
+		"NAME": "Glacial Guard",
+		"DESCRIPTION": "Cannot be played if you have played an attack this turn. NL You cannot play additional attacks this turn. Gain !B! Block.",
+		"UPGRADE_DESCRIPTION": "You cannot play additional attacks this turn. Gain !B! Block."
+	},
+	"theScribe:FrostvenomToxin": {
+		"NAME": "Frostvenom Toxin",
+		"DESCRIPTION": "Gain !B! Block. scribe:Spell_Effect: Apply !M! Poison."
+	},
 
 	"theScribe:DefaultAttackWithVariable": {
 		"NAME": "Special Strike",
