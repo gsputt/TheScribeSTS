@@ -1,6 +1,7 @@
 package The_Scribe.actions;
 
 import The_Scribe.cards.Cast_Spell;
+import The_Scribe.cards.EnchantedStrike;
 import The_Scribe.powers.SpellChaining;
 import basemod.BaseMod;
 import basemod.interfaces.RenderSubscriber;
@@ -47,6 +48,7 @@ public class ChainedSpellTargetingAction implements RenderSubscriber {
             if(this.returnedArray != null && this.returnedArray.size() > 0)
             {
                 Cast_Spell.ChainedSpellTargetMonstersList = this.returnedArray;
+                EnchantedStrike.ChainedSpellTargetMonstersList = this.returnedArray;
                 int i = 0;
                 while(i < this.returnedArray.size())
                 {

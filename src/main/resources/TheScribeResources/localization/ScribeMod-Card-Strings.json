@@ -18,7 +18,8 @@
 		"EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
 			"(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
 			"(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
-			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)", "(Acquires !SPELLCHAINING! additional targets.)", "(Deals ", " times damage to enemies with block.)"]
+			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)",
+			"(Acquires !SPELLCHAINING! additional targets.)", "(Deals ", " times damage to enemies with block.)"]
 	},
 	"theScribe:ArcaneBarrier": {
 		"NAME": "Arcane Barrier",
@@ -159,7 +160,8 @@
   },
 	"theScribe:EnchantedStrike": {
 	"NAME": "Enchanted Strike",
-	"DESCRIPTION": "Affected by scribe:Spell_Modifiers. NL Deal !D! damage. NL (Hits !M! additional times)"
+	"DESCRIPTION": "Affected by scribe:Spell_Modifiers. NL Deal !D! damage. ",
+	"EXTENDED_DESCRIPTION": [" NL ","(Hits !M! additional times)", "(Acquires !SPELLCHAINING! additional target)", "(Acquires !SPELLCHAINING! additional targets)", "(Deals ", " times damage to enemies with block.)"]
 },
 	"theScribe:FocusingBlow": {
 		"NAME": "Focusing Blow",
@@ -280,7 +282,7 @@
 	},
 	"theScribe:ScrollOfPoison": {
 		"NAME": "Scroll Of Poison",
-		"DESCRIPTION": "Whenever you take damage on your turn, apply that much poison to ALL enemies."
+		"DESCRIPTION": "Whenever you take damage on your turn, apply that much Poison to ALL enemies."
 	},
 	"theScribe:CrystalShield": {
 		"NAME": "Crystal Shield",

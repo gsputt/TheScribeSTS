@@ -4,6 +4,7 @@ import The_Scribe.effects.IcicleBlastEffect;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -72,10 +73,9 @@ public class ThornsDown extends AbstractPower implements CloneablePowerInterface
             }
             else
             {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,
-                        AbstractDungeon.player, new ThornsPower(AbstractDungeon.player,
-                        -AbstractDungeon.player.getPower(ThornsDown.POWER_ID).amount),
-                        -AbstractDungeon.player.getPower(ThornsDown.POWER_ID).amount));
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player,
+                        AbstractDungeon.player, AbstractDungeon.player.getPower(ThornsPower.POWER_ID),
+                        AbstractDungeon.player.getPower(ThornsDown.POWER_ID).amount));
             }
         }
 
