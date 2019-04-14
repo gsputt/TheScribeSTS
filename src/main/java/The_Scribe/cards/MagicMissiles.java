@@ -1,6 +1,7 @@
 package The_Scribe.cards;
 
 import The_Scribe.effects.MagicMissilesEffect;
+import The_Scribe.powers.SpellsInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -89,7 +90,7 @@ public class MagicMissiles extends CustomCard {
 
         for(AbstractPower power: AbstractDungeon.player.powers)
         {
-            if(power instanceof CardSpellsInterface)
+            if(power instanceof SpellsInterface)
             {
                 hitTimes += 1;
             }

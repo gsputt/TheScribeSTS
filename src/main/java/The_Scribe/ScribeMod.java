@@ -429,7 +429,7 @@ public class ScribeMod implements
         BaseMod.addCard(new Meditate());
         BaseMod.addCard(new MirrorImage());
         BaseMod.addCard(new MagicMissiles());
-        BaseMod.addCard(new PoisonGas());
+        //BaseMod.addCard(new PoisonGas()); //DEPRECATED
         //BaseMod.addCard(new AirPrison());
         BaseMod.addCard(new BluntWeapons());
         BaseMod.addCard(new IcicleBlast());
@@ -525,7 +525,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(Meditate.ID);
         UnlockTracker.unlockCard(MirrorImage.ID);
         UnlockTracker.unlockCard(MagicMissiles.ID);
-        UnlockTracker.unlockCard(PoisonGas.ID);
+        //UnlockTracker.unlockCard(PoisonGas.ID); //DEPRECATED
         //UnlockTracker.unlockCard(AirPrison.ID);
         UnlockTracker.unlockCard(BluntWeapons.ID);
         UnlockTracker.unlockCard(IcicleBlast.ID);

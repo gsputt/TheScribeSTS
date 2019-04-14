@@ -1,5 +1,8 @@
-package The_Scribe.cards;
+package The_Scribe.unused.unusedCards;
 
+import The_Scribe.cards.AbstractScribeCard;
+import The_Scribe.cards.CardSpellEffectInterface;
+import The_Scribe.cards.CardSpellsInterface;
 import The_Scribe.patches.ScribeCardTags;
 import The_Scribe.powers.SpellPoison;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

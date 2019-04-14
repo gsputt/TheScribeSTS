@@ -50,8 +50,8 @@ public class Conflagrate extends CustomCard {
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 30;
-    private static final int UPGRADE_PLUS_DMG = 10;
+    private static final int DAMAGE = 35;
+    private static final int UPGRADE_PLUS_DMG = 15;
     private static final int POST_DAMAGE_MULTIPLIER = 2;
 
     // /STAT DECLARATION/
