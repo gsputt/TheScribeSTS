@@ -174,19 +174,29 @@ public class Cast_Spell extends CustomCard {
         //System.out.println("hoveredMonster: " + AbstractDungeon.getCurrRoom().monsters.hoveredMonster);
         //System.out.println("hoveredCard: " + AbstractDungeon.player.hoveredCard);
         if(AbstractDungeon.player != null) {
-            if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (AbstractDungeon.getCurrRoom() != null) {
+                if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 
-                if (AbstractDungeon.player.isHoveringDropZone && !dontUpdateTheArrayListImUsingIt) {
-                    if (scribeHoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID) && AbstractDungeon.player.hoveredCard == this) {
+                    if (AbstractDungeon.player.isHoveringDropZone && !dontUpdateTheArrayListImUsingIt) {
+                        if (scribeHoveredMonster != null && AbstractDungeon.player.hasPower(SpellChaining.POWER_ID) && AbstractDungeon.player.hoveredCard == this) {
 
-                        if (this.counter == 0) {
-                            chainedSpell = new ChainedSpellTargetingAction(this, true);
-                            this.counter++;
-                            this.monsterToCheck = scribeHoveredMonster;
-                            //System.out.println("Made A new ChainedSpellTargetingAction");
-                        }
-                        if (this.counter != 0 && this.monsterToCheck != scribeHoveredMonster) {
-                            //System.out.println("Changed Target");
+                            if (this.counter == 0) {
+                                chainedSpell = new ChainedSpellTargetingAction(this, true);
+                                this.counter++;
+                                this.monsterToCheck = scribeHoveredMonster;
+                                //System.out.println("Made A new ChainedSpellTargetingAction");
+                            }
+                            if (this.counter != 0 && this.monsterToCheck != scribeHoveredMonster) {
+                                //System.out.println("Changed Target");
+                                if (chainedSpell != null) {
+                                    chainedSpell.end();
+                                    chainedSpell = null;
+                                }
+                                if (this.counter != 0) {
+                                    this.counter = 0;
+                                }
+                            }
+                        } else {
                             if (chainedSpell != null) {
                                 chainedSpell.end();
                                 chainedSpell = null;
@@ -194,14 +204,6 @@ public class Cast_Spell extends CustomCard {
                             if (this.counter != 0) {
                                 this.counter = 0;
                             }
-                        }
-                    } else {
-                        if (chainedSpell != null) {
-                            chainedSpell.end();
-                            chainedSpell = null;
-                        }
-                        if (this.counter != 0) {
-                            this.counter = 0;
                         }
                     }
                 }

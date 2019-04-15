@@ -248,7 +248,7 @@
 	},
 	"theScribe:Conflagrate": {
 		"NAME": "Conflagrate",
-		"DESCRIPTION": "Deal !D! damage to the closest enemy. If this kills an enemy, it deals double of any excess damage to the one behind it."
+		"DESCRIPTION": "Deal !D! damage to the closest enemy. If this kills any enemy, it deals double of any excess damage to the one behind it."
 	},
 	"theScribe:AbsoluteZero": {
 		"NAME": "Absolute Zero",
@@ -344,7 +344,7 @@
 	},
 	"theScribe:CatalyticCatastrophe": {
 		"NAME": "Catalytic Catastrophe",
-		"DESCRIPTION": "Apply !M! Poison. Remove all stacks of Poison. Deal all damage Poison would have dealt."
+		"DESCRIPTION": "Apply !M! Poison. Remove all stacks of Poison. Deal the sum of all damage Poison would have dealt."
 	},
 	"theScribe:WeirdToxin": {
 		"NAME": "Weird Toxin",

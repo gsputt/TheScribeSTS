@@ -46,6 +46,9 @@ public class BarrierOfLight extends CustomCard {
     private static final int COST = 4;
     private static final int BLOCK_PER_HEALTH = 3;
     private static final int UPGRADE_COST = 3;
+    private boolean costHasBeenModified;
+    private int costBeforeModify;
+    private boolean recalculateCost = false;
 
 
     // /STAT DECLARATION/
@@ -56,6 +59,8 @@ public class BarrierOfLight extends CustomCard {
         this.baseBlock = 0;
         this.baseMagicNumber = BLOCK_PER_HEALTH;
         this.magicNumber = this.baseMagicNumber;
+        this.costHasBeenModified = false;
+        this.recalculateCost = false;
     }
 
     // Actions the card should do.
@@ -65,6 +70,52 @@ public class BarrierOfLight extends CustomCard {
                 new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block));
     }
 
+    @Override
+    public void applyPowers()
+    {
+        if(!this.costHasBeenModified) {
+            this.costBeforeModify = this.costForTurn;
+        }
+        super.applyPowers();
+        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+        double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
+        if(!this.costHasBeenModified || this.recalculateCost) {
+            this.costForTurn = this.costBeforeModify;
+            if (currentHPPercent <= 0.25) {
+                this.modifyCostForTurn(-1);
+            }
+            if (currentHPPercent <= 0.50) {
+                this.modifyCostForTurn(-1);
+            }
+            if (currentHPPercent <= 0.75) {
+                this.modifyCostForTurn(-1);
+            }
+            this.costHasBeenModified = true;
+            this.recalculateCost = false;
+        }
+    }
+
+    @Override
+    public void tookDamage()
+    {
+        this.recalculateCost = true;
+    }
+
+    @Override
+    public void triggerWhenDrawn()
+    {
+        this.costHasBeenModified = false;
+        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+    }
+
+    @Override
+    public void triggerWhenCopied()
+    {
+        this.costHasBeenModified = false;
+        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+    }
+
+    /*
     @Override
     public void tookDamage() {
         this.baseBlock = (int)((double)(AbstractDungeon.player.maxHealth) / magicNumber);
@@ -107,7 +158,7 @@ public class BarrierOfLight extends CustomCard {
             this.setCostForTurn(this.costForTurn - 1);
         }
     }
-
+*/
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
