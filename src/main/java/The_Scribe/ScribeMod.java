@@ -165,6 +165,8 @@ public class ScribeMod implements
     public static final String SCRIBE_WEIRD_TOXIN = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_GLACIAL_GUARD = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_FROSTVENOM_TOXIN = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_TOXIC_SPELLSTONE = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_QUICK_STUDY = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -210,6 +212,7 @@ public class ScribeMod implements
     public static final String SCRIPTED_STARFALL_POWER = "powers/placeholder_power.png";
     public static final String SCROLL_OF_SCRYING_POWER = "powers/placeholder_power.png";
     public static final String SPELL_PIERCING_BOLTS = "powers/placeholder_power.png";
+    public static final String REMOVE_SPLIT_AT_END_OF_TURN_POWER = "powers/placeholder_power.png";
 
 
     // Relic images
@@ -227,6 +230,8 @@ public class ScribeMod implements
     public static final String ALCHEMICAL_ALTER_OUTLINE = "relics/outline/AlchemicalAlterOutline.png";
     public static final String CLARITY_BOSS_RELIC = "relics/InvisibleInkwell.png";
     public static final String CLARITY_BOSS_RELIC_OUTLINE = "relics/outline/InvisibleInkwellOutline.png";
+    public static final String RUNIC_REPEATER = "relics/RunicRepeater.png";
+    public static final String RUNIC_REPEATER_OUTLINE = "relics/outline/RunicRepeaterOutline.png";
 
     public static final String SKILLBOOK = "relics/ScribeSkillbook.png";
     public static final String SKILLBOOK_OUTLINE = "relics/outline/ScribeSkillbookOutline.png";
@@ -492,6 +497,8 @@ public class ScribeMod implements
         BaseMod.addCard(new WeirdToxin());
         BaseMod.addCard(new GlacialGuard());
         BaseMod.addCard(new FrostvenomToxin());
+        BaseMod.addCard(new ToxicSpellstone());
+        BaseMod.addCard(new QuickStudy());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -588,6 +595,8 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(WeirdToxin.ID);
         UnlockTracker.unlockCard(GlacialGuard.ID);
         UnlockTracker.unlockCard(FrostvenomToxin.ID);
+        UnlockTracker.unlockCard(ToxicSpellstone.ID);
+        UnlockTracker.unlockCard(QuickStudy.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);
@@ -659,6 +668,7 @@ public class ScribeMod implements
         BaseMod.addRelicToCustomPool(new PermafrostPen(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new AlchemicalAlter(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new ClarityBossRelic(), AbstractCardEnum.SCRIBE_BLUE);
+        BaseMod.addRelicToCustomPool(new RunicRepeater(), AbstractCardEnum.SCRIBE_BLUE);
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         if(hasAspiration) {
@@ -756,15 +766,15 @@ public class ScribeMod implements
                         }
                     }
                 });
-        if(hasAspiration) {
+        //if(hasAspiration) {
             //settingsPanel.addUIElement(skillbookBtn);
-        }
-        else
-        {
+        //}
+        //else
+        //{
             settingsPanel.addUIElement(new ModLabel("ScribeMod doesn't have any settings!", 400.0f, 700.0f,
                     settingsPanel, (me) -> {
             }));
-        }
+        //}
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         logger.info("Done loading badge Image and mod options");

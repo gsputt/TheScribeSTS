@@ -1,6 +1,7 @@
 package The_Scribe.cards;
 
 import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.powers.RemoveSplitAtEndOfTurnPower;
 import The_Scribe.powers.SpellBlock;
 import The_Scribe.powers.SpellSplit;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -72,6 +73,7 @@ public class RecurringRime extends AbstractScribeCard implements CardSpellEffect
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellBlock(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSplit(p, this.split), this.split));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RemoveSplitAtEndOfTurnPower(p, this.split), this.split));
     }
 
 

@@ -77,7 +77,7 @@ public class ForkedBolt extends AbstractScribeCard {
         {
             AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.cardRandomRng, ScribeCardTags.SPELL_ATTACK);
             if(c != null) {
-                c = c.makeStatEquivalentCopy();
+                c = c.makeSameInstanceOf();
                 c.setCostForTurn(0);
                 if (c.exhaust == false) {
                     c.exhaust = true;

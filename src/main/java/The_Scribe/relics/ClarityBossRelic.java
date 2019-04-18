@@ -1,5 +1,6 @@
 package The_Scribe.relics;
 
+import The_Scribe.cards.AbstractScribeCard;
 import The_Scribe.powers.*;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -32,11 +33,7 @@ public class ClarityBossRelic extends CustomRelic{
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, p));
             }
         }
-        if(AbstractDungeon.player.hasPower(ScribedScrollAcquirePower.POWER_ID))
-        {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
-                    AbstractDungeon.player, AbstractDungeon.player, ScribedScrollAcquirePower.POWER_ID));
-        }
+        AbstractScribeCard.removeScribedScrollPower();
     }
 
     @Override

@@ -76,7 +76,6 @@ public class Cast_Spell extends CustomCard {
     private static int SpellChainingNumber = 0;
     private static int PiercingBoltsCounter = 0;
     private static double PiercingBoltsAmount = 0;
-    private static int CapacitanceScrollAmount = 0;
 
     private ChainedSpellTargetingAction chainedSpell;
     public static ArrayList<AbstractMonster> ChainedSpellTargetMonstersList = new ArrayList<>();
@@ -121,7 +120,7 @@ public class Cast_Spell extends CustomCard {
 
         }
         theScribeCast(p, m);
-        removeScribedScrollPower();
+        AbstractScribeCard.removeScribedScrollPower();
         dontUpdateTheArrayListImUsingIt = false;
     }
 
@@ -527,15 +526,6 @@ public class Cast_Spell extends CustomCard {
         else {
             SelfDamage = 0;
             SelfDamageCounter = 0;
-        }
-    }
-
-    private void removeScribedScrollPower()
-    {
-        if(AbstractDungeon.player.hasPower(ScribedScrollAcquirePower.POWER_ID))
-        {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
-                    AbstractDungeon.player, AbstractDungeon.player, ScribedScrollAcquirePower.POWER_ID));
         }
     }
 

@@ -294,7 +294,7 @@
 	},
 	"theScribe:RecurringRime": {
 		"NAME": "Recurring Rime",
-		"DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !BETTERSPLIT! scribe:Additional_Cast. NL Exhaust."
+		"DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !BETTERSPLIT! scribe:Additional_Cast this turn. NL Exhaust."
 	},
 	"theScribe:ArcaneArcing": {
 		"NAME": "Arcane Arcing",
@@ -359,6 +359,14 @@
 	"theScribe:FrostvenomToxin": {
 		"NAME": "Frostvenom Toxin",
 		"DESCRIPTION": "Gain !B! Block. scribe:Spell_Effect: Apply !M! Poison."
+	},
+	"theScribe:ToxicSpellstone": {
+		"NAME": "Toxic Spellstone",
+		"DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Effect: Apply !M! Poison."
+	},
+	"theScribe:QuickStudy": {
+		"NAME": "Quick Study",
+		"DESCRIPTION": "Add an scribe:Echo of a random card in your deck to your hand. It costs 0. Exhaust."
 	},
 
 	"theScribe:DefaultAttackWithVariable": {

@@ -224,6 +224,10 @@ public class EnchantedStrike extends CustomCard {
             }
             PiercingBoltsAmount = DiminishingStacks;
         }
+        else
+        {
+            PiercingBoltsCounter = 0;
+        }
         setDescription();
     }
 

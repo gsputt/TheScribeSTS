@@ -4,6 +4,7 @@ import The_Scribe.actions.ScribedScrollAcquireCounterAction;
 import The_Scribe.powers.*;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 
@@ -15,6 +16,20 @@ public abstract class AbstractScribeCard extends CustomCard {
                                   CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type,
                 color, rarity, target);
+    }
+
+    public static void removeScribedScrollPower()
+    {
+        if(AbstractDungeon.player.hasPower(ScribedScrollAcquirePower.POWER_ID))
+        {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
+                    AbstractDungeon.player, AbstractDungeon.player, ScribedScrollAcquirePower.POWER_ID));
+        }
+        if(AbstractDungeon.player.hasPower(RemoveSplitAtEndOfTurnPower.POWER_ID))
+        {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
+                    AbstractDungeon.player, AbstractDungeon.player, RemoveSplitAtEndOfTurnPower.POWER_ID));
+        }
     }
 
     public static void ScribedScrollAcquire()

@@ -126,5 +126,9 @@
   "theScribe:SpellPiercingBolts": {
     "NAME": "Modifier: Piercing Bolts",
     "DESCRIPTIONS": ["Your #yThunder deals ", " times damage when hitting an enemy with block."]
+  },
+  "theScribe:RemoveSplitAtEndOfTurnPower": {
+    "NAME": "Additional Casts Down",
+    "DESCRIPTIONS": ["Losing #b", " #yAdditional #yCast at the end of your turn.", " #yAdditional #yCasts at the end of your turn."]
   }
 }

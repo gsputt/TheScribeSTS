@@ -1,6 +1,8 @@
 package The_Scribe.cards;
 
-import The_Scribe.powers.SpellSplit;
+import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.powers.SpellPoison;
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,12 +12,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class Echo extends CustomCard implements CardSpellModifierInterface, CardSpellsInterface {
+public class ToxicSpellstone extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -27,7 +27,7 @@ public class Echo extends CustomCard implements CardSpellModifierInterface, Card
 
     // TEXT DECLARATION
 
-    public static final String ID = ScribeMod.makeID("Echo");
+    public static final String ID = ScribeMod.makeID("ToxicSpellstone");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // Yes, you totally can use "defaultModResources/images/cards/Attack.png" instead and that would work.
@@ -35,46 +35,54 @@ public class Echo extends CustomCard implements CardSpellModifierInterface, Card
     // Using makePath is good practice once you get the hand of things, as it prevents you from
     // having to change *every single card/file/path* if the image path changes due to updates or your personal preference.
 
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_ECHO);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_TOXIC_SPELLSTONE);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
-    private static final int COST = 2;
-    private static final int TIMES = 1;
-    private static final int UPGRADE_PLUS_TIMES = 1;
+    private static final int COST = 1;
+    private static final int POISON = 11;
+    private static final int UPGRADE_POISON = 3;
+    private static final int EXHAUSTIVE = 2;
 
     // /STAT DECLARATION/
 
-    public Echo() {
+    public ToxicSpellstone() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = TIMES;
+        this.baseMagicNumber = POISON;
         this.magicNumber = this.baseMagicNumber;
-        this.exhaust = true;
+        ExhaustiveVariable.setBaseValue(this, EXHAUSTIVE);
+        tags.add(ScribeCardTags.SPELLSTONE_EFFECT);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSplit(p, this.magicNumber), this.magicNumber));
+    }
+
+    public void triggerOnExhaust() {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player,
+                        AbstractDungeon.player,
+                        new SpellPoison(AbstractDungeon.player,
+                                this.magicNumber), this.magicNumber));
     }
 
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new Echo();
+        return new ToxicSpellstone();
     }
 
     // Upgraded stats.
@@ -82,8 +90,7 @@ public class Echo extends CustomCard implements CardSpellModifierInterface, Card
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.upgradeMagicNumber(UPGRADE_PLUS_TIMES);
+            this.upgradeMagicNumber(UPGRADE_POISON);
             this.initializeDescription();
         }
     }

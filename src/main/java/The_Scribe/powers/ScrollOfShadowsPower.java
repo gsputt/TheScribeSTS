@@ -68,7 +68,7 @@ public class ScrollOfShadowsPower extends TwoAmountPower implements CloneablePow
             AbstractCard c = card;
             if (c.type == AbstractCard.CardType.POWER) {
                 if (c != null) {
-                    c = c.makeStatEquivalentCopy();
+                    c = c.makeSameInstanceOf();
                     c.modifyCostForCombat(-1);
                     if (c.exhaust == false) {
                         c.exhaust = true;

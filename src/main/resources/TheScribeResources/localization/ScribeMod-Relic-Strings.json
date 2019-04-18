@@ -28,19 +28,19 @@
 		]
 	},
 	"theScribe:PermafrostPen": {
-	"NAME": "Permafrost Pen",
-	"FLAVOR": "An ice cold writing instrument, adorned with a snowflake. \n Its chill numbs the nerves to pain.",
-	"DESCRIPTIONS": [
-		"Whenever you play a card that gives a #yscribe:Spell_Effect [REMOVE_SPACE], gain #b3 Block."
-	]
-},
+		"NAME": "Permafrost Pen",
+		"FLAVOR": "An ice cold writing instrument, adorned with a snowflake. \n Its chill numbs the nerves to pain.",
+		"DESCRIPTIONS": [
+			"Whenever you play a card that gives a #yscribe:Spell_Effect [REMOVE_SPACE], gain #b3 Block."
+		]
+	},
 	"theScribe:AlchemicalAlter": {
-	"NAME": "Alchemical Alter",
-	"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
-	"DESCRIPTIONS": [
-		"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
-	]
-},
+		"NAME": "Alchemical Alter",
+		"FLAVOR": "A flask of poison, supercharged with electricity. The potency of the toxin will shock you.",
+		"DESCRIPTIONS": [
+			"Whenever you would gain #yscribe:Spell_Effect [REMOVE_SPACE]: Damage, gain half of it as #ySpell #yEffect [REMOVE_SPACE]: #yPoison [REMOVE_SPACE]."
+		]
+	},
 	"theScribe:ClarityBossRelic": {
 		"NAME": "Invisible Inkwell",
 		"FLAVOR": "An ornate Inkwell that spills forth an endless torrent of nothing. \n You quickly lose track of spells scribed with this \"ink\".",
@@ -48,6 +48,14 @@
 			"Gain \" [REMOVE_SPACE]#ySpell #yEffect [REMOVE_SPACE]: Gain 1 [E] [REMOVE_SPACE]\" at the start of each turn. At the end of each turn, lose all #yscribe:Spell_Effects and #yscribe:Spell_Modifiers [REMOVE_SPACE]."
 		]
 	},
+	"theScribe:RunicRepeater": {
+		"NAME": "Runic Repeater",
+		"FLAVOR": "A small metallic loop, adorned with strange letters. Wearing it seems to deepen your capacity for magic.",
+		"DESCRIPTIONS": [
+			"Gaining a #yscribe:Spell_Modifier causes a random card in your hand to cost 1 less until end of turn."
+		]
+	},
+
 
 	"theScribe:ScribeSkillbook": {
 		"NAME": "Scribe's Skillbook",

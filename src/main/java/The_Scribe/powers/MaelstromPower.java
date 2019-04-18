@@ -68,7 +68,7 @@ public class MaelstromPower extends TwoAmountPower implements CloneablePowerInte
             {
                 AbstractCard c = returnTrulyRandomCardFromMasterDeckListInCombat(AbstractDungeon.miscRng, card.costForTurn);
                 if(c != null) {
-                    c = c.makeStatEquivalentCopy();
+                    c = c.makeSameInstanceOf();
                     c.setCostForTurn(0);
                     if(c.exhaust == false) {
                         c.exhaust = true;
@@ -113,7 +113,7 @@ public class MaelstromPower extends TwoAmountPower implements CloneablePowerInte
 
         while(masterDeckIterator.hasNext()) {
             AbstractCard c = (AbstractCard)masterDeckIterator.next();
-            if(c.cost <= cardCost && c.cost >= -1) {
+            if(c.cost <= cardCost && c.cost >= -1 && c.type != AbstractCard.CardType.CURSE) {
                 list.add(c);
             }
         }
