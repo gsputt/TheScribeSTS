@@ -161,7 +161,7 @@ public class ScribeMod implements
     public static final String SCRIBE_TIME_DILATION = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_SCROLL_OF_SCRYING = "cards/PlaceholderPower.png";
     public static final String SCRIBE_PIERCING_BOLTS = "cards/PlaceholderSkill.png";
-    public static final String SCRIBE_CATALYTIC_CATASTROPHE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_CATALYTIC_CATASTROPHE = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_WEIRD_TOXIN = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_GLACIAL_GUARD = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_FROSTVENOM_TOXIN = "cards/PlaceholderSkill.png";

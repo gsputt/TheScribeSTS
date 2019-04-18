@@ -9,14 +9,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-
-import basemod.abstracts.CustomCard;
-
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class CatalyticCatastrophe extends CustomCard {
+import static The_Scribe.patches.ScribeHoveredMonsterPatch.scribeHoveredMonster;
+
+public class CatalyticCatastrophe extends AbstractScribeCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -48,12 +48,15 @@ public class CatalyticCatastrophe extends CustomCard {
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
-    private static final int POISON = 2;
+    private static final int POISON = 3;
     private static final int UPGRADE_POISON = 2;
+    private static final int BASE_DAMAGE = 3;
+    private static final int UPGRADE_BASE_DAMAGE = 3;
+    private int counter = 0;
 
     // /STAT DECLARATION/
 
@@ -61,6 +64,8 @@ public class CatalyticCatastrophe extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = POISON;
         this.magicNumber = this.baseMagicNumber;
+        this.baseSecondMagicNumber = BASE_DAMAGE;
+        this.secondMagicNumber = this.baseSecondMagicNumber;
     }
 
     // Actions the card should do.
@@ -68,6 +73,44 @@ public class CatalyticCatastrophe extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new CatalyticCatastropheAction(m, p));
+    }
+
+    @Override
+    public void update()
+    {
+        super.update();
+        if(AbstractDungeon.player != null) {
+            if (AbstractDungeon.getCurrRoom() != null) {
+                if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+
+                    if (AbstractDungeon.player.isHoveringDropZone) {
+                        if (scribeHoveredMonster != null && scribeHoveredMonster.hasPower(PoisonPower.POWER_ID) && AbstractDungeon.player.hoveredCard == this) {
+                            if (this.counter == 0) {
+
+                                int amount = scribeHoveredMonster.getPower(PoisonPower.POWER_ID).amount + this.magicNumber;
+                                amount = (int)Math.ceil((double)amount / (double)2);
+                                int damage = 0;
+                                while (amount > 0)
+                                {
+                                    damage += amount;
+                                    amount -= 1;
+                                }
+                                this.secondMagicNumber = damage;
+                                this.isSecondMagicNumberModified = true;
+
+                                this.counter++;
+                            }
+                        } else {
+                            if (this.counter != 0) {
+                                this.secondMagicNumber = this.baseSecondMagicNumber;
+                                this.isSecondMagicNumberModified = false;
+                                this.counter = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
@@ -83,6 +126,7 @@ public class CatalyticCatastrophe extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_POISON);
+            this.upgradeSecondMagicNumber(UPGRADE_BASE_DAMAGE);
             this.initializeDescription();
         }
     }

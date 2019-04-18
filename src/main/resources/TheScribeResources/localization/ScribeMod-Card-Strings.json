@@ -344,7 +344,7 @@
 	},
 	"theScribe:CatalyticCatastrophe": {
 		"NAME": "Catalytic Catastrophe",
-		"DESCRIPTION": "Apply !M! Poison. Remove all stacks of Poison. Deal the sum of all damage Poison would have dealt."
+		"DESCRIPTION": "Apply !M! Poison. Deal the sum of damage that half the Poison will deal. NL (Deal !SCRIBEM2! damage)"
 	},
 	"theScribe:WeirdToxin": {
 		"NAME": "Weird Toxin",

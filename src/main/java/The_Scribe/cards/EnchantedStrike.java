@@ -113,7 +113,7 @@ public class EnchantedStrike extends CustomCard {
                 i--;
             }
 
-            if (targetMonster.currentBlock > 0) {
+            if (targetMonster.currentBlock > 0 && PiercingBoltsCounter > 0) {
                 AbstractDungeon.actionManager
                         .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
                                 new DamageInfo(p, (int) Math.ceil(this.damage * PiercingBoltsAmount), this.damageTypeForTurn),

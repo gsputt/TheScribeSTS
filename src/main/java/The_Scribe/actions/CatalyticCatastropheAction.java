@@ -24,6 +24,7 @@ public class CatalyticCatastropheAction extends AbstractGameAction {
         if(target.hasPower(PoisonPower.POWER_ID))
         {
             int amount = target.getPower(PoisonPower.POWER_ID).amount;
+            amount = (int)Math.ceil((double)amount / (double)2);
             int damage = 0;
             while (amount > 0)
             {
@@ -32,9 +33,9 @@ public class CatalyticCatastropheAction extends AbstractGameAction {
             }
             AbstractDungeon.actionManager
                     .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(target,
-                            new DamageInfo(source, damage, DamageInfo.DamageType.NORMAL),
+                            new DamageInfo(source, damage, DamageInfo.DamageType.HP_LOSS),
                             AttackEffect.POISON, true));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.target, this.source, PoisonPower.POWER_ID));
+            //AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.target, this.source, PoisonPower.POWER_ID));
         }
 
     }
