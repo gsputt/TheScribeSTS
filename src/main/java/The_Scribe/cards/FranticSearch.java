@@ -3,6 +3,7 @@ package The_Scribe.cards;
 import The_Scribe.actions.FranticSearchExhaustAction;
 import basemod.BaseMod;
 import basemod.helpers.BaseModCardTags;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -56,7 +57,7 @@ public class FranticSearch extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExpertiseAction(p, BaseMod.MAX_HAND_SIZE));
         AbstractDungeon.actionManager.addToBottom(new FranticSearchExhaustAction());
-        AbstractDungeon.actionManager.addToBottom(new ExpertiseAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToTop(new DrawCardAction(p, this.magicNumber));
     }
 
     // Which card to return when making a copy of this card.
