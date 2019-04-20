@@ -25,7 +25,7 @@
   },
   "theScribe:BloodMagicksPower": {
     "NAME": "Blood Magicks",
-    "DESCRIPTIONS": ["Cards use #btwice their cost in HP instead of Energy", "Cards cost HP instead of Energy."]
+    "DESCRIPTIONS": ["Whenever you take damage on your turn, draw a card and gain #b1 [E] [REMOVE_SPACE].", "Whenever you take damage on your turn, draw #b", " cards and gain #b", " [E] [REMOVE_SPACE]."]
   },
   "theScribe:SpellClarity": {
     "NAME": "Effect: Clarity",

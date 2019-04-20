@@ -1,407 +1,420 @@
 {
-	"theScribe:StarterAttack": {
-		"NAME": "Strike",
-		"DESCRIPTION": "Deal !D! damage."
-	},
-	"theScribe:StarterDefend": {
-		"NAME": "Defend",
-		"DESCRIPTION": "Gain !B! Block."
-	},
-	"theScribe:Insight": {
-		"NAME": "Insight",
-		"DESCRIPTION": "Draw !M! cards, Exhaust.",
-		"UPGRADE_DESCRIPTION": "Draw !M! cards."
-	},
-	"theScribe:Cast_Spell": {
-		"NAME": "Scribed Spell",
-		"DESCRIPTION": "scribe:Cast, Purge, scribe:Spectral.",
-		"EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
-			"(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
-			"(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
-			"(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)",
-			"(Acquires !SPELLCHAINING! additional targets.)", "(Deals ", " times damage to enemies with block.)"]
-	},
-	"theScribe:ArcaneBarrier": {
-		"NAME": "Arcane Barrier",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! Block. NL scribe:Spell_Modifier: NL [#fa0000]Lose[] 25% scribe:Spell_Effectiveness."
-	},
-	"theScribe:Thunder": {
-		"NAME": "Storm Savvy",
-		"DESCRIPTION": "Draw a card. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage.",
-		"UPGRADE_DESCRIPTION": "Draw !M! cards. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
-	},
-	"theScribe:Frost": {
-		"NAME": "Freeze",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block.",
-		"UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block."
-	},
-	"theScribe:Dark": {
-		"NAME": "Eldritch",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply 5 Poison and 2 Weak."
-	},
-	"theScribe:Split": {
-		"NAME": "Split",
-		"DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, NL gain !M! scribe:Additional_Cast.",
-		"UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, NL gain !M! scribe:Additional_Casts."
-	},
-	"theScribe:BloodMagicks": {
-		"NAME": "Blood Magicks",
-		"DESCRIPTION": "Cards use twice their cost in HP instead of Energy.",
-		"UPGRADE_DESCRIPTION": "Cards cost HP instead of Energy."
-	},
-	"theScribe:Thwack": {
-	"NAME": "Hemorrhage",
-	"DESCRIPTION": "Deal !D! damage. NL Stun target enemy for 1 turn. NL Gain 2 scribe:Drained. NL Exhaust."
-},
-	"theScribe:Clarity": {
-		"NAME": "Clarity",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! [E]."
-	},
-	"theScribe:Focused": {
-		"NAME": "Focused",
-		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Modifier: NL Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:Ghost_Realm": {
-		"NAME": "Spectral Scroll",
-		"DESCRIPTION": "You and ALL enemies gain !M! Intangible."
-	},
-	"theScribe:SacrificeRitual": {
-		"NAME": "Ritual of Sacrifice",
-		"DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal for 25% of the slain enemy's Max HP. NL Exhaust."
-	},
-	"theScribe:Echo": {
-		"NAME": "Echo",
-		"DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Cast.",
-		"UPGRADE_DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Casts."
-	},
-	"theScribe:LightningBolt": {
-	"NAME": "Lightning Bolt",
-	"DESCRIPTION": "Deal !D! damage to ALL enemies. NL scribe:Spell_Effect: NL Deal !M! damage."
-	},
-	"theScribe:MirrorImage": {
-		"NAME": "Mirror Image",
-		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: NL Gain !M! Block."
-	},
-	"theScribe:Meditate": {
-		"NAME": "Meditate",
-		"DESCRIPTION": "Remove all Debuffs. NL Exhaust.",
-		"UPGRADE_DESCRIPTION": "Remove all Debuffs."
-	},
-	"theScribe:MagicMissiles": {
-		"NAME": "Magic Missiles",
-		"DESCRIPTION": "Deal !D! damage twice. NL For each unique scribe:Spell_Effect or scribe:Spell_Modifier, hits 1 additional time. NL (Hits !M! Times.)"
-	},
-	"theScribe:PoisonGas": {
-		"NAME": "Poison Gas",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Poison."
-	},
-	"theScribe:AirPrison": {
-		"NAME": "Air Prison",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
-	},
-	"theScribe:BluntWeapons": {
-		"NAME": "Blunt Weapons",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
-	},
-	"theScribe:IcicleBlast": {
-		"NAME": "Icicle Blast",
-		"DESCRIPTION": "Gain Thorns equal to half your block. NL Lose the gained Thorns at the start of your turn.",
-		"UPGRADE_DESCRIPTION": "Gain Thorns equal to your block. NL Lose the gained Thorns at the start of your turn."
-	},
-	"theScribe:OpenMind": {
-		"NAME": "Open Mind",
-		"DESCRIPTION": "Spells target all enemies. NL Ethereal. NL Gain 1 scribe:Drained",
-		"UPGRADE_DESCRIPTION": "Spells target all enemies. NL Gain 1 scribe:Drained"
-	},
-	"theScribe:PriceOfKnowledge": {
-		"NAME": "Price of Knowledge",
-		"DESCRIPTION": "This card costs !M! gold to play. NL Add a copy of this card to your hand. NL Purge. NL Draw 1 Card."
-	},
-	"theScribe:BarrierOfLight": {
-		"NAME": "Barrier Of Light",
-		"DESCRIPTION": "Costs 1 less [E] for each 25% of health missing. NL Gain 1 Block for each !M! Max HP. NL (Gain !B! Block.)"
-	},
-	"theScribe:Manablast": {
-		"NAME": "Manablast",
-		"DESCRIPTION": "Gain 1 scribe:Drained. NL scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, and !M! scribe:Additional_Casts."
-	},
-	"theScribe:EldritchApplyPoison": {
-		"NAME": "Poison",
-		"DESCRIPTION": "scribe:Spell_Modifier: NL Apply !M! Poison."
-	},
-	"theScribe:EldritchApplyVulnerable": {
-		"NAME": "Vulnerable",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
-	},
-	"theScribe:EldritchApplyWeak": {
-		"NAME": "Weak",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
-	},
-	"theScribe:Escalation": {
-		"NAME": "Escalation",
-		"DESCRIPTION": "For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained.",
-		"UPGRADE_DESCRIPTION": "Innate. NL For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained."
-	},
-	"theScribe:Conversion": {
-		"NAME": "Conversion",
-		"DESCRIPTION": " Exhaust. NL scribe:Spell_Modifier: NL Lose all Additional scribe:Casts, Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness for each scribe:Additional_Cast lost."
-	},
-	"theScribe:Inversion": {
-		"NAME": "Inversion",
-		"DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Lose all negative scribe:Spell_Effectiveness. Gain 25% scribe:Spell_Effectiveness for each !SPELLEFFECTIVENESS! % lost."
-	},
-	"theScribe:Splinter": {
-		"NAME": "Splinter",
-		"DESCRIPTION": "Exhaust. NL Add a copy of this card to your hand that costs 1 more [E]. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Cast."
-	},
+  "theScribe:StarterAttack": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theScribe:StarterDefend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "theScribe:Insight": {
+    "NAME": "Insight",
+    "DESCRIPTION": "Draw !M! cards, Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards."
+  },
+  "theScribe:Cast_Spell": {
+    "NAME": "Scribed Spell",
+    "DESCRIPTION": "scribe:Cast, Purge, scribe:Spectral.",
+    "EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
+      "(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
+      "(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( scribe:Casts !SplitNumber! additional times.)",
+      "(Gain !Clarity! Energy.)", "(Acquires !SPELLCHAINING! additional target.)", "(Deal !SELFDAMAGE! damage to yourself.)", "(Triggers in the order listed.)",
+      "(Acquires !SPELLCHAINING! additional targets.)", "(Deals ", " times damage to enemies with block.)"]
+  },
+  "theScribe:ArcaneBarrier": {
+    "NAME": "Arcane Barrier",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! Block. NL scribe:Spell_Modifier: NL [#fa0000]Lose[] 25% scribe:Spell_Effectiveness."
+  },
+  "theScribe:Thunder": {
+    "NAME": "Storm Savvy",
+    "DESCRIPTION": "Draw a card. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
+  },
+  "theScribe:Frost": {
+    "NAME": "Freeze",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block."
+  },
+  "theScribe:Dark": {
+    "NAME": "Eldritch",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply 5 Poison and 2 Weak."
+  },
+  "theScribe:Split": {
+    "NAME": "Split",
+    "DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, NL gain !M! scribe:Additional_Cast.",
+    "UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, NL gain !M! scribe:Additional_Casts."
+  },
+  "theScribe:BloodMagicks": {
+    "NAME": "Blood Magicks",
+    "DESCRIPTION": "Whenever you take damage on your turn, draw a card and gain 1 [E]."
+  },
+  "theScribe:Thwack": {
+    "NAME": "Hemorrhage",
+    "DESCRIPTION": "Deal !D! damage. NL Stun target enemy for 1 turn. NL Gain 2 scribe:Drained. NL Exhaust."
+  },
+  "theScribe:Clarity": {
+    "NAME": "Clarity",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! [E]."
+  },
+  "theScribe:Focused": {
+    "NAME": "Focused",
+    "DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Modifier: NL Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:Ghost_Realm": {
+    "NAME": "Spectral Scroll",
+    "DESCRIPTION": "You and ALL enemies gain !M! Intangible."
+  },
+  "theScribe:SacrificeRitual": {
+    "NAME": "Ritual of Sacrifice",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal for 25% of the slain enemy's Max HP. NL Exhaust."
+  },
+  "theScribe:Echo": {
+    "NAME": "Echo",
+    "DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Cast.",
+    "UPGRADE_DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Casts."
+  },
+  "theScribe:LightningBolt": {
+    "NAME": "Lightning Bolt",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL scribe:Spell_Effect: NL Deal !M! damage."
+  },
+  "theScribe:MirrorImage": {
+    "NAME": "Mirror Image",
+    "DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: NL Gain !M! Block."
+  },
+  "theScribe:Meditate": {
+    "NAME": "Meditate",
+    "DESCRIPTION": "Remove all Debuffs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all Debuffs."
+  },
+  "theScribe:MagicMissiles": {
+    "NAME": "Magic Missiles",
+    "DESCRIPTION": "Deal !D! damage twice. NL For each unique scribe:Spell_Effect or scribe:Spell_Modifier, hits 1 additional time. NL (Hits !M! Times.)"
+  },
+  "theScribe:PoisonGas": {
+    "NAME": "Poison Gas",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Poison."
+  },
+  "theScribe:AirPrison": {
+    "NAME": "Air Prison",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
+  },
+  "theScribe:BluntWeapons": {
+    "NAME": "Blunt Weapons",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
+  },
+  "theScribe:IcicleBlast": {
+    "NAME": "Icicle Blast",
+    "DESCRIPTION": "Gain Thorns equal to half your block. NL Lose the gained Thorns at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Gain Thorns equal to your block. NL Lose the gained Thorns at the start of your turn."
+  },
+  "theScribe:OpenMind": {
+    "NAME": "Open Mind",
+    "DESCRIPTION": "Spells target all enemies. NL Ethereal. NL Gain 1 scribe:Drained",
+    "UPGRADE_DESCRIPTION": "Spells target all enemies. NL Gain 1 scribe:Drained"
+  },
+  "theScribe:PriceOfKnowledge": {
+    "NAME": "Price of Knowledge",
+    "DESCRIPTION": "This card costs !M! gold to play. NL Add a copy of this card to your hand. NL Purge. NL Draw 1 Card."
+  },
+  "theScribe:BarrierOfLight": {
+    "NAME": "Barrier Of Light",
+    "DESCRIPTION": "Costs 1 less [E] for each 25% of health missing. NL Gain 1 Block for each !M! Max HP. NL (Gain !B! Block.)"
+  },
+  "theScribe:Manablast": {
+    "NAME": "Manablast",
+    "DESCRIPTION": "Gain 1 scribe:Drained. NL scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% scribe:Spell_Effectiveness, and !M! scribe:Additional_Casts."
+  },
+  "theScribe:EldritchApplyPoison": {
+    "NAME": "Poison",
+    "DESCRIPTION": "scribe:Spell_Modifier: NL Apply !M! Poison."
+  },
+  "theScribe:EldritchApplyVulnerable": {
+    "NAME": "Vulnerable",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
+  },
+  "theScribe:EldritchApplyWeak": {
+    "NAME": "Weak",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
+  },
+  "theScribe:Escalation": {
+    "NAME": "Escalation",
+    "DESCRIPTION": "For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained.",
+    "UPGRADE_DESCRIPTION": "Innate. NL For the first scribe:Spell_Effect you play each turn, add an scribe:Echo of that scribe:Spell_Effect to your hand. It costs 0. NL Gain !M! scribe:Drained."
+  },
+  "theScribe:Conversion": {
+    "NAME": "Conversion",
+    "DESCRIPTION": " Exhaust. NL scribe:Spell_Modifier: NL Lose all Additional scribe:Casts, Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness for each scribe:Additional_Cast lost."
+  },
+  "theScribe:Inversion": {
+    "NAME": "Inversion",
+    "DESCRIPTION": "Exhaust. NL scribe:Spell_Modifier: NL Lose all negative scribe:Spell_Effectiveness. Gain 25% scribe:Spell_Effectiveness for each !SPELLEFFECTIVENESS! % lost."
+  },
+  "theScribe:Splinter": {
+    "NAME": "Splinter",
+    "DESCRIPTION": "Exhaust. NL Add a copy of this card to your hand that costs 1 more [E]. NL scribe:Spell_Modifier: NL Gain !M! scribe:Additional_Cast."
+  },
   "theScribe:AmplifyingSpellstone": {
     "NAME": "Amp Spellstone",
     "DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Modifier: !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
   },
-	"theScribe:EnchantedStrike": {
-	"NAME": "Enchanted Strike",
-	"DESCRIPTION": "Affected by scribe:Spell_Modifiers. NL Deal !D! damage. ",
-	"EXTENDED_DESCRIPTION": [" NL ","(Hits !M! additional times)", "(Acquires !SPELLCHAINING! additional target)", "(Acquires !SPELLCHAINING! additional targets)", "(Deals ", " times damage to enemies with block.)"]
-},
-	"theScribe:FocusingBlow": {
-		"NAME": "Focusing Blow",
-		"DESCRIPTION": "Deal !D! damage. NL Gain 1 scribe:Drained. NL scribe:Spell_Modifier: NL Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:LightningBlade": {
-		"NAME": "Lightning Blade",
-		"DESCRIPTION": "Deal 5 damage. Deals additional damage equal to amount of scribe:Thunder. NL (Deal !D! damage.)",
-		"UPGRADE_DESCRIPTION": "Deal 5 damage. Deals additional damage equal to amount of scribe:Thunder. NL Draw a card. NL (Deal !D! damage.)"
-	},
-	"theScribe:Overcharge": {
-		"NAME": "Overcharge",
-		"DESCRIPTION": "scribe:Spell_Effect: NL Deal !M! damage to an enemy, and !OverchargeVariable! to yourself."
-	},
-	"theScribe:LiquidumScroll": {
-		"NAME": "Liquidum Scroll",
-		"DESCRIPTION": "While scribe:Drained, draw an additional card at the start of your turn.",
-		"UPGRADE_DESCRIPTION": "Innate. NL While scribe:Drained, draw an additional card at the start of your turn."
-	},
-	"theScribe:ScindoSpellstone": {
-		"NAME": "Scindo Spellstone",
-		"DESCRIPTION": "Exhaustive !stslib:ex!. NL Gain !BETTERDRAINED! scribe:Drained. NL When this card is Exhausted, gain NL scribe:Spell_Modifier: !BETTERSPLIT! scribe:Additional_Casts."
-	},
-	"theScribe:BlankScroll": {
-		"NAME": "Blank Scroll",
-		"DESCRIPTION": "Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \"",
-		"UPGRADE_DESCRIPTION": "Innate. NL Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \""
-	},
-	"theScribe:WordsOfPower": {
-		"NAME": "Words of Power",
-		"DESCRIPTION": "Whenever you lose a buff, deal !M! damage to a random enemy.",
-		"UPGRADE_DESCRIPTION": "Whenever you gain or lose a buff, deal !M! damage to a random enemy."
-	},
-	"theScribe:StemTheFlow": {
-		"NAME": "Stem the Flow",
-		"DESCRIPTION": "Whenever you gain a debuff, gain Temporary_HP equal to the amount. NL Stacks diminishingly.",
-		"UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain a debuff, gain Temporary_HP equal to the amount. NL Stacks diminishingly."
-	},
-	"theScribe:BloodBulwark": {
-		"NAME": "Blood Bulwark",
-		"DESCRIPTION": "Gain !M! Temporary_HP."
-	},
-	"theScribe:FalseLife": {
-		"NAME": "False Life",
-		"DESCRIPTION": "Block is gained as Temporary_HP this turn. NL Exhaust."
-	},
-	"theScribe:InscribeDeath": {
-		"NAME": "Inscribe Death",
-		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL scribe:Spell_Effect: Deal !M! damage to yourself."
-	},
-	"theScribe:WeirdBlast": {
-		"NAME": "Weird Blast",
-		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage.",
-		"UPGRADE_DESCRIPTION": "Draw a card. NL Gain !BETTERDRAINED! scribe:Drained. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
-	},
-	"theScribe:WeirdShield": {
-		"NAME": "Weird Shield",
-		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSELFDAMAGE! damage to yourself.",
-		"UPGRADE_DESCRIPTION": "Draw a card. NL Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSELFDAMAGE! damage to yourself."
-	},
-	"theScribe:StaticCage": {
-		"NAME": "Static Cage",
-		"DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
-	},
-	"theScribe:TelumSpellstone": {
-		"NAME": "Telum Spellstone",
-		"DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Effect: deal !BETTERSPELLATTACK! damage."
-	},
-	"theScribe:FlowLikeWater": {
-		"NAME": "Flow Like Water",
-		"DESCRIPTION": "When you play this, and at the start of your turn, if you are scribe:Drained, gain !M! Dexterity until end of turn."
-	},
-	"theScribe:CapacitanceScroll": {
-		"NAME": "Capacitance Scroll",
-		"DESCRIPTION": "Your spell now starts with \" scribe:Spell_Effect: Deal !M! damage.\""
-	},
-	"theScribe:Incendio": {
-		"NAME": "Incendio",
-		"DESCRIPTION": "Costs 1 [E] if you are scribe:Drained. NL Deal !D! damage. Gain !BETTERDRAINED! scribe:Drained."
-	},
-	"theScribe:Exsanguinate": {
-		"NAME": "Exsanguinate",
-		"DESCRIPTION": "Deal !D! damage. Gain Temporary_HP equal to half the unblocked damage dealt."
-	},
-	"theScribe:Conflagrate": {
-		"NAME": "Conflagrate",
-		"DESCRIPTION": "Deal !D! damage to the closest enemy. If this kills any enemy, it deals double of any excess damage to the one behind it."
-	},
-	"theScribe:AbsoluteZero": {
-		"NAME": "Absolute Zero",
-		"DESCRIPTION": "Give ALL enemies !M! Block. NL After this turn, start another turn. NL Your Hand, Block and Energy are Retained. NL Exhaust."
-	},
-	"theScribe:AnomalousTexts": {
-		"NAME": "Anomalous Texts",
-		"DESCRIPTION": "Lose all negative scribe:Spell_Effectiveness and all scribe:Additional_Casts. NL Gain 25% scribe:Spell_Effectiveness for each !SPELLEFFECTIVENESS!% lost, and !ANOMALOUSTEXTSVARIABLE!% scribe:Spell_Effectiveness for each scribe:Additional_Cast lost. NL Exhaust."
-	},
-	"theScribe:RecklessResponse": {
-		"NAME": "Reckless Response",
-		"DESCRIPTION": "Apply 2 Vulnerable to the closest enemy to you. NL scribe:Spell_Effect: Deal 4 damage to yourself.",
-		"UPGRADE_DESCRIPTION": "Apply 2 Vulnerable to ALL enemies. NL scribe:Spell_Effect: Deal 4 damage to yourself."
-	},
-	"theScribe:ForkedBolt": {
-		"NAME": "Forked Bolt",
-		"DESCRIPTION": "Add !M! scribe:Echoes of random cards that give scribe:Spell_Effect: damage from your deck into your hand. NL They cost 0 this turn. NL Exhaust."
-	},
-	"theScribe:FocusedBolt": {
-		"NAME": "Focusing Bolt",
-		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:Maelstrom": {
-		"NAME": "Deluge",
-		"DESCRIPTION": "Whenever you play the first card each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained.",
-		"UPGRADE_DESCRIPTION": "Whenever you play the first two cards each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained."
-	},
-	"theScribe:CripplingCharge": {
-		"NAME": "Crippling Charge",
-		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: [#fa0000]Lose[] !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:ScrollOfPoison": {
-		"NAME": "Scroll Of Poison",
-		"DESCRIPTION": "Whenever you take damage on your turn, apply that much Poison to ALL enemies."
-	},
-	"theScribe:CrystalShield": {
-		"NAME": "Crystal Shield",
-		"DESCRIPTION": "Gain !B! Block and !M! Thorns X Times. Lose the gained Thorns at the start of your turn."
-	},
-	"theScribe:FocusingBarrier": {
-		"NAME": "Focusing Barrier",
-		"DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:RecurringRime": {
-		"NAME": "Recurring Rime",
-		"DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !BETTERSPLIT! scribe:Additional_Cast this turn. NL Exhaust."
-	},
-	"theScribe:ArcaneArcing": {
-		"NAME": "Arcane Arcing",
-		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK!X Damage."
-	},
-	"theScribe:LightningStrike": {
-		"NAME": "Lightning Strike",
-		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! Damage."
-	},
-	"theScribe:IcyDefend": {
-		"NAME": "Icy Defend",
-		"DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block."
-	},
-	"theScribe:StarterModifier": {
-		"NAME": "Detailed Annotation",
-		"DESCRIPTION": "scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
-	},
-	"theScribe:ScrollOfShadows": {
-		"NAME": "Scroll of Shadows",
-		"DESCRIPTION": "Whenever you play the first card each turn, if it is a power, add an scribe:Echo of it to your hand. It costs 1 less."
-	},
-	"theScribe:ScrollOfChaining": {
-		"NAME": "Scroll of Chaining",
-		"DESCRIPTION": "At the start of your turn, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once.",
-		"UPGRADE_DESCRIPTION": "At the start of your turn and when you play this, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
-	},
-	"theScribe:StaticSeries": {
-		"NAME": "Static Series",
-		"DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
-	},
-	"theScribe:ScriptedStarfall": {
-		"NAME": "Scripted Starfall",
-		"DESCRIPTION": "Retain. Innate. At the end of your turn, deal !SCRIBEM2! damage to ALL enemies. NL Increase the damage by !M! for each turn this remains in your hand."
-	},
-	"theScribe:TimeDilation": {
-		"NAME": "Time Dilation",
-		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply Slow."
-	},
-	"theScribe:ScrollOfScrying": {
-		"NAME": "Scroll of Scrying",
-		"DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. At the end of your turn, you may place a card from your hand on top of your draw pile. The first card you draw each turn costs 1 less."
-	},
-	"theScribe:PiercingBolts": {
-		"NAME": "Piercing Bolts",
-		"DESCRIPTION": "scribe:Spell_Modifier: Your scribe:Thunder deals double damage when hitting an enemy with Block. NL Stacks diminishingly.",
-		"UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: your scribe:Thunder deals 2.5 times damage when hitting an enemy with Block. NL Stacks diminishingly"
-	},
-	"theScribe:CatalyticCatastrophe": {
-		"NAME": "Catalytic Catastrophe",
-		"DESCRIPTION": "Apply !M! Poison. Deal the sum of damage that half the Poison will deal. NL (Deal !SCRIBEM2! damage)"
-	},
-	"theScribe:WeirdToxin": {
-		"NAME": "Weird Toxin",
-		"DESCRIPTION": "Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison.",
-		"UPGRADE_DESCRIPTION": "Draw a card. NL Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison."
-	},
-	"theScribe:GlacialGuard": {
-		"NAME": "Glacial Guard",
-		"DESCRIPTION": "Cannot be played if you have played an attack this turn. NL You cannot play additional attacks this turn. Gain !B! Block.",
-		"UPGRADE_DESCRIPTION": "You cannot play additional attacks this turn. Gain !B! Block."
-	},
-	"theScribe:FrostvenomToxin": {
-		"NAME": "Frostvenom Toxin",
-		"DESCRIPTION": "Gain !B! Block. scribe:Spell_Effect: Apply !M! Poison."
-	},
-	"theScribe:ToxicSpellstone": {
-		"NAME": "Toxic Spellstone",
-		"DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Effect: Apply !M! Poison."
-	},
-	"theScribe:QuickStudy": {
-		"NAME": "Quick Study",
-		"DESCRIPTION": "Add an scribe:Echo of a random card in your deck to your hand. It costs 0. Exhaust."
-	},
+  "theScribe:EnchantedStrike": {
+    "NAME": "Enchanted Strike",
+    "DESCRIPTION": "Affected by scribe:Spell_Modifiers. NL Deal !D! damage. ",
+    "EXTENDED_DESCRIPTION": [" NL ","(Hits !M! additional times)", "(Acquires !SPELLCHAINING! additional target)", "(Acquires !SPELLCHAINING! additional targets)", "(Deals ", " times damage to enemies with block.)"]
+  },
+  "theScribe:FocusingBlow": {
+    "NAME": "Focusing Blow",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 scribe:Drained. NL scribe:Spell_Modifier: NL Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:LightningBlade": {
+    "NAME": "Lightning Blade",
+    "DESCRIPTION": "Deal 5 damage. Deals additional damage equal to amount of scribe:Thunder. NL (Deal !D! damage.)",
+    "UPGRADE_DESCRIPTION": "Deal 5 damage. Deals additional damage equal to amount of scribe:Thunder. NL Draw a card. NL (Deal !D! damage.)"
+  },
+  "theScribe:Overcharge": {
+    "NAME": "Overcharge",
+    "DESCRIPTION": "scribe:Spell_Effect: NL Deal !M! damage to an enemy, and !OverchargeVariable! to yourself."
+  },
+  "theScribe:LiquidumScroll": {
+    "NAME": "Liquidum Scroll",
+    "DESCRIPTION": "While scribe:Drained, draw an additional card at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL While scribe:Drained, draw an additional card at the start of your turn."
+  },
+  "theScribe:ScindoSpellstone": {
+    "NAME": "Scindo Spellstone",
+    "DESCRIPTION": "Exhaustive !stslib:ex!. NL Gain !BETTERDRAINED! scribe:Drained. NL When this card is Exhausted, gain NL scribe:Spell_Modifier: !BETTERSPLIT! scribe:Additional_Casts."
+  },
+  "theScribe:BlankScroll": {
+    "NAME": "Blank Scroll",
+    "DESCRIPTION": "Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \"",
+    "UPGRADE_DESCRIPTION": "Innate. NL Your spell now starts with \" scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness. \""
+  },
+  "theScribe:WordsOfPower": {
+    "NAME": "Words of Power",
+    "DESCRIPTION": "Whenever you lose a buff, deal !M! damage to a random enemy.",
+    "UPGRADE_DESCRIPTION": "Whenever you gain or lose a buff, deal !M! damage to a random enemy."
+  },
+  "theScribe:StemTheFlow": {
+    "NAME": "Stem the Flow",
+    "DESCRIPTION": "Whenever you gain a debuff, gain Temporary_HP equal to the amount. NL Stacks diminishingly.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain a debuff, gain Temporary_HP equal to the amount. NL Stacks diminishingly."
+  },
+  "theScribe:BloodBulwark": {
+    "NAME": "Blood Bulwark",
+    "DESCRIPTION": "Gain !M! Temporary_HP."
+  },
+  "theScribe:FalseLife": {
+    "NAME": "False Life",
+    "DESCRIPTION": "Block is gained as Temporary_HP this turn. NL Exhaust."
+  },
+  "theScribe:InscribeDeath": {
+    "NAME": "Inscribe Death",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL scribe:Spell_Effect: Deal !M! damage to yourself."
+  },
+  "theScribe:WeirdBlast": {
+    "NAME": "Weird Blast",
+    "DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage.",
+    "UPGRADE_DESCRIPTION": "Draw a card. NL Gain !BETTERDRAINED! scribe:Drained. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
+  },
+  "theScribe:WeirdShield": {
+    "NAME": "Weird Shield",
+    "DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSELFDAMAGE! damage to yourself.",
+    "UPGRADE_DESCRIPTION": "Draw a card. NL Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSELFDAMAGE! damage to yourself."
+  },
+  "theScribe:StaticCage": {
+    "NAME": "Static Cage",
+    "DESCRIPTION": "Gain !B! Block. NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage."
+  },
+  "theScribe:TelumSpellstone": {
+    "NAME": "Telum Spellstone",
+    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Effect: deal !BETTERSPELLATTACK! damage."
+  },
+  "theScribe:FlowLikeWater": {
+    "NAME": "Flow Like Water",
+    "DESCRIPTION": "When you play this, and at the start of your turn, if you are scribe:Drained, gain !M! Dexterity until end of turn."
+  },
+  "theScribe:CapacitanceScroll": {
+    "NAME": "Capacitance Scroll",
+    "DESCRIPTION": "Your spell now starts with \" scribe:Spell_Effect: Deal !M! damage.\""
+  },
+  "theScribe:Incendio": {
+    "NAME": "Incendio",
+    "DESCRIPTION": "Costs 1 [E] if you are scribe:Drained. NL Deal !D! damage. Gain !BETTERDRAINED! scribe:Drained."
+  },
+  "theScribe:Exsanguinate": {
+    "NAME": "Exsanguinate",
+    "DESCRIPTION": "Deal !D! damage. Gain Temporary_HP equal to half the unblocked damage dealt."
+  },
+  "theScribe:Conflagrate": {
+    "NAME": "Conflagrate",
+    "DESCRIPTION": "Deal !D! damage to the closest enemy. If this kills any enemy, it deals double of any excess damage to the one behind it."
+  },
+  "theScribe:AbsoluteZero": {
+    "NAME": "Absolute Zero",
+    "DESCRIPTION": "Give ALL enemies !M! Block. NL After this turn, start another turn. NL Your Hand, Block and Energy are Retained. NL Exhaust."
+  },
+  "theScribe:AnomalousTexts": {
+    "NAME": "Anomalous Texts",
+    "DESCRIPTION": "Lose all negative scribe:Spell_Effectiveness and all scribe:Additional_Casts. NL Gain 25% scribe:Spell_Effectiveness for each !SPELLEFFECTIVENESS!% lost, and !ANOMALOUSTEXTSVARIABLE!% scribe:Spell_Effectiveness for each scribe:Additional_Cast lost. NL Exhaust."
+  },
+  "theScribe:RecklessResponse": {
+    "NAME": "Reckless Response",
+    "DESCRIPTION": "Apply 2 Vulnerable to the closest enemy to you. NL scribe:Spell_Effect: Deal 4 damage to yourself.",
+    "UPGRADE_DESCRIPTION": "Apply 2 Vulnerable to ALL enemies. NL scribe:Spell_Effect: Deal 4 damage to yourself."
+  },
+  "theScribe:ForkedBolt": {
+    "NAME": "Forked Bolt",
+    "DESCRIPTION": "Add !M! scribe:Echoes of random cards that give scribe:Spell_Effect: damage from your deck into your hand. NL They cost 0 this turn. NL Exhaust."
+  },
+  "theScribe:FocusedBolt": {
+    "NAME": "Focusing Bolt",
+    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:Maelstrom": {
+    "NAME": "Deluge",
+    "DESCRIPTION": "Whenever you play the first card each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained.",
+    "UPGRADE_DESCRIPTION": "Whenever you play the first two cards each turn, if you are scribe:Drained, add an scribe:Echo of a random card from your deck that costs less than or equal energy to your hand. It costs 0. NL Gain 2 scribe:Drained."
+  },
+  "theScribe:CripplingCharge": {
+    "NAME": "Crippling Charge",
+    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: [#fa0000]Lose[] !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:ScrollOfPoison": {
+    "NAME": "Scroll Of Poison",
+    "DESCRIPTION": "Whenever you take damage on your turn, apply that much Poison to ALL enemies."
+  },
+  "theScribe:CrystalShield": {
+    "NAME": "Crystal Shield",
+    "DESCRIPTION": "Gain !B! Block and !M! Thorns X Times. Lose the gained Thorns at the start of your turn."
+  },
+  "theScribe:FocusingBarrier": {
+    "NAME": "Focusing Barrier",
+    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:RecurringRime": {
+    "NAME": "Recurring Rime",
+    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL scribe:Spell_Modifier: Gain !BETTERSPLIT! scribe:Additional_Cast this turn. NL Exhaust."
+  },
+  "theScribe:ArcaneArcing": {
+    "NAME": "Arcane Arcing",
+    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK!X Damage."
+  },
+  "theScribe:LightningStrike": {
+    "NAME": "Lightning Strike",
+    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! Damage."
+  },
+  "theScribe:IcyDefend": {
+    "NAME": "Icy Defend",
+    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block."
+  },
+  "theScribe:StarterModifier": {
+    "NAME": "Detailed Annotation",
+    "DESCRIPTION": "scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % scribe:Spell_Effectiveness."
+  },
+  "theScribe:ScrollOfShadows": {
+    "NAME": "Scroll of Shadows",
+    "DESCRIPTION": "Whenever you play the first card each turn, if it is a power, add an scribe:Echo of it to your hand. It costs 1 less."
+  },
+  "theScribe:ScrollOfChaining": {
+    "NAME": "Scroll of Chaining",
+    "DESCRIPTION": "At the start of your turn, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn and when you play this, NL gain 1 scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
+  },
+  "theScribe:StaticSeries": {
+    "NAME": "Static Series",
+    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL scribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
+  },
+  "theScribe:ScriptedStarfall": {
+    "NAME": "Scripted Starfall",
+    "DESCRIPTION": "Retain. Innate. At the end of your turn, deal !SCRIBEM2! damage to ALL enemies. NL Increase the damage by !M! for each turn this remains in your hand."
+  },
+  "theScribe:TimeDilation": {
+    "NAME": "Time Dilation",
+    "DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply Slow."
+  },
+  "theScribe:ScrollOfScrying": {
+    "NAME": "Scroll of Scrying",
+    "DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. At the end of your turn, you may place a card from your hand on top of your draw pile. The first card you draw each turn costs 1 less."
+  },
+  "theScribe:PiercingBolts": {
+    "NAME": "Piercing Bolts",
+    "DESCRIPTION": "scribe:Spell_Modifier: Your scribe:Thunder deals double damage when hitting an enemy with Block. NL Stacks diminishingly.",
+    "UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: your scribe:Thunder deals 2.5 times damage when hitting an enemy with Block. NL Stacks diminishingly"
+  },
+  "theScribe:CatalyticCatastrophe": {
+    "NAME": "Catalytic Catastrophe",
+    "DESCRIPTION": "Apply !M! Poison. Deal the sum of damage that half the Poison will deal. NL (Deal !SCRIBEM2! damage)"
+  },
+  "theScribe:WeirdToxin": {
+    "NAME": "Weird Toxin",
+    "DESCRIPTION": "Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Draw a card. NL Gain !SCRIBEM2! Weak and !SCRIBEM2! Frail. NL scribe:Spell_Effect: Apply !M! Poison."
+  },
+  "theScribe:GlacialGuard": {
+    "NAME": "Glacial Guard",
+    "DESCRIPTION": "Cannot be played if you have played an attack this turn. NL You cannot play additional attacks this turn. Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "You cannot play additional attacks this turn. Gain !B! Block."
+  },
+  "theScribe:FrostvenomToxin": {
+    "NAME": "Frostvenom Toxin",
+    "DESCRIPTION": "Gain !B! Block. scribe:Spell_Effect: Apply !M! Poison."
+  },
+  "theScribe:ToxicSpellstone": {
+    "NAME": "Toxic Spellstone",
+    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When this card is Exhausted, gain NL scribe:Spell_Effect: Apply !M! Poison."
+  },
+  "theScribe:QuickStudy": {
+    "NAME": "Quick Study",
+    "DESCRIPTION": "Add an scribe:Echo of a random card in your deck to your hand. It costs 0. Exhaust."
+  },
+  "theScribe:InvigoratingStrike": {
+    "NAME": "Invigorating Strike",
+    "DESCRIPTION": "Deal !D! damage. If you are scribe:Drained, gain [E] next turn."
+  },
+  "theScribe:PaperCut": {
+    "NAME": "Paper Cut",
+    "DESCRIPTION": "Deal damage equal to the number of cards in your hand. NL (Deal !D! damage.)",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to twice the number of cards in your hand. NL (Deal !D! damage.)"
+  },
+  "theScribe:FranticSearch": {
+    "NAME": "Frantic Search",
+    "DESCRIPTION": "Draw cards until your hand is full. NL Exhaust your hand. NL Draw !M! cards."
+  },
 
-	"theScribe:DefaultAttackWithVariable": {
-		"NAME": "Special Strike",
-		"DESCRIPTION": "Deal !D! Damage [R] times. NL (Deal !ENERGY_DAMAGE! damage total.)"
-	},
-	"theScribe:DefaultCommonPower": {
-		"NAME": "Hold Place",
-		"DESCRIPTION": "Gain !M! Keyword.",
-		"UPGRADE_DESCRIPTION": "Gain !M! Keywords."
-	},
-	"theScribe:DefaultUncommonAttack": {
-		"NAME": "Big Slap",
-		"DESCRIPTION": "Deal !D! Damage."
-	},
-	"theScribe:DefaultUncommonSkill": {
-		"NAME": "A Better Defend",
-		"DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
-	},
-	"theScribe:DefaultUncommonPower": {
-		"NAME": "Weirdness",
-		"DESCRIPTION": "Gain X Keywords.",
-		"UPGRADE_DESCRIPTION": "Gain X +1 Keywords."
-	},
-	"theScribe:DefaultRareAttack": {
-		"NAME": "TOUCH",
-		"DESCRIPTION": "Deal !D! Damage."
-	},
-	"theScribe:DefaultRareSkill": {
-		"NAME": "For Each Loop x2",
-		"DESCRIPTION": "Apply !M! vulnerable to all enemies, 2 times.",
-		"UPGRADE_DESCRIPTION": "Apply !M! vulnerable to all enemies, 3 times."
-	},
-	"theScribe:DefaultRarePower": {
-		"NAME": "In-Progress Form",
-		"DESCRIPTION": "At the start of your turn, play a TOUCH."
-	}
+
+  "theScribe:DefaultAttackWithVariable": {
+    "NAME": "Special Strike",
+    "DESCRIPTION": "Deal !D! Damage [R] times. NL (Deal !ENERGY_DAMAGE! damage total.)"
+  },
+  "theScribe:DefaultCommonPower": {
+    "NAME": "Hold Place",
+    "DESCRIPTION": "Gain !M! Keyword.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Keywords."
+  },
+  "theScribe:DefaultUncommonAttack": {
+    "NAME": "Big Slap",
+    "DESCRIPTION": "Deal !D! Damage."
+  },
+  "theScribe:DefaultUncommonSkill": {
+    "NAME": "A Better Defend",
+    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+  },
+  "theScribe:DefaultUncommonPower": {
+    "NAME": "Weirdness",
+    "DESCRIPTION": "Gain X Keywords.",
+    "UPGRADE_DESCRIPTION": "Gain X +1 Keywords."
+  },
+  "theScribe:DefaultRareAttack": {
+    "NAME": "TOUCH",
+    "DESCRIPTION": "Deal !D! Damage."
+  },
+  "theScribe:DefaultRareSkill": {
+    "NAME": "For Each Loop x2",
+    "DESCRIPTION": "Apply !M! vulnerable to all enemies, 2 times.",
+    "UPGRADE_DESCRIPTION": "Apply !M! vulnerable to all enemies, 3 times."
+  },
+  "theScribe:DefaultRarePower": {
+    "NAME": "In-Progress Form",
+    "DESCRIPTION": "At the start of your turn, play a TOUCH."
+  }
 }

@@ -1,4 +1,4 @@
-package The_Scribe.unused.unusedCards;
+package The_Scribe.cards;
 
 import The_Scribe.powers.BloodMagicksPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -45,9 +45,9 @@ public class BloodMagicks extends CustomCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
-    private static final int COST = 2;
-    private static final int HPCOSTSTACK = 1;
-    private static final int UPGRADE_PLUS_HPCOSTSTACK = 1;
+    private static final int COST = 3;
+    private static final int UPGRADED_COST = 2;
+    private static final int AMOUNT = 1;
 
 
     // /STAT DECLARATION/
@@ -55,7 +55,7 @@ public class BloodMagicks extends CustomCard {
 
     public BloodMagicks() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = HPCOSTSTACK;
+        this.baseMagicNumber = AMOUNT;
         this.magicNumber = this.baseMagicNumber;
 
     }
@@ -77,8 +77,7 @@ public class BloodMagicks extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.upgradeMagicNumber(UPGRADE_PLUS_HPCOSTSTACK);
+            this.upgradeBaseCost(UPGRADED_COST);
             this.initializeDescription();
         }
     }

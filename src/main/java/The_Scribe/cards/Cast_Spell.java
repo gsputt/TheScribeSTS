@@ -134,7 +134,7 @@ public class Cast_Spell extends CustomCard {
 
     public void theScribeCastSkillOrAttack()
     {
-        if(this.baseDamage > 0) {
+        if(this.baseDamage > 0 || AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             this.type = CardType.ATTACK;
             this.textureImg = IMG_ATTACK;
             this.loadCardImage(IMG_ATTACK);
@@ -437,24 +437,24 @@ public class Cast_Spell extends CustomCard {
         }
         LightningDMGCounter = 0;
         LightningDMG = 0;
-        baseDamage = 0;
+        this.baseDamage = 0;
         if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)){
 
             LightningDMGCounter = AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount;
             LightningDMG = (int) Math.ceil(AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount
                     * SpellEffectivenessModifier); // EXCLUDES CAPACITANCE SCROLL
-            baseDamage = LightningDMG;
+            this.baseDamage = LightningDMG;
         }
         if(AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))
         {
             LightningDMGCounter += AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount;
             LightningDMG += (int)Math.ceil((AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount) * SpellEffectivenessModifier); // INCLUDES CAPACITANCE SCROLL
-            baseDamage = LightningDMG;
+            this.baseDamage = LightningDMG;
         }
         if(!(AbstractDungeon.player.hasPower(SpellAttack.POWER_ID) || AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))){
             LightningDMGCounter = 0;
             LightningDMG = 0;
-            baseDamage = 0;
+            this.baseDamage = 0;
         }
 
         if(AbstractDungeon.player.hasPower(SpellPiercingBolts.POWER_ID)) {

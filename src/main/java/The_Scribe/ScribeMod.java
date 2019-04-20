@@ -167,6 +167,9 @@ public class ScribeMod implements
     public static final String SCRIBE_FROSTVENOM_TOXIN = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_TOXIC_SPELLSTONE = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_QUICK_STUDY = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_INVIGORATING_STRIKE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_PAPER_CUT = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_FRANTIC_SEARCH = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -423,7 +426,7 @@ public class ScribeMod implements
         BaseMod.addCard(new Ice());
         BaseMod.addCard(new Eldritch());
         BaseMod.addCard(new Split());
-        //BaseMod.addCard(new BloodMagicks()); //ADD BACK LATER WHEN REWORKED
+        BaseMod.addCard(new BloodMagicks()); //REWORKED NOW
         BaseMod.addCard(new Thwack());
         BaseMod.addCard(new Clarity());
         BaseMod.addCard(new Focused());
@@ -499,6 +502,9 @@ public class ScribeMod implements
         BaseMod.addCard(new FrostvenomToxin());
         BaseMod.addCard(new ToxicSpellstone());
         BaseMod.addCard(new QuickStudy());
+        BaseMod.addCard(new InvigoratingStrike());
+        BaseMod.addCard(new PaperCut());
+        BaseMod.addCard(new FranticSearch());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -521,7 +527,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(Ice.ID);
         UnlockTracker.unlockCard(Eldritch.ID);
         UnlockTracker.unlockCard(Split.ID);
-        //UnlockTracker.unlockCard(BloodMagicks.ID); //ADD BACK LATER WHEN REWORKED
+        UnlockTracker.unlockCard(BloodMagicks.ID); //REWORKED NOW
         UnlockTracker.unlockCard(Thwack.ID);
         UnlockTracker.unlockCard(Clarity.ID);
         UnlockTracker.unlockCard(Focused.ID);
@@ -597,6 +603,9 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(FrostvenomToxin.ID);
         UnlockTracker.unlockCard(ToxicSpellstone.ID);
         UnlockTracker.unlockCard(QuickStudy.ID);
+        UnlockTracker.unlockCard(InvigoratingStrike.ID);
+        UnlockTracker.unlockCard(PaperCut.ID);
+        UnlockTracker.unlockCard(FranticSearch.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

@@ -1,9 +1,11 @@
 package The_Scribe.powers;
 
-import The_Scribe.unused.unusedCards.BloodMagicks;
 import basemod.interfaces.CloneablePowerInterface;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -16,20 +18,19 @@ import com.megacrit.cardcrawl.powers.*;
 import The_Scribe.ScribeMod;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
+import java.util.Iterator;
+
 
 //Gain 1 dex for the turn for each card played.
 
-public class BloodMagicksPower extends AbstractPower implements CloneablePowerInterface {
+public class BloodMagicksPower extends AbstractPower implements OnLoseBlockPower, OnLoseTempHpPower, CloneablePowerInterface {
 
     public static final String POWER_ID = The_Scribe.ScribeMod.makeID("BloodMagicksPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = ScribeMod.makePath(ScribeMod.BLOOD_MAGICKS_POWER);
-    public static int amountToCast = 0;
-    public static final int HPLOSS_MULTIPLIER = 2;
-    public static final int HPLOSS_MULTIPLIER_UPGRADED = 1;
-    public static int energyCostRetain = 0;
+    private static boolean isPlayerTurn = true;
 
     public BloodMagicksPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -41,57 +42,64 @@ public class BloodMagicksPower extends AbstractPower implements CloneablePowerIn
         this.isTurnBased = false;
         this.img = new Texture(IMG);
         this.canGoNegative = false;
-        amountToCast = this.amount;
+        isPlayerTurn = true;
     }
 
     @Override
     public AbstractPower makeCopy()
     {
-        return new BloodMagicksPower(this.owner, this.amount);
+        return new ScrollOfPoisonPower(this.owner, this.amount);
     }
 
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if(this.amount <= 1 && this.amount > 0) {
-            if(card.freeToPlayOnce) {
-                //doNothing
-            }
-            else if(card.costForTurn < 0) {
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, EnergyPanel.totalCount * HPLOSS_MULTIPLIER, AbstractGameAction.AttackEffect.NONE));
-            }
-            else if(card.costForTurn > 0){
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, card.costForTurn * HPLOSS_MULTIPLIER, AbstractGameAction.AttackEffect.NONE));
-            }
+    @Override
+    public int onLoseTempHp(DamageInfo info, int damageAmount)
+    {
+        if (isPlayerTurn) {
+            BloodMagicksStuff();
         }
-        else
+        return damageAmount;
+    }
+
+    @Override
+    public int onLoseBlock(DamageInfo info, int damageAmount)
+    {
+        if (isPlayerTurn) {
+            BloodMagicksStuff();
+        }
+        return damageAmount;
+    }
+
+    @Override
+    public int onLoseHp(int damageAmount)
+    {
+        if (isPlayerTurn) {
+            BloodMagicksStuff();
+        }
+        return damageAmount;
+    }
+
+    public void BloodMagicksStuff()
+    {
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.amount));
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+    }
+
+    @Override
+    public void atStartOfTurnPostDraw() {
+        isPlayerTurn = true;
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if(isPlayer)
         {
-            if(card.freeToPlayOnce) {
-                //doNothing
-            }
-            else if(card.costForTurn < 0) {
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, EnergyPanel.totalCount * HPLOSS_MULTIPLIER_UPGRADED, AbstractGameAction.AttackEffect.NONE));
-            }
-            else if(card.costForTurn > 0){
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, card.costForTurn * HPLOSS_MULTIPLIER_UPGRADED, AbstractGameAction.AttackEffect.NONE));
-            }
-        }
-        if(card.costForTurn > 0) {
-            AbstractDungeon.actionManager.addToTop(new GainEnergyAction(card.costForTurn));
-        }
-        if(card.costForTurn < 0) {
-            energyCostRetain = EnergyPanel.getCurrentEnergy();
-        }
-    }
-
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if(card.costForTurn < 0) {
-            AbstractDungeon.actionManager.addToTop(new GainEnergyAction(energyCostRetain));
+            isPlayerTurn = false;
         }
     }
 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        amountToCast = this.amount;
         if (this.amount <= 0) {
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
@@ -101,12 +109,12 @@ public class BloodMagicksPower extends AbstractPower implements CloneablePowerIn
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if(this.amount > 1) {
-            this.description = DESCRIPTIONS[1];
+        if(this.amount == 1) {
+            this.description = DESCRIPTIONS[0];
         }
         else
         {
-            this.description = DESCRIPTIONS[0];
+            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
         }
 
     }
