@@ -1,6 +1,5 @@
 package The_Scribe.cards;
 
-import The_Scribe.actions.ChainedSpellTargetingAction;
 import The_Scribe.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,21 +14,12 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.random.Random;
 
 import java.util.ArrayList;
-
-import static The_Scribe.patches.ScribeHoveredMonsterPatch.scribeHoveredMonster;
+import java.util.Iterator;
 
 public class EnchantedStrike extends CustomCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * In order to understand how image paths work, go to defaultmod/DefaultMod.java, Line ~140 (Image path section).
-     *
-     * Strike Deal 7(9) damage.
-     */
 
     // TEXT DECLARATION
 
@@ -64,12 +54,8 @@ public class EnchantedStrike extends CustomCard {
     private static double PiercingBoltsAmount;
     private static int PiercingBoltsCounter;
 
-    private static boolean dontUpdateTheArrayListImUsingIt = false;
-    private static AbstractMonster targetMonster = null;
-    private AbstractMonster monsterToCheck = null;
-    private ChainedSpellTargetingAction chainedSpell;
-    public static ArrayList<AbstractMonster> ChainedSpellTargetMonstersList = new ArrayList<>();
-    private int counter = 0;
+    private AbstractMonster targetMonster = null;
+    public ArrayList<AbstractMonster> ChainedSpellTargetMonstersList = new ArrayList<>();
 
     // /STAT DECLARATION/
 
@@ -79,58 +65,104 @@ public class EnchantedStrike extends CustomCard {
         this.baseMagicNumber = 0;
         this.magicNumber = this.baseMagicNumber;
         tags.add(AbstractCard.CardTags.STRIKE);
-        chainedSpell = null;
-        ChainedSpellTargetMonstersList = new ArrayList<>();
+        this.ChainedSpellTargetMonstersList = new ArrayList<>();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dontUpdateTheArrayListImUsingIt = true;
-        if(!ChainedSpellTargetMonstersList.contains(m))
-        {
-            ChainedSpellTargetMonstersList.add(m);
-        }
+        chainedSpellAcquireBonusTargets(m);
 
-        ArrayList<AbstractMonster> monsterList = new ArrayList<>(ChainedSpellTargetMonstersList);
+        ArrayList<AbstractMonster> monsterList = new ArrayList<>(this.ChainedSpellTargetMonstersList);
         int j = 0;
         while(j < monsterList.size()) {
-            targetMonster = monsterList.get(j);
+            this.targetMonster = monsterList.get(j);
 
             int i = this.magicNumber;
             while (i > 0) {
-                if (targetMonster.currentBlock > 0 && PiercingBoltsCounter > 0) {
+                if (this.targetMonster.currentBlock > 0 && PiercingBoltsCounter > 0) {
                     AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(this.targetMonster,
                                     new DamageInfo(p, (int) Math.ceil(this.damage * PiercingBoltsAmount), this.damageTypeForTurn),
                                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 } else {
                     AbstractDungeon.actionManager
-                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                            .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(this.targetMonster,
                                     new DamageInfo(p, this.damage, this.damageTypeForTurn),
                                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
                 i--;
             }
 
-            if (targetMonster.currentBlock > 0 && PiercingBoltsCounter > 0) {
+            if (this.targetMonster.currentBlock > 0 && PiercingBoltsCounter > 0) {
                 AbstractDungeon.actionManager
-                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(this.targetMonster,
                                 new DamageInfo(p, (int) Math.ceil(this.damage * PiercingBoltsAmount), this.damageTypeForTurn),
                                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             } else {
                 AbstractDungeon.actionManager
-                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(targetMonster,
+                        .addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(this.targetMonster,
                                 new DamageInfo(p, this.damage, this.damageTypeForTurn),
                                 AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
 
             j++;
         }
-        dontUpdateTheArrayListImUsingIt = false;
     }
 
-    @Override
+    private void chainedSpellAcquireBonusTargets(AbstractMonster m){
+        AbstractMonster monster;
+        ArrayList<AbstractMonster> returnArray = new ArrayList<>();
+
+        if (AbstractDungeon.getCurrRoom().monsters.monsters.size() > 1) {
+            Iterator<AbstractMonster> monsterIterator = AbstractDungeon.getMonsters().monsters.iterator();
+            ArrayList<AbstractMonster> monsterArray = new ArrayList<>();
+            ArrayList<AbstractMonster> processedArray = new ArrayList<>();
+            while (monsterIterator.hasNext()) {
+                monster = monsterIterator.next();
+                if (!monster.equals(m)) {
+                    if(!monster.isDeadOrEscaped() && monster.currentHealth > 0 && !monster.halfDead) {
+                        monsterArray.add(monster);
+                    }
+                }
+            }
+            if (!(monsterArray.size() <= 0)) {
+                int i = 0;
+                int ChainingAmount = 0;
+                if (AbstractDungeon.player.hasPower(SpellChaining.POWER_ID)) {
+                    ChainingAmount = AbstractDungeon.player.getPower(SpellChaining.POWER_ID).amount;
+                }
+                if (ChainingAmount > monsterArray.size()) {
+                    ChainingAmount = monsterArray.size();
+                }
+                while (i < ChainingAmount) { // change to < ChainingAmount
+                    AbstractMonster processing = getRandomMonsterFromMonsterArray(new Random(), monsterArray);
+                    if (processedArray.contains(processing)) {
+                        processing = getRandomMonsterFromMonsterArray(new Random(), monsterArray);
+                    } else {
+                        processedArray.add(processing);
+                        i++;
+                    }//Infinite while loop?
+                }
+                while (processedArray.size() > 0) {
+                    returnArray.add(processedArray.get(0));
+                    processedArray.remove(0);
+                }
+            }
+        }
+        this.ChainedSpellTargetMonstersList = new ArrayList<>(returnArray);
+        if(!this.ChainedSpellTargetMonstersList.contains(m))
+        {
+            this.ChainedSpellTargetMonstersList.add(m);
+        }
+    }
+
+    private AbstractMonster getRandomMonsterFromMonsterArray(Random rng, ArrayList<AbstractMonster> monsterArray)
+    {
+        return  monsterArray.get(rng.random(monsterArray.size() - 1));
+    }
+
+    /*@Override
     public void update()
     {
         super.update();
@@ -172,7 +204,7 @@ public class EnchantedStrike extends CustomCard {
                 }
             }
         }
-    }
+    }*/
 
     public void applyPowers() {
         super.applyPowers();

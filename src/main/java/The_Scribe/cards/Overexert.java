@@ -1,9 +1,7 @@
 package The_Scribe.cards;
 
-import The_Scribe.actions.FranticSearchAction;
+import The_Scribe.actions.OverexertAction;
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,52 +13,56 @@ import basemod.abstracts.CustomCard;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
-public class FranticSearch extends CustomCard {
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Overexert extends CustomCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = The_Scribe.ScribeMod.makeID("FranticSearch");
+    public static final String ID = The_Scribe.ScribeMod.makeID("Overexert");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_FRANTIC_SEARCH);
+    public static final String IMG = ScribeMod.makePath(ScribeMod.SCRIBE_OVEREXERT);
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 0;
-    private static final int DRAW = 15;
-    private static final int UPGRADE_PLUS_DRAW = -5;
+
 
 
     // /STAT DECLARATION/
 
 
-    public FranticSearch() {
+    public Overexert() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = DRAW;
-        this.magicNumber = this.baseMagicNumber;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new FranticSearchAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new OverexertAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), 1, this.upgraded));
     }
 
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
-        return new FranticSearch();
+        return new Overexert();
     }
 
     //Upgraded stats.
@@ -68,7 +70,7 @@ public class FranticSearch extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

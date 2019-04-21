@@ -170,6 +170,7 @@ public class ScribeMod implements
     public static final String SCRIBE_INVIGORATING_STRIKE = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_PAPER_CUT = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_FRANTIC_SEARCH = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_OVEREXERT = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -505,6 +506,7 @@ public class ScribeMod implements
         BaseMod.addCard(new InvigoratingStrike());
         BaseMod.addCard(new PaperCut());
         BaseMod.addCard(new FranticSearch());
+        BaseMod.addCard(new Overexert());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -606,6 +608,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(InvigoratingStrike.ID);
         UnlockTracker.unlockCard(PaperCut.ID);
         UnlockTracker.unlockCard(FranticSearch.ID);
+        UnlockTracker.unlockCard(Overexert.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

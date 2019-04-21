@@ -378,7 +378,12 @@
   },
   "theScribe:FranticSearch": {
     "NAME": "Frantic Search",
-    "DESCRIPTION": "Draw cards until your hand is full. NL Exhaust your hand. NL Draw !M! cards."
+    "DESCRIPTION": "Draw !M! cards. Any that don't fit in your hand are Exhausted."
+  },
+  "theScribe:Overexert": {
+    "NAME": "Overexert",
+    "DESCRIPTION": "Play a random card in your hand twice, then Exhaust it. Gain scribe:Drained equal to its cost.",
+    "UPGRADE_DESCRIPTION": "Play a card in your hand twice, then Exhaust it. Gain scribe:Drained equal to its cost."
   },
 
 

@@ -16,7 +16,7 @@ import javassist.expr.MethodCall;
 
 public class ScribeHoveredMonsterPatch {
 
-    public static AbstractMonster scribeHoveredMonster = null;
+   public static AbstractMonster scribeHoveredMonster = null;
     public static ExprEditor Instrument()
     {
         return new ExprEditor() {
