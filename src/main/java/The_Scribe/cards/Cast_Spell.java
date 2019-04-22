@@ -279,11 +279,13 @@ public class Cast_Spell extends CustomCard {
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.GainBlockAction(p, p, this.block, true));
         }
 
+
         ArrayList<AbstractMonster> monsterList = new ArrayList<>(this.ChainedSpellTargetMonstersList);
         int i = 0;
         while(i < monsterList.size())
         {
             targetMonster = monsterList.get(i);
+            this.calculateCardDamage(targetMonster);
             if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID) || this.baseDamage > 0) {
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(targetMonster.drawX, targetMonster.drawY)));
@@ -347,6 +349,7 @@ public class Cast_Spell extends CustomCard {
             while(i < monsterList.size())
             {
                 targetMonster = monsterList.get(i);
+                this.calculateCardDamage(targetMonster);
                 //System.out.println("theScribeCast LIGHTNING: " + targetMonster);
 
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(targetMonster.hb.cX, targetMonster.hb.cY, AbstractGameAction.AttackEffect.NONE)));
