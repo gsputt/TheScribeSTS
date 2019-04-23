@@ -385,6 +385,20 @@
     "DESCRIPTION": "Play a random card in your hand twice, then Exhaust it. Gain scribe:Drained equal to its cost.",
     "UPGRADE_DESCRIPTION": "Play a card in your hand twice, then Exhaust it. Gain scribe:Drained equal to its cost."
   },
+  "theScribe:ThrownScroll": {
+    "NAME": "Thrown Scroll",
+    "DESCRIPTION": "Deal !D! Damage. Remove ALL your scribe:Spell_Effects and scribe:Spell_Modifiers. Deals 1 additional damage for each !M! stacks removed."
+  },
+  "theScribe:Divination": {
+    "NAME": "Divination",
+    "DESCRIPTION": "Look at the top !M! cards of your deck. Put 1 into your hand, Exhaust the other.",
+    "UPGRADE_DESCRIPTION": "Look at the top !M! cards of your deck. Put 1 into your hand, Exhaust the others."
+  },
+  "theScribe:GatherComponents": {
+    "NAME": "Gather Components",
+    "DESCRIPTION": "Exhaust a random card in your hand. Gain scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage if it was an attack, otherwise, gain scribe:Spell_Effect: Gain !BETTERSPELLBLOCK! Block.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Gain scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage if it was an attack, otherwise, gain scribe:Spell_Effect: Gain !BETTERSPELLBLOCK! Block."
+  },
 
 
   "theScribe:DefaultAttackWithVariable": {

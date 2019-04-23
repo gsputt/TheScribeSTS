@@ -1,4 +1,4 @@
-package The_Scribe.cards;
+package The_Scribe.unused.unusedCards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

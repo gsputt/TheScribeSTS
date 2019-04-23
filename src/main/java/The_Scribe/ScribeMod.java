@@ -1,6 +1,7 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
+import The_Scribe.unused.unusedCards.PaperCut;
 import basemod.ModLabeledToggleButton;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -170,6 +171,9 @@ public class ScribeMod implements
     public static final String SCRIBE_PAPER_CUT = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_FRANTIC_SEARCH = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_OVEREXERT = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_THROWN_SCROLL = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_DIVINATION = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_GATHER_COMPONENTS = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -235,6 +239,8 @@ public class ScribeMod implements
     public static final String CLARITY_BOSS_RELIC_OUTLINE = "relics/outline/InvisibleInkwellOutline.png";
     public static final String RUNIC_REPEATER = "relics/RunicRepeater.png";
     public static final String RUNIC_REPEATER_OUTLINE = "relics/outline/RunicRepeaterOutline.png";
+    public static final String MEDITATION_CIRCLE = "relics/MeditationCircleRelic.png";
+    public static final String MEDITATION_CIRCLE_OUTLINE = "relics/outline/MeditationCircleRelicOutline.png";
 
     public static final String SKILLBOOK = "relics/ScribeSkillbook.png";
     public static final String SKILLBOOK_OUTLINE = "relics/outline/ScribeSkillbookOutline.png";
@@ -247,6 +253,7 @@ public class ScribeMod implements
     //Custom VFX
     public static final String STATIC_CAGE_EFFECT = "vfx/Static_Cage_Effect.png";
     public static final String ABSOLUTE_ZERO_SNOWFLAKE_EFFECT = "vfx/Absolute_Zero_Snowflake_Particle.png";
+    public static final String THROWN_SCROLL_VFX = "vfx/ThrownScrollVFX.png";
 
 
     // Character assets
@@ -503,9 +510,12 @@ public class ScribeMod implements
         BaseMod.addCard(new ToxicSpellstone());
         BaseMod.addCard(new QuickStudy());
         BaseMod.addCard(new InvigoratingStrike());
-        BaseMod.addCard(new PaperCut());
+        //BaseMod.addCard(new PaperCut());
         BaseMod.addCard(new FranticSearch());
         BaseMod.addCard(new Overexert());
+        BaseMod.addCard(new ThrownScroll());
+        BaseMod.addCard(new Divination());
+        BaseMod.addCard(new GatherComponents());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -605,9 +615,12 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ToxicSpellstone.ID);
         UnlockTracker.unlockCard(QuickStudy.ID);
         UnlockTracker.unlockCard(InvigoratingStrike.ID);
-        UnlockTracker.unlockCard(PaperCut.ID);
+        //UnlockTracker.unlockCard(PaperCut.ID);
         UnlockTracker.unlockCard(FranticSearch.ID);
         UnlockTracker.unlockCard(Overexert.ID);
+        UnlockTracker.unlockCard(ThrownScroll.ID);
+        UnlockTracker.unlockCard(Divination.ID);
+        UnlockTracker.unlockCard(GatherComponents.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);
@@ -680,6 +693,7 @@ public class ScribeMod implements
         BaseMod.addRelicToCustomPool(new AlchemicalAlter(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new ClarityBossRelic(), AbstractCardEnum.SCRIBE_BLUE);
         BaseMod.addRelicToCustomPool(new RunicRepeater(), AbstractCardEnum.SCRIBE_BLUE);
+        BaseMod.addRelicToCustomPool(new MeditationCircle(), AbstractCardEnum.SCRIBE_BLUE);
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         if(hasAspiration) {

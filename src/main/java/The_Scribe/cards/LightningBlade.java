@@ -1,6 +1,7 @@
 package The_Scribe.cards;
 
 import The_Scribe.effects.LightningJumpEffect;
+import The_Scribe.powers.CapacitanceScrollPower;
 import The_Scribe.powers.SpellAttack;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -82,6 +83,13 @@ public class LightningBlade extends CustomCard {
                 this.calculateCardDamage(m);
             }
         }
+        if(AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))
+        {
+           if(AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount > 0) {
+               this.baseDamage += AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount;
+               this.calculateCardDamage(m);
+           }
+        }
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.NONE)));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningJumpEffect(p.hb.cX, p.hb.cY, m.drawX, m.drawY, false)));
         CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1F);
@@ -107,6 +115,12 @@ public class LightningBlade extends CustomCard {
                 this.baseDamage += AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount;
             }
         }
+        if(AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))
+        {
+            if(AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount > 0) {
+                this.baseDamage += AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount;
+            }
+        }
     }
 
     @Override
@@ -117,6 +131,12 @@ public class LightningBlade extends CustomCard {
                 this.baseDamage += AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount;
             }
         }
+        if(AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))
+        {
+            if(AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount > 0) {
+                this.baseDamage += AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount;
+            }
+        }
     }
 
     public void applyPowers() {
@@ -125,6 +145,12 @@ public class LightningBlade extends CustomCard {
         if (AbstractDungeon.player.hasPower(SpellAttack.POWER_ID)) {
             if (AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount > 0) {
                 this.baseDamage += AbstractDungeon.player.getPower(SpellAttack.POWER_ID).amount;
+            }
+        }
+        if(AbstractDungeon.player.hasPower(CapacitanceScrollPower.POWER_ID))
+        {
+            if(AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount > 0) {
+                this.baseDamage += AbstractDungeon.player.getPower(CapacitanceScrollPower.POWER_ID).amount;
             }
         }
     }

@@ -55,6 +55,13 @@
 			"Gaining a #yscribe:Spell_Modifier causes a random card in your hand to cost 1 less until end of turn."
 		]
 	},
+	"theScribe:MeditationCircle": {
+		"NAME": "Meditation Circle",
+		"FLAVOR": "This makes you wonder: Is a circle technically a polygon of infinite sides?",
+		"DESCRIPTIONS": [
+			"Every 2 turns, gain #yscribe:Spell_Modifier [REMOVE_SPACE]: Gain 25% #yscribe:Spell_Effectiveness [REMOVE_SPACE]."
+		]
+	},
 
 
 	"theScribe:ScribeSkillbook": {
