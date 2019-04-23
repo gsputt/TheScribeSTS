@@ -1,7 +1,6 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
-import The_Scribe.unused.unusedCards.BloodBulwark;
 import basemod.ModLabeledToggleButton;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;

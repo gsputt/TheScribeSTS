@@ -31,6 +31,7 @@ public class BloodMagicksPower extends AbstractPower implements OnLoseBlockPower
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = ScribeMod.makePath(ScribeMod.BLOOD_MAGICKS_POWER);
     private static boolean isPlayerTurn = true;
+    public static boolean isBloodMagicksActionDoingStuff = false;
 
     public BloodMagicksPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -80,8 +81,17 @@ public class BloodMagicksPower extends AbstractPower implements OnLoseBlockPower
 
     public void BloodMagicksStuff()
     {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.amount));
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+        if(!isBloodMagicksActionDoingStuff) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.amount));
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                public void update() {
+                    isBloodMagicksActionDoingStuff = false;
+                    this.isDone = true;
+                }
+            });
+        }
+        isBloodMagicksActionDoingStuff = true;
     }
 
     @Override
