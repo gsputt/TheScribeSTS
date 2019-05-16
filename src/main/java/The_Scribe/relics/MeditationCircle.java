@@ -1,10 +1,7 @@
 package The_Scribe.relics;
 
 import The_Scribe.cards.Cast_Spell;
-import The_Scribe.powers.Drained;
-import The_Scribe.powers.EnergizedScribePower;
-import The_Scribe.powers.RemoveSplitAtEndOfTurnPower;
-import The_Scribe.powers.SpellEffectiveness;
+import The_Scribe.powers.*;
 import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
@@ -17,6 +14,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.SplitPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
@@ -55,7 +53,7 @@ public class MeditationCircle extends CustomRelic {
                 {
                     if(AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount <= 2)
                     {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellEffectiveness(AbstractDungeon.player, 1), 1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellSplit(AbstractDungeon.player, 1), 1));
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RemoveSplitAtEndOfTurnPower(AbstractDungeon.player, 1), 1));
                     }
                 }

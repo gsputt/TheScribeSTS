@@ -43,13 +43,14 @@ public class RecklessResponse extends AbstractScribeCard implements CardSpellEff
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardTarget TARGET = CardTarget.ALL;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 0;
     private static final int VULNERABLE_AMOUNT = 2;
     private static final int SELF_DAMAGE = 4;
+    private static final int SELF_DAMAGE_UPGRADE = -2;
 
 
     // /STAT DECLARATION/
@@ -67,30 +68,11 @@ public class RecklessResponse extends AbstractScribeCard implements CardSpellEff
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.upgraded)
-        {
-            Iterator monstersToDebuff = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-            AbstractMonster monsterApplyDebuff;
-            while(monstersToDebuff.hasNext()) {
-                monsterApplyDebuff = (AbstractMonster) monstersToDebuff.next();
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new VulnerablePower(monsterApplyDebuff, this.magicNumber, false), this.magicNumber));
-            }
-        }
-        else
-        {
-            int i = 0;
-            AbstractMonster targetMonster;
-            while(i < AbstractDungeon.getCurrRoom().monsters.monsters.size()) {
-                targetMonster = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
-                if(!(targetMonster.isDead || targetMonster.currentHealth <= 0 || targetMonster.halfDead)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(targetMonster, p, new VulnerablePower(targetMonster, this.magicNumber, false), this.magicNumber));
-                    break;
-                }
-                else
-                {
-                    i++;
-                }
-            }
+        Iterator monstersToDebuff = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        AbstractMonster monsterApplyDebuff;
+        while(monstersToDebuff.hasNext()) {
+            monsterApplyDebuff = (AbstractMonster) monstersToDebuff.next();
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monsterApplyDebuff, p, new VulnerablePower(monsterApplyDebuff, this.magicNumber, false), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, this.baseSelfDamage), this.baseSelfDamage));
     }
@@ -106,8 +88,7 @@ public class RecklessResponse extends AbstractScribeCard implements CardSpellEff
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            this.target = CardTarget.ALL;
+            this.upgradeSelfDamage(SELF_DAMAGE_UPGRADE);
             this.initializeDescription();
         }
     }

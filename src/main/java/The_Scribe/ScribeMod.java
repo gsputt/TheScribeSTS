@@ -479,7 +479,7 @@ public class ScribeMod implements
         BaseMod.addCard(new FlowLikeWater());
         BaseMod.addCard(new CapacitanceScroll());
         BaseMod.addCard(new Incendio());
-        BaseMod.addCard(new Exsanguinate());
+        //BaseMod.addCard(new Exsanguinate());
         BaseMod.addCard(new Conflagrate());
         BaseMod.addCard(new AbsoluteZero());
         BaseMod.addCard(new AnomalousTexts());
@@ -584,7 +584,7 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(FlowLikeWater.ID);
         UnlockTracker.unlockCard(CapacitanceScroll.ID);
         UnlockTracker.unlockCard(Incendio.ID);
-        UnlockTracker.unlockCard(Exsanguinate.ID);
+        //UnlockTracker.unlockCard(Exsanguinate.ID);
         UnlockTracker.unlockCard(Conflagrate.ID);
         UnlockTracker.unlockCard(AbsoluteZero.ID);
         UnlockTracker.unlockCard(AnomalousTexts.ID);

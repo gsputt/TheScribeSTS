@@ -1,5 +1,7 @@
 package The_Scribe.cards;
 
+import The_Scribe.patches.ScribeCardTags;
+import The_Scribe.powers.SpellAttack;
 import The_Scribe.powers.SpellPiercingBolts;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +17,7 @@ import basemod.abstracts.CustomCard;
 import The_Scribe.ScribeMod;
 import The_Scribe.patches.AbstractCardEnum;
 
-public class PiercingBolts extends CustomCard implements CardSpellModifierInterface, CardSpellsInterface {
+public class PiercingBolts extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellModifierInterface, CardSpellsInterface {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -48,12 +50,13 @@ public class PiercingBolts extends CustomCard implements CardSpellModifierInterf
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = AbstractCardEnum.SCRIBE_BLUE;
 
     private static final int COST = 1;
     private static final int PIERCING = 1;
     private static final int UPGRADE_PLUS_PIERCING = 1;
+    private static final int SPELL_DAMAGE = 6;
 
     // /STAT DECLARATION/
 
@@ -61,12 +64,16 @@ public class PiercingBolts extends CustomCard implements CardSpellModifierInterf
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = PIERCING;
         this.magicNumber = this.baseMagicNumber;
+        this.baseSpellDamage = SPELL_DAMAGE;
+        this.spellDamage = this.baseSpellDamage;
+        tags.add(ScribeCardTags.SPELL_ATTACK);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellPiercingBolts(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.spellDamage), this.spellDamage));
     }
 
 

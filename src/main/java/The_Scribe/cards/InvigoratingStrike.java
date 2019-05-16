@@ -2,6 +2,7 @@ package The_Scribe.cards;
 
 import The_Scribe.powers.Drained;
 import The_Scribe.powers.EnergizedScribePower;
+import The_Scribe.powers.SpellClarity;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -77,7 +78,7 @@ public class InvigoratingStrike extends CustomCard {
                         AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         if(p.hasPower(Drained.POWER_ID))
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedScribePower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellClarity(p, this.magicNumber), this.magicNumber));
         }
     }
 
