@@ -1,5 +1,6 @@
 package The_Scribe.variables;
 
+import The_Scribe.cards.Cast_Spell;
 import The_Scribe.powers.SpellEffectiveness;
 import The_Scribe.powers.SpellWeak;
 import basemod.abstracts.DynamicVariable;
@@ -31,20 +32,12 @@ public class WeakDark extends DynamicVariable
     @Override
     public int value(AbstractCard card)
     {
-        if(AbstractDungeon.player != null) {
-            if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID) && AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
-                return (int) Math.ceil(AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount
-                        * (1 + (AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount * 0.01 * 25)));
-            } else if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-                return (int) Math.ceil(AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount);
-            } else {
-                return 0;
+        if (AbstractDungeon.player != null && card.cardID.equals(Cast_Spell.ID)) {
+            if (Cast_Spell.DarkWeakCounter > 0) {
+                return Cast_Spell.DarkWeak;
             }
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 
     // The baseValue the variable should display.
@@ -52,20 +45,12 @@ public class WeakDark extends DynamicVariable
     @Override
     public int baseValue(AbstractCard card)
     {
-        if(AbstractDungeon.player != null) {
-            if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID) && AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID)) {
-                return (int) Math.ceil(AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount
-                        * (1 + (AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount * 0.01 * 25)));
-            } else if (AbstractDungeon.player.hasPower(SpellWeak.POWER_ID)) {
-                return (int) Math.ceil(AbstractDungeon.player.getPower(SpellWeak.POWER_ID).amount);
-            } else {
-                return 0;
+        if (AbstractDungeon.player != null && card.cardID.equals(Cast_Spell.ID)) {
+            if (Cast_Spell.DarkWeakCounter > 0) {
+                return Cast_Spell.DarkWeak;
             }
         }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 
     // If the card has it's damage upgraded, this variable will glow green on the upgrade selection screen as well.

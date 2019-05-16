@@ -206,6 +206,7 @@ public class EnchantedStrike extends CustomCard {
         }
     }*/
 
+    @Override
     public void applyPowers() {
         super.applyPowers();
         int damageToDo = DAMAGE;
@@ -261,6 +262,15 @@ public class EnchantedStrike extends CustomCard {
             PiercingBoltsCounter = 0;
         }
         setDescription();
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        applyPowers();
+    }
+    @Override
+    public void triggerWhenCopied() {
+        applyPowers();
     }
 
     private void setDescription()

@@ -56,18 +56,18 @@ public class Cast_Spell extends CustomCard {
     private static int LightningDMG = 0;
     private static int FrostBlockCounter = 0;
     private static int FrostBlock = 0;
-    private static int DarkPoisonCounter = 0;
-    private static int DarkPoison = 0;
-    private static int DarkVulnerableCounter = 0;
-    private static int DarkVulnerable = 0;
-    private static int DarkWeakCounter = 0;
-    private static int DarkWeak = 0;
+    public static int DarkPoisonCounter = 0;
+    public static int DarkPoison = 0;
+    public static int DarkVulnerableCounter = 0;
+    public static int DarkVulnerable = 0;
+    public static int DarkWeakCounter = 0;
+    public static int DarkWeak = 0;
     private static int Split = 0;
-    private static int ClarityCounter = 0;
-    private static int Clarity = 0;
+    public static int ClarityCounter = 0;
+    public static int Clarity = 0;
     private static int SpellEffectivityCounter = 0;
-    private static int SelfDamage = 0;
-    private static int SelfDamageCounter = 0;
+    public static int SelfDamage = 0;
+    public static int SelfDamageCounter = 0;
     private static int SpellChainingNumber = 0;
     private static int PiercingBoltsCounter = 0;
     private static double PiercingBoltsAmount = 0;
@@ -610,7 +610,7 @@ public class Cast_Spell extends CustomCard {
             this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[6];
             descriptionCounter += 1;
         }
-        if(Clarity > 0) {
+        if(ClarityCounter > 0) {
             this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[1] + EXTENDED_DESCRIPTION[9];
             descriptionCounter += 1;
         }
