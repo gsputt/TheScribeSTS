@@ -1,7 +1,6 @@
 package The_Scribe;
 
 import The_Scribe.characters.TheScribe;
-import The_Scribe.unused.unusedCards.PaperCut;
 import basemod.ModLabeledToggleButton;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -174,6 +173,8 @@ public class ScribeMod implements
     public static final String SCRIBE_THROWN_SCROLL = "cards/PlaceholderAttack.png";
     public static final String SCRIBE_DIVINATION = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_GATHER_COMPONENTS = "cards/PlaceholderSkill.png";
+    public static final String SCRIBE_SANGUINE_SURGE = "cards/PlaceholderAttack.png";
+    public static final String SCRIBE_GLACIES_SPELLSTONE = "cards/PlaceholderSkill.png";
     public static final String SCRIBE_COMMON_POWER = "cards/PlaceholderPower.png";
     public static final String SCRIBE_UNCOMMON_ATTACK = "cards/Attack.png";
     public static final String SCRIBE_UNCOMMON_SKILL = "cards/Skill.png";
@@ -516,6 +517,8 @@ public class ScribeMod implements
         BaseMod.addCard(new ThrownScroll());
         BaseMod.addCard(new Divination());
         BaseMod.addCard(new GatherComponents());
+        BaseMod.addCard(new SanguineSurge());
+        BaseMod.addCard(new GlaciesSpellstone());
 
         /*BaseMod.addCard(new DefaultAttackWithVariable());
 
@@ -621,6 +624,8 @@ public class ScribeMod implements
         UnlockTracker.unlockCard(ThrownScroll.ID);
         UnlockTracker.unlockCard(Divination.ID);
         UnlockTracker.unlockCard(GatherComponents.ID);
+        UnlockTracker.unlockCard(SanguineSurge.ID);
+        UnlockTracker.unlockCard(GlaciesSpellstone.ID);
 
         /*UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
         UnlockTracker.unlockCard(StarterDefend.ID);

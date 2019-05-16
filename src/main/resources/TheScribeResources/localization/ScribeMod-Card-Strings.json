@@ -398,6 +398,14 @@
     "DESCRIPTION": "Exhaust a random card in your hand. Gain scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage if it was an attack, otherwise, gain scribe:Spell_Effect: Gain !BETTERSPELLBLOCK! Block.",
     "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Gain scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage if it was an attack, otherwise, gain scribe:Spell_Effect: Gain !BETTERSPELLBLOCK! Block."
   },
+  "theScribe:SanguineSurge": {
+    "NAME": "Sanguine Surge",
+    "DESCRIPTION": "Add a copy of this card to your hand. NL Purge. NL scribe:Spell_Effect: Deal !M! damage to an enemy and !BETTERSELFDAMAGE! to yourself."
+  },
+  "theScribe:GlaciesSpellstone": {
+    "NAME": "Glacies Spellstone",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaustive !stslib:ex! NL When this card is Exhausted, gain !B! Block."
+  },
 
 
   "theScribe:DefaultAttackWithVariable": {
