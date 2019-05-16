@@ -70,7 +70,9 @@ public class OverexertAction extends AbstractGameAction {
 
     private void gainDrained(AbstractCard card)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Drained(AbstractDungeon.player, card.costForTurn), card.costForTurn));
+        if(card.costForTurn > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Drained(AbstractDungeon.player, card.costForTurn), card.costForTurn));
+        }
     }
 
     private void doStuff(AbstractCard card) {
@@ -88,7 +90,7 @@ public class OverexertAction extends AbstractGameAction {
         card.targetDrawScale = 0.75F;
 
 
-        AbstractCard tmp = card.makeSameInstanceOf();
+        AbstractCard tmp = card.makeStatEquivalentCopy();
         AbstractDungeon.player.limbo.addToBottom(tmp);
         //tmp.current_x = card.current_x;
         tmp.current_y = card.current_y;
@@ -102,6 +104,7 @@ public class OverexertAction extends AbstractGameAction {
         tmp.purgeOnUse = true;
 
         if (!card.canUse(AbstractDungeon.player, (AbstractMonster) this.target)) {
+            AbstractDungeon.actionManager.addToTop(new PurgeSpecificCardAction(tmp, AbstractDungeon.player.limbo));
             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
         } else {
             card.applyPowers();

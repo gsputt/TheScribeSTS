@@ -45,7 +45,7 @@
 		"NAME": "Invisible Inkwell",
 		"FLAVOR": "An ornate Inkwell that spills forth an endless torrent of nothing. \n You quickly lose track of spells scribed with this \"ink\".",
 		"DESCRIPTIONS": [
-			"Gain \" [REMOVE_SPACE]#ySpell #yEffect [REMOVE_SPACE]: Gain 1 [E] [REMOVE_SPACE]\" at the start of each turn. At the end of each turn, lose all #yscribe:Spell_Effects and #yscribe:Spell_Modifiers [REMOVE_SPACE]."
+			"Gain \" [REMOVE_SPACE]#ySpell #yEffect [REMOVE_SPACE]: Gain 2 [E] [REMOVE_SPACE]\" at the start of each turn. At the end of each turn, lose all #yscribe:Spell_Effects and #yscribe:Spell_Modifiers [REMOVE_SPACE]."
 		]
 	},
 	"theScribe:RunicRepeater": {
@@ -59,7 +59,7 @@
 		"NAME": "Meditation Circle",
 		"FLAVOR": "This makes you wonder: Is a circle technically a polygon of infinite sides?",
 		"DESCRIPTIONS": [
-			"Every 2 turns, gain #yscribe:Spell_Modifier [REMOVE_SPACE]: Gain 25% #yscribe:Spell_Effectiveness [REMOVE_SPACE]."
+			"At the start of your turn, gain 25% scribe:Spell_Effectiveness. Then, if you have less than or equal to 50% scribe:Spell_Effectiveness, gain an scribe:Additional_Cast this turn."
 		]
 	},
 

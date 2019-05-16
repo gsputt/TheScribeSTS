@@ -40,7 +40,7 @@ public class ClarityBossRelic extends CustomRelic{
     public void atTurnStartPostDraw() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 AbstractDungeon.player, AbstractDungeon.player, new SpellClarity(
-                AbstractDungeon.player, 1), 1, true));
+                AbstractDungeon.player, 2), 2, true));
     }
 
     // Description

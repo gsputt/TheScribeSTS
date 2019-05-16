@@ -62,7 +62,7 @@ public class EscalationPower extends TwoAmountPower implements CloneablePowerInt
         if (c instanceof CardSpellEffectInterface) {
             if (this.amount2 < this.amount) {
                 if (c != null) {
-                    c = c.makeStatEquivalentCopy();
+                    c = c.makeSameInstanceOf();
                     c.freeToPlayOnce = true;
                     if (c.exhaust == false) {
                         c.exhaust = true;

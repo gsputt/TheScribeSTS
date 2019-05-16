@@ -3,11 +3,13 @@ package The_Scribe.relics;
 import The_Scribe.cards.Cast_Spell;
 import The_Scribe.powers.Drained;
 import The_Scribe.powers.EnergizedScribePower;
+import The_Scribe.powers.RemoveSplitAtEndOfTurnPower;
 import The_Scribe.powers.SpellEffectiveness;
 import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnReceivePowerRelic;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -44,18 +46,22 @@ public class MeditationCircle extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        if (this.counter == -1) {
-            this.counter += 2;
-        } else {
-            ++this.counter;
-        }
-
-        if (this.counter >= 2) {
-            this.counter = 0;
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellEffectiveness(AbstractDungeon.player, 1), 1));
-        }
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellEffectiveness(AbstractDungeon.player, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            public void update() {
+                if(AbstractDungeon.player.hasPower(SpellEffectiveness.POWER_ID))
+                {
+                    if(AbstractDungeon.player.getPower(SpellEffectiveness.POWER_ID).amount <= 2)
+                    {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SpellEffectiveness(AbstractDungeon.player, 1), 1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RemoveSplitAtEndOfTurnPower(AbstractDungeon.player, 1), 1));
+                    }
+                }
+                this.isDone = true;
+            }
+        });
 
     }
 
