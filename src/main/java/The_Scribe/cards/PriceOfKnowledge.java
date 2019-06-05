@@ -34,7 +34,7 @@ public class PriceOfKnowledge extends CustomCard {
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -86,7 +86,11 @@ public class PriceOfKnowledge extends CustomCard {
             AbstractDungeon.effectList.add(new GainPennyEffect(p, this.hb.cX, this.hb.cY, 64F, 64F, false));
         }
         AbstractCard tempCard;
-        tempCard = this.makeStatEquivalentCopy();
+        tempCard = this.makeCopy();
+        if(this.upgraded)
+        {
+            tempCard.upgrade();
+        }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(tempCard, 1));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, DRAW_AMOUNT));
     }
@@ -103,6 +107,7 @@ public class PriceOfKnowledge extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADED_GOLD_COST);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

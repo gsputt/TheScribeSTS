@@ -40,6 +40,7 @@ public class SanguineSurge extends AbstractScribeCard implements CardSpellEffect
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -73,7 +74,12 @@ public class SanguineSurge extends AbstractScribeCard implements CardSpellEffect
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 1));
+        AbstractCard card = this.makeCopy();
+        if(this.upgraded)
+        {
+            card.upgrade();
+        }
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellAttack(p, this.magicNumber), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SpellSelfDamage(p, this.selfDamage), this.selfDamage));
     }
@@ -92,6 +98,7 @@ public class SanguineSurge extends AbstractScribeCard implements CardSpellEffect
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_PLUS_DMG);
             this.upgradeSelfDamage(UPGRADE_SELF_DAMAGE);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

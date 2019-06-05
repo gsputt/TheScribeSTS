@@ -114,7 +114,8 @@
   },
   "theScribe:PriceOfKnowledge": {
     "NAME": "Price of Knowledge",
-    "DESCRIPTION": "This card costs !M! gold to play. NL Add a copy of this card to your hand. NL Purge. NL Draw 1 Card."
+    "DESCRIPTION": "This card costs !M! gold to play. NL Add a \"Price of Knowledge\" to your hand. NL Purge. NL Draw 1 Card.",
+    "UPGRADE_DESCRIPTION": "This card costs !M! gold to play. NL Add an upgraded \"Price of Knowledge\" to your hand. NL Purge. NL Draw 1 Card."
   },
   "theScribe:BarrierOfLight": {
     "NAME": "Barrier Of Light",
@@ -400,7 +401,8 @@
   },
   "theScribe:SanguineSurge": {
     "NAME": "Sanguine Surge",
-    "DESCRIPTION": "Add a copy of this card to your hand. NL Purge. NL scribe:Spell_Effect: Deal !M! damage to an enemy and !BETTERSELFDAMAGE! to yourself."
+    "DESCRIPTION": "Add a \"Sanguine Surge\" to your hand. NL Purge. NL scribe:Spell_Effect: Deal !M! damage to an enemy and !BETTERSELFDAMAGE! to yourself.",
+    "UPGRADE_DESCRIPTION": "Add an upgraded \"Sanguine Surge\" to your hand. NL Purge. NL scribe:Spell_Effect: Deal !M! damage to an enemy and !BETTERSELFDAMAGE! to yourself."
   },
   "theScribe:GlaciesSpellstone": {
     "NAME": "Glacies Spellstone",
