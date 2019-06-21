@@ -3,6 +3,7 @@ package The_Scribe.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -83,7 +84,7 @@ public class PriceOfKnowledge extends CustomCard {
 
         p.loseGold(this.magicNumber);
         for(int i = 0; i  < this.magicNumber; i++) {
-            AbstractDungeon.effectList.add(new GainPennyEffect(p, this.hb.cX, this.hb.cY, 64F, 64F, false));
+            AbstractDungeon.effectList.add(new GainPennyEffect(p, this.hb.cX, this.hb.cY, CardGroup.DRAW_PILE_X, CardGroup.DRAW_PILE_Y, false));
         }
         AbstractCard tempCard;
         tempCard = this.makeCopy();

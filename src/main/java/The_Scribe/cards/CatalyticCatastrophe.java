@@ -76,6 +76,40 @@ public class CatalyticCatastrophe extends AbstractScribeCard {
     }
 
     @Override
+    public void calculateCardDamage(AbstractMonster m)
+    {
+        super.calculateCardDamage(m);
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        this.isSecondMagicNumberModified = false;
+        if(m != null)
+        {
+            if(m.hasPower(PoisonPower.POWER_ID))
+            {
+                int amount = m.getPower(PoisonPower.POWER_ID).amount + this.magicNumber;
+                amount = (int)Math.ceil((double)amount / (double)2);
+                int damage = 0;
+                while(amount > 0)
+                {
+                    damage += amount;
+                    amount -= 1;
+                }
+                this.secondMagicNumber = damage;
+                this.isSecondMagicNumberModified = true;
+
+            }
+        }
+    }
+
+    @Override
+    public void applyPowers()
+    {
+        this.secondMagicNumber = this.baseSecondMagicNumber;
+        this.isSecondMagicNumberModified = false;
+        super.applyPowers();
+    }
+
+    /*
+    @Override
     public void update()
     {
         super.update();
@@ -111,7 +145,7 @@ public class CatalyticCatastrophe extends AbstractScribeCard {
                 }
             }
         }
-    }
+    }*/
 
 
     // Which card to return when making a copy of this card.
