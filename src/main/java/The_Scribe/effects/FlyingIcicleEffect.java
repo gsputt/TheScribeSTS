@@ -24,20 +24,23 @@ public class FlyingIcicleEffect extends AbstractGameEffect {
     private boolean playedSound = false;
 
     public FlyingIcicleEffect(float x, float y, float fAngle, boolean shouldFlip) {
-        if (Frost.img1 == null) {
-            Frost.img1 = ImageMaster.loadImage("images/orbs/frostRight.png");
-            Frost.img2 = ImageMaster.loadImage("images/orbs/frostLeft.png");
-            Frost.img3 = ImageMaster.loadImage("images/orbs/frostMid.png");
+        Texture img1 = null;
+        Texture img2 = null;
+        Texture img3 = null;
+        if (img1 == null) {
+            img1 = ImageMaster.loadImage("images/orbs/frostRight.png");
+            img2 = ImageMaster.loadImage("images/orbs/frostLeft.png");
+            img3 = ImageMaster.loadImage("images/orbs/frostMid.png");
         }
         switch(MathUtils.random(2)) {
             case 0:
-                this.img = Frost.img1;
+                this.img = img1;
                 break;
             case 1:
-                this.img = Frost.img2;
+                this.img = img2;
                 break;
             default:
-                this.img = Frost.img3;
+                this.img = img3;
         }
         this.x = x - (float)this.img.getWidth() / 2.0F;
         this.destY = y;

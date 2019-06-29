@@ -1,0 +1,30 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Defensive Powers",
+  "ARCHETYPE_NAME": "theScribe:DefensivePowers",
+  "CARD_TYPE": "SKILL",
+  "IMG": "TheScribeResources/images/cards/CrystalShield.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:CrystalShield",
+    "theScribe:Ghost_Realm",
+    "theScribe:BluntWeapons"
+  ],
+  "CARD_IDS": [
+    "theScribe:ArcaneBarrier",
+    "theScribe:BluntWeapons",
+    "theScribe:MirrorImage",
+    "theScribe:CrystalShield",
+    "theScribe:FalseLife",
+    "theScribe:ScriptedStarfall",
+    "theScribe:ScrollOfShadows",
+    "theScribe:Ghost_Realm",
+    "theScribe:GlaciesSpellstone",
+    "theScribe:ScrollOfScrying",
+    "theScribe:GlacialGuard",
+    "theScribe:CapacitanceScroll",
+    "theScribe:WordsOfPower"
+  ]
+}

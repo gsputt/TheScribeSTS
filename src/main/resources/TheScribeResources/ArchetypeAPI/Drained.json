@@ -1,0 +1,23 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Drained",
+  "ARCHETYPE_NAME": "theScribe:Drained",
+  "CARD_TYPE": "POWER",
+  "IMG": "TheScribeResources/images/cards/LiquidumScroll.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:LiquidumScroll",
+    "theScribe:Maelstrom",
+    "theScribe:GlaciesSpellstone"
+  ],
+  "CARD_IDS": [
+    "theScribe:LiquidumScroll",
+    "theScribe:Incendio",
+    "theScribe:FlowLikeWater",
+    "theScribe:ScrollOfScrying",
+    "theScribe:Maelstrom",
+    "theScribe:InvigoratingStrike"
+  ]
+}

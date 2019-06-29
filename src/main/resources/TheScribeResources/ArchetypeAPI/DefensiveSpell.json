@@ -1,0 +1,27 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Defensive Spell",
+  "ARCHETYPE_NAME": "theScribe:DefensiveSpell",
+  "CARD_TYPE": "SKILL",
+  "IMG": "TheScribeResources/images/cards/ArcaneBarrier.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:ArcaneBarrier",
+    "theScribe:IcicleBlast",
+    "theScribe:GlaciesSpellstone"
+  ],
+  "CARD_IDS": [
+    "theScribe:IcicleBlast",
+    "theScribe:ArcaneBarrier",
+    "theScribe:BluntWeapons",
+    "theScribe:MirrorImage",
+    "theScribe:CrystalShield",
+    "theScribe:FalseLife",
+    "theScribe:GlaciesSpellstone",
+    "theScribe:RecurringRime",
+    "theScribe:Meditate",
+    "theScribe:GlacialGuard"
+  ]
+}

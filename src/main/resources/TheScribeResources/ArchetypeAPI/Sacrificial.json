@@ -1,0 +1,28 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Sacrificial",
+  "ARCHETYPE_NAME": "theScribe:Sacrificial",
+  "CARD_TYPE": "SKILL",
+  "IMG": "TheScribeResources/images/cards/FalseLife.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:Overcharge",
+    "theScribe:BloodMagicks",
+    "theScribe:SanguineSurge"
+  ],
+  "CARD_IDS": [
+    "theScribe:BarrierOfLight",
+    "theScribe:StemTheFlow",
+    "theScribe:SacrificeRitual",
+    "theScribe:FalseLife",
+    "theScribe:Overcharge",
+    "theScribe:RecklessResponse",
+    "theScribe:InscribeDeath",
+    "theScribe:ScrollOfPoison",
+    "theScribe:SanguineSurge",
+    "theScribe:BloodMagicks",
+    "theScribe:ThrownScroll"
+  ]
+}

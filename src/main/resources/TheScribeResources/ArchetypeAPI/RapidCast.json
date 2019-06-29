@@ -1,0 +1,25 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Rapid Casting",
+  "ARCHETYPE_NAME": "theScribe:RapidCast",
+  "CARD_TYPE": "POWER",
+  "IMG": "TheScribeResources/images/cards/BlankScroll.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:BlankScroll",
+    "theScribe:MirrorImage",
+    "theScribe:Escalation"
+  ],
+  "CARD_IDS": [
+    "theScribe:BlankScroll",
+    "theScribe:WordsOfPower",
+    "theScribe:MirrorImage",
+    "theScribe:Escalation",
+    "theScribe:StaticSeries",
+    "theScribe:CapacitanceScroll",
+    "theScribe:TimeDilation",
+    "theScribe:RecurringRime"
+  ]
+}

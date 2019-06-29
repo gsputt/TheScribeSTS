@@ -1,0 +1,26 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Stored Spell",
+  "ARCHETYPE_NAME": "theScribe:StoredSpell",
+  "CARD_TYPE": "ATTACK",
+  "IMG": "TheScribeResources/images/cards/MagicMissiles.png",
+  "TAGS": [
+    "SINGLE"
+  ],
+  "FEATURES": [
+    "theScribe:MagicMissiles",
+    "theScribe:LightningBlade",
+    "theScribe:ThrownScroll"
+  ],
+  "CARD_IDS": [
+    "theScribe:ArcaneBarrier",
+    "theScribe:Overcharge",
+    "theScribe:LightningBlade",
+    "theScribe:MagicMissiles",
+    "theScribe:Dark",
+    "theScribe:EnchantedStrike",
+    "theScribe:CripplingCharge",
+    "theScribe:FrostvenomToxin",
+    "theScribe:ThrownScroll"
+  ]
+}

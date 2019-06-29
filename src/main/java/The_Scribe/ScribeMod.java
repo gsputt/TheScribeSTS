@@ -34,6 +34,9 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.Properties;
 
+import static archetypeAPI.ArchetypeAPI.loadArchetypes;
+import static archetypeAPI.ArchetypeAPI.setCharacterDefaultNumOfCards;
+
 @SpireInitializer
 public class ScribeMod implements
         PostInitializeSubscriber, EditCardsSubscriber, EditStringsSubscriber,
@@ -355,7 +358,7 @@ public class ScribeMod implements
         try {
             Properties defaults = new Properties();
             defaults.put("SkillbookCardpool", Boolean.toString(true));
-            modConfig = new SpireConfig("Aspiration", "Config", defaults);
+            modConfig = new SpireConfig("SpellScribe", "Config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -367,6 +370,7 @@ public class ScribeMod implements
     public static final boolean hasAspiration;
     public static final boolean hasDisciple;
     public static final boolean hasConspire;
+    public static final boolean hasArchetypeAPI;
 
     static {
         hasAspiration = Loader.isModLoaded("aspiration");
@@ -380,6 +384,13 @@ public class ScribeMod implements
         hasConspire = Loader.isModLoaded("conspire");
         if(hasConspire) {
             logger.info("Detected Mod: Conspire");
+        }
+        hasArchetypeAPI = Loader.isModLoaded("archetypeapi");
+        {
+            if(hasArchetypeAPI)
+            {
+                logger.info("Detected Mod: ArchetypeAPI");
+            }
         }
     }
 
@@ -732,7 +743,7 @@ public class ScribeMod implements
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 "TheScribeResources/localization/ScribeMod-Potion-Strings.json");
 
-        logger.info("Done editting strings");
+        logger.info("Done editing strings");
     }
 
     // ================ /LOAD THE TEXT/ ===================
@@ -808,6 +819,14 @@ public class ScribeMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         logger.info("Done loading badge Image and mod options");
+
+        logger.info("ArchetypeAPI stuff begins here!");
+        if(hasArchetypeAPI)
+        {
+            setCharacterDefaultNumOfCards(TheScribeEnum.THE_SCRIBE, 75);
+            loadArchetypes("TheScribeResources/ArchetypeAPI/");
+        }
+        logger.info("ArchetypeAPI stuff done!");
 
     }
     // =============== / POST-INITIALIZE/ =================

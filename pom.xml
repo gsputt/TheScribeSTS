@@ -6,7 +6,7 @@
     <version>v1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>TheScribe</name>
+    <name>The Spell Scribe</name>
     <description>An attempt to create a character with a modular spell system</description>
 
     <properties>
@@ -58,6 +58,13 @@
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1612329757/Conspire.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
+        </dependency>
+        <dependency>
+            <groupId>archetypeapi</groupId>
+            <artifactId>ArchetypeAPI</artifactId>
+            <version>2.0.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1679402002/ArchetypeAPI.jar</systemPath>
         </dependency>
     </dependencies>
 

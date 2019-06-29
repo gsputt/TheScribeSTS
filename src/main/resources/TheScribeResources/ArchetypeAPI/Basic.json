@@ -1,0 +1,38 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Basic",
+  "ARCHETYPE_NAME": "theScribe:Basic",
+  "CARD_TYPE": "ATTACK",
+  "IMG": "TheScribeResources/images/cards/Cast.png",
+  "TAGS": [
+    "SINGLE",
+    "BASIC"
+  ],
+  "FEATURES": [
+    "theScribe:Thunder",
+    "theScribe:Insight",
+    "theScribe:Echo"
+
+  ],
+  "CARD_IDS": [
+    "theScribe:WeirdShield",
+    "theScribe:WeirdBlast",
+    "theScribe:Insight",
+    "theScribe:PriceOfKnowledge",
+    "theScribe:StaticCage",
+    "theScribe:Echo",
+    "theScribe:FocusedBolt",
+    "theScribe:FocusingBarrier",
+    "theScribe:Thunder",
+    "theScribe:Ghost_Realm",
+    "theScribe:Escalation",
+    "theScribe:Overexert",
+    "theScribe:LightningBolt",
+    "theScribe:Clarity",
+    "theScribe:Thwack",
+    "theScribe:Conflagrate",
+    "theScribe:AbsoluteZero",
+    "theScribe:QuickStudy",
+    "theScribe:Divination"
+  ]
+}
