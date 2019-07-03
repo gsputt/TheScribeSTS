@@ -1,0 +1,30 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "General Big Spell",
+  "ARCHETYPE_NAME": "theScribe:GeneralBigSpell",
+  "CARD_TYPE": "SKILL",
+  "IMG": "TheScribeResources/images/cards/ForkedBolt.png",
+  "TAGS": [
+    "SINGLE",
+    "INCLUDE_SUPPORT"
+  ],
+  "FEATURES": [
+    "theScribe:Focused",
+    "theScribe:StaticSeries",
+    "theScribe:ForkedBolt"
+  ],
+  "CARD_IDS": [
+    "theScribe:StaticSeries",
+    "theScribe:ScrollOfChaining",
+    "theScribe:Focused",
+    "theScribe:ForkedBolt",
+    "theScribe:RecurringRime",
+    "theScribe:FocusingBlow",
+    "theScribe:ArcaneArcing",
+    "theScribe:PiercingBolts",
+    "theScribe:Echo",
+    "theScribe:FocusedBolt",
+    "theScribe:Escalation",
+    "theScribe:LightningBolt"
+  ]
+}

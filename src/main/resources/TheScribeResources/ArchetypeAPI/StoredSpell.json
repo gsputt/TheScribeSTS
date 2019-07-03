@@ -5,7 +5,8 @@
   "CARD_TYPE": "ATTACK",
   "IMG": "TheScribeResources/images/cards/MagicMissiles.png",
   "TAGS": [
-    "SINGLE"
+    "SINGLE",
+    "INCLUDE_SUPPORT"
   ],
   "FEATURES": [
     "theScribe:MagicMissiles",
@@ -18,9 +19,9 @@
     "theScribe:LightningBlade",
     "theScribe:MagicMissiles",
     "theScribe:Dark",
-    "theScribe:EnchantedStrike",
     "theScribe:CripplingCharge",
     "theScribe:FrostvenomToxin",
-    "theScribe:ThrownScroll"
+    "theScribe:ThrownScroll",
+    "theScribe:EnchantedStrike"
   ]
 }

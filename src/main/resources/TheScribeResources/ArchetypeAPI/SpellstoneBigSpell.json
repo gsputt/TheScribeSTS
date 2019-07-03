@@ -1,0 +1,25 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Spellstone Big Spell",
+  "ARCHETYPE_NAME": "theScribe:SpellstoneBigSpell",
+  "CARD_TYPE": "ATTACK",
+  "IMG": "TheScribeResources/images/cards/TelumSpellstone.png",
+  "TAGS": [
+    "SINGLE",
+    "INCLUDE_SUPPORT"
+  ],
+  "FEATURES": [
+    "theScribe:TelumSpellstone",
+    "theScribe:ScindoSpellstone",
+    "theScribe:FranticSearch"
+  ],
+  "CARD_IDS": [
+    "theScribe:TelumSpellstone",
+    "theScribe:ScindoSpellstone",
+    "theScribe:AmplifyingSpellstone",
+    "theScribe:ToxicSpellstone",
+    "theScribe:GlaciesSpellstone",
+    "theScribe:FranticSearch",
+    "theScribe:Divination"
+  ]
+}

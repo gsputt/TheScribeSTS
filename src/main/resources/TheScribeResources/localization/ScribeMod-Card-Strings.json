@@ -297,7 +297,7 @@
   },
   "theScribe:ArcaneArcing": {
     "NAME": "Arcane Arcing",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK!X Damage."
+    "DESCRIPTION": "Gain X times: NL scribe:Spell_Effect: Deal !BETTERSPELLATTACK! Damage."
   },
   "theScribe:LightningStrike": {
     "NAME": "Lightning Strike",
@@ -330,7 +330,7 @@
   },
   "theScribe:TimeDilation": {
     "NAME": "Time Dilation",
-    "DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. Exhaust. Apply Slow."
+    "DESCRIPTION": "Gain !BETTERDRAINED! scribe:Drained. NL Exhaust. NL Apply Slow."
   },
   "theScribe:ScrollOfScrying": {
     "NAME": "Scroll of Scrying",

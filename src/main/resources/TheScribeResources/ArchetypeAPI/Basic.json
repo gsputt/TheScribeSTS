@@ -33,6 +33,9 @@
     "theScribe:Conflagrate",
     "theScribe:AbsoluteZero",
     "theScribe:QuickStudy",
-    "theScribe:Divination"
+    "theScribe:Divination",
+    "theScribe:PiercingBolts",
+    "theScribe:GatherComponents",
+    "theScribe:EnchantedStrike"
   ]
 }

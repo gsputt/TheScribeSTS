@@ -5,7 +5,8 @@
   "CARD_TYPE": "SKILL",
   "IMG": "TheScribeResources/images/cards/ArcaneBarrier.png",
   "TAGS": [
-    "SINGLE"
+    "SINGLE",
+    "INCLUDE_SUPPORT"
   ],
   "FEATURES": [
     "theScribe:ArcaneBarrier",
@@ -22,6 +23,7 @@
     "theScribe:GlaciesSpellstone",
     "theScribe:RecurringRime",
     "theScribe:Meditate",
-    "theScribe:GlacialGuard"
+    "theScribe:GlacialGuard",
+    "theScribe:Frost"
   ]
 }

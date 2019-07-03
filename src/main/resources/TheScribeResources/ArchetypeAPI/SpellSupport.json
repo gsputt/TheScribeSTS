@@ -1,0 +1,32 @@
+{
+  "CHARACTER": "THE_SCRIBE",
+  "NAME": "Spell Support",
+  "ARCHETYPE_NAME": "theScribe:SpellSupport",
+  "CARD_TYPE": "SKILL",
+  "IMG": "TheScribeResources/images/cards/FocusingBarrier.png",
+  "TAGS": [
+    "SUPPORT"
+  ],
+  "FEATURES": [
+    "theScribe:Echo",
+    "theScribe:Focused",
+    "theScribe:BlankScroll"
+  ],
+  "CARD_IDS": [
+    "theScribe:PiercingBolts",
+    "theScribe:Focused",
+    "theScribe:Echo",
+    "theScribe:AmplifyingSpellstone",
+    "theScribe:FocusingBlow",
+    "theScribe:ScindoSpellstone",
+    "theScribe:BlankScroll",
+    "theScribe:FocusedBolt",
+    "theScribe:FocusingBarrier",
+    "theScribe:RecurringRime",
+    "theScribe:ScrollOfChaining",
+    "theScribe:StaticSeries",
+    "theScribe:Escalation",
+    "theScribe:CapacitanceScroll"
+
+  ]
+}
