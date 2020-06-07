@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class BarrierOfLight extends CustomCard {
+public class BarrierOfLight extends CustomCard implements CardGainHealthInterface{
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -47,7 +47,7 @@ public class BarrierOfLight extends CustomCard {
     //private boolean costHasBeenModified;
     //private int costBeforeModify;
     //private boolean recalculateCost = false;
-    private int lastHPChunk;
+    protected int lastHPChunk = 4;
 
 
     // /STAT DECLARATION/
@@ -60,6 +60,25 @@ public class BarrierOfLight extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         //this.costHasBeenModified = false;
         //this.recalculateCost = false;
+    }
+
+    @Override
+    public void onHeal()
+    {
+        double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
+        //values to check: 0.25 0.5 0.75
+        int chunk = (int)Math.ceil(currentHPPercent / 0.25F);
+        if(chunk != this.lastHPChunk)
+        {
+            /*
+            if hp went up, then end up with a negative
+            if hp went down, then end up with a positive
+             */
+            int changeInCost = this.lastHPChunk - chunk;
+            //System.out.println("tookDamage - costChange: "+ changeInCost);
+            this.setCostForTurn(this.costForTurn - changeInCost);
+            this.lastHPChunk = chunk;
+        }
     }
 
     // Actions the card should do.
@@ -106,7 +125,7 @@ public class BarrierOfLight extends CustomCard {
     {
         double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
         //values to check: 0.25 0.5 0.75
-        int chunk = (int)(currentHPPercent % 0.25F);
+        int chunk = (int)Math.ceil(currentHPPercent / 0.25F);
         if(chunk != this.lastHPChunk)
         {
             /*
@@ -114,6 +133,7 @@ public class BarrierOfLight extends CustomCard {
             if hp went down, then end up with a positive
              */
             int changeInCost = this.lastHPChunk - chunk;
+            //System.out.println("tookDamage - costChange: "+ changeInCost);
             this.setCostForTurn(this.costForTurn - changeInCost);
             this.lastHPChunk = chunk;
         }
@@ -133,7 +153,7 @@ public class BarrierOfLight extends CustomCard {
         {
             double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
             //values to check: 0.25 0.5 0.75
-            int chunk = (int)(currentHPPercent % 0.25F);
+            int chunk = (int)Math.ceil(currentHPPercent / 0.25F);
             this.lastHPChunk = chunk;
             /*
             possible values
@@ -144,6 +164,7 @@ public class BarrierOfLight extends CustomCard {
             0% - 0
              */
             int costReduction = 4 - chunk; //hardcoded numbers oof, but i'm lazy >.<
+            //System.out.print("hpCalculation - costReduction: " + costReduction);
             return costReduction;
         }
         else
@@ -220,9 +241,10 @@ public class BarrierOfLight extends CustomCard {
         if(CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
         {
             returnCard.baseBlock = this.getBlock();
-            returnCard.setCostForTurn(this.cost - ((BarrierOfLight) returnCard).hpCalculation());
+            returnCard.setCostForTurn(this.cost - this.hpCalculation());
+            ((BarrierOfLight) returnCard).lastHPChunk = this.lastHPChunk;
         }
-        return new BarrierOfLight();
+        return returnCard;
     }
 
     //Upgraded stats.
