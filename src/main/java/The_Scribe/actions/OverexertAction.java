@@ -4,7 +4,7 @@ import The_Scribe.powers.Drained;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import java.util.Iterator;
+//import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 
 public class OverexertAction extends AbstractGameAction {
     //private boolean exhaustCards;
@@ -54,10 +54,8 @@ public class OverexertAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            Iterator var3 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
-            while (var3.hasNext()) {
-                AbstractCard card = (AbstractCard) var3.next();
+            for (AbstractCard card : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 gainDrained(card);
                 doStuff(card);
 
@@ -111,9 +109,8 @@ public class OverexertAction extends AbstractGameAction {
 
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(tmp));
-
-            AbstractDungeon.actionManager.addToTop(new QueueCardAction(tmp, this.target));
-            AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.target));
+            AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, this.target));
+            AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(card, this.target));
             //AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
 
 

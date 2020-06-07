@@ -1,7 +1,9 @@
 package The_Scribe.cards;
 
+import The_Scribe.ScribeMod;
+import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.patches.ScribeCardTags;
-import basemod.helpers.BaseModCardTags;
+import The_Scribe.powers.SpellAttack;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,10 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import The_Scribe.ScribeMod;
-import The_Scribe.patches.AbstractCardEnum;
-import The_Scribe.powers.SpellAttack;
 
 public class LightningStrike extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
 
@@ -63,7 +61,7 @@ public class LightningStrike extends AbstractScribeCard implements CardSpellEffe
         this.spellDamage = this.baseSpellDamage;
         tags.add(ScribeCardTags.SPELL_ATTACK);
         tags.add(AbstractCard.CardTags.STRIKE);
-        tags.add(BaseModCardTags.BASIC_STRIKE);
+        tags.add(CardTags.STARTER_STRIKE);
     }
 
     // Actions the card should do.

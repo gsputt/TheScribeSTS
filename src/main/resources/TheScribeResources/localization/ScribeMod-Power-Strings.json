@@ -33,7 +33,7 @@
   },
   "theScribe:SpellEffectiveness": {
     "NAME": "Modifier: Effectiveness",
-    "DESCRIPTIONS": ["Your next spell cast is #b", "% as effective."]
+    "DESCRIPTIONS": ["Your next spell cast is ", " more effective."]
   },
   "theScribe:SpellTargetsAll": {
     "NAME": "Open Minded",

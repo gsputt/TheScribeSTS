@@ -1,25 +1,23 @@
 package The_Scribe.powers;
 
+import The_Scribe.ScribeMod;
 import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.*;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import The_Scribe.ScribeMod;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.UUID;
 
 //Gain 1 dex for the turn for each card played.
 
@@ -108,11 +106,9 @@ public class MaelstromPower extends TwoAmountPower implements CloneablePowerInte
 
 
     private static AbstractCard returnTrulyRandomCardFromMasterDeckListInCombat(Random rng, int cardCost) {
-        ArrayList<AbstractCard> list = new ArrayList();
-        Iterator masterDeckIterator = AbstractDungeon.player.masterDeck.group.iterator();
-
-        while(masterDeckIterator.hasNext()) {
-            AbstractCard c = (AbstractCard)masterDeckIterator.next();
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        for(AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        {
             if(c.cost <= cardCost && c.cost >= -1 && c.type != AbstractCard.CardType.CURSE) {
                 list.add(c);
             }

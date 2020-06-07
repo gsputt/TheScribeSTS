@@ -1,17 +1,15 @@
 package The_Scribe.cards;
 
-import basemod.helpers.BaseModCardTags;
+import The_Scribe.ScribeMod;
+import The_Scribe.patches.AbstractCardEnum;
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import basemod.abstracts.CustomCard;
-
-import The_Scribe.ScribeMod;
-import The_Scribe.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class BarrierOfLight extends CustomCard {
 
@@ -46,9 +44,10 @@ public class BarrierOfLight extends CustomCard {
     private static final int COST = 4;
     private static final int BLOCK_PER_HEALTH = 3;
     private static final int UPGRADE_COST = 3;
-    private boolean costHasBeenModified;
-    private int costBeforeModify;
-    private boolean recalculateCost = false;
+    //private boolean costHasBeenModified;
+    //private int costBeforeModify;
+    //private boolean recalculateCost = false;
+    private int lastHPChunk;
 
 
     // /STAT DECLARATION/
@@ -59,8 +58,8 @@ public class BarrierOfLight extends CustomCard {
         this.baseBlock = 0;
         this.baseMagicNumber = BLOCK_PER_HEALTH;
         this.magicNumber = this.baseMagicNumber;
-        this.costHasBeenModified = false;
-        this.recalculateCost = false;
+        //this.costHasBeenModified = false;
+        //this.recalculateCost = false;
     }
 
     // Actions the card should do.
@@ -71,13 +70,20 @@ public class BarrierOfLight extends CustomCard {
     }
 
     @Override
+    public void atTurnStart()
+    {
+        this.resetAttributes();
+        this.applyPowers();
+    }
+
+    @Override
     public void applyPowers()
     {
-        if(!this.costHasBeenModified) {
-            this.costBeforeModify = this.costForTurn;
-        }
+        //if(!this.costHasBeenModified) {
+        //    this.costBeforeModify = this.costForTurn;
+        //}
         super.applyPowers();
-        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+        /*this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
         double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
         if(!this.costHasBeenModified || this.recalculateCost) {
             this.costForTurn = this.costBeforeModify;
@@ -92,27 +98,75 @@ public class BarrierOfLight extends CustomCard {
             }
             this.costHasBeenModified = true;
             this.recalculateCost = false;
-        }
+        }*/
     }
 
     @Override
     public void tookDamage()
     {
-        this.recalculateCost = true;
+        double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
+        //values to check: 0.25 0.5 0.75
+        int chunk = (int)(currentHPPercent % 0.25F);
+        if(chunk != this.lastHPChunk)
+        {
+            /*
+            if hp went up, then end up with a negative
+            if hp went down, then end up with a positive
+             */
+            int changeInCost = this.lastHPChunk - chunk;
+            this.setCostForTurn(this.costForTurn - changeInCost);
+            this.lastHPChunk = chunk;
+        }
     }
 
     @Override
     public void triggerWhenDrawn()
     {
-        this.costHasBeenModified = false;
-        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+        //this.costHasBeenModified = false;
+        this.baseBlock = getBlock();
+        this.setCostForTurn(this.cost - hpCalculation());
     }
 
-    @Override
+    private int hpCalculation()
+    {
+        if(CardCrawlGame.dungeon != null && AbstractDungeon.player != null)
+        {
+            double currentHPPercent = ((double)AbstractDungeon.player.currentHealth / (double)AbstractDungeon.player.maxHealth);
+            //values to check: 0.25 0.5 0.75
+            int chunk = (int)(currentHPPercent % 0.25F);
+            this.lastHPChunk = chunk;
+            /*
+            possible values
+            100% - 4
+            75% - 3
+            50% - 2
+            25% - 1
+            0% - 0
+             */
+            int costReduction = 4 - chunk; //hardcoded numbers oof, but i'm lazy >.<
+            return costReduction;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    /*@Override
     public void triggerWhenCopied()
     {
-        this.costHasBeenModified = false;
-        this.baseBlock = (int)Math.ceil(((double)AbstractDungeon.player.maxHealth) /(double)magicNumber);
+        //this.costHasBeenModified = false;
+        this.baseBlock = getBlock();
+    }*/
+
+    private int getBlock()
+    {
+        if(CardCrawlGame.dungeon != null && AbstractDungeon.player != null) {
+            return (int) Math.ceil(((double) AbstractDungeon.player.maxHealth) / (double) magicNumber);
+        }
+        else {
+            return 0;
+        }
     }
 
     /*
@@ -162,6 +216,12 @@ public class BarrierOfLight extends CustomCard {
     // Which card to return when making a copy of this card.
     @Override
     public AbstractCard makeCopy() {
+        AbstractCard returnCard = new BarrierOfLight();
+        if(CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
+        {
+            returnCard.baseBlock = this.getBlock();
+            returnCard.setCostForTurn(this.cost - ((BarrierOfLight) returnCard).hpCalculation());
+        }
         return new BarrierOfLight();
     }
 

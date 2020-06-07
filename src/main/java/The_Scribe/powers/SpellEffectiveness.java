@@ -1,18 +1,15 @@
 package The_Scribe.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.*;
-
 import The_Scribe.ScribeMod;
+import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 //Gain 1 dex for the turn for each card played.
 
@@ -61,11 +58,12 @@ public class SpellEffectiveness extends AbstractPower implements SpellModifierIn
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount * 25 + DESCRIPTIONS[1];
 
         if (this.amount > 0) {
+            this.description = DESCRIPTIONS[0] + FontHelper.colorString("" + (this.amount * 25) + "%", "b") + DESCRIPTIONS[1];
             this.type = PowerType.BUFF;
         } else {
+            this.description = DESCRIPTIONS[0] + FontHelper.colorString("" + (this.amount * 25) + "%", "r") + DESCRIPTIONS[1];
             this.type = PowerType.DEBUFF;
         }
 

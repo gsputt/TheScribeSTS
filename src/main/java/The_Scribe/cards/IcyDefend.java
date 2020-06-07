@@ -1,7 +1,9 @@
 package The_Scribe.cards;
 
+import The_Scribe.ScribeMod;
+import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.patches.ScribeCardTags;
-import basemod.helpers.BaseModCardTags;
+import The_Scribe.powers.SpellBlock;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,11 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-
-import The_Scribe.ScribeMod;
-import The_Scribe.patches.AbstractCardEnum;
-import The_Scribe.powers.SpellBlock;
 
 public class IcyDefend extends AbstractScribeCard implements CardSpellEffectInterface, CardSpellsInterface {
 
@@ -61,7 +58,7 @@ public class IcyDefend extends AbstractScribeCard implements CardSpellEffectInte
         this.baseMagicNumber = BLOCK;
         this.magicNumber = this.baseMagicNumber;
         tags.add(ScribeCardTags.SPELL_BLOCK);
-        tags.add(BaseModCardTags.BASIC_DEFEND);
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
     // Actions the card should do.

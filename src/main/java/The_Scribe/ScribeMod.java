@@ -1,7 +1,15 @@
 package The_Scribe;
 
+import The_Scribe.cards.*;
 import The_Scribe.characters.TheScribe;
+import The_Scribe.patches.AbstractCardEnum;
+import The_Scribe.patches.TheScribeEnum;
+import The_Scribe.relics.*;
+import The_Scribe.variables.*;
+import basemod.BaseMod;
+import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -17,25 +25,16 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-
-import basemod.BaseMod;
-import basemod.ModLabel;
-import basemod.ModPanel;
-
-//import The_Scribe.potions.*;
-import The_Scribe.patches.*;
-import The_Scribe.relics.*;
-import The_Scribe.variables.*;
-import The_Scribe.cards.*;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import static archetypeAPI.ArchetypeAPI.loadArchetypes;
-import static archetypeAPI.ArchetypeAPI.setCharacterDefaultNumOfCards;
+//import The_Scribe.potions.*;
+
+//import static archetypeAPI.ArchetypeAPI.loadArchetypes;
+//import static archetypeAPI.ArchetypeAPI.setCharacterDefaultNumOfCards;
 
 @SpireInitializer
 public class ScribeMod implements
@@ -823,8 +822,8 @@ public class ScribeMod implements
         logger.info("ArchetypeAPI stuff begins here!");
         if(hasArchetypeAPI)
         {
-            setCharacterDefaultNumOfCards(TheScribeEnum.THE_SCRIBE, 75);
-            loadArchetypes("TheScribeResources/ArchetypeAPI/");
+            //setCharacterDefaultNumOfCards(TheScribeEnum.THE_SCRIBE, 75);
+            //loadArchetypes("TheScribeResources/ArchetypeAPI/");
         }
         logger.info("ArchetypeAPI stuff done!");
 

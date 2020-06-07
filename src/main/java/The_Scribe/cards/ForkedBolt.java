@@ -1,25 +1,21 @@
 package The_Scribe.cards;
 
 
-import The_Scribe.actions.MoveSpecificTaggedCardsToHandTheyCost0ThisTurnAction;
+import The_Scribe.ScribeMod;
+import The_Scribe.patches.AbstractCardEnum;
 import The_Scribe.patches.ScribeCardTags;
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import The_Scribe.ScribeMod;
-import The_Scribe.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ForkedBolt extends AbstractScribeCard {
 
@@ -102,11 +98,10 @@ public class ForkedBolt extends AbstractScribeCard {
     }
 
     private static AbstractCard returnTrulyRandomCardFromMasterDeckListInCombat(Random rng, AbstractCard.CardTags tag) {
-        ArrayList<AbstractCard> list = new ArrayList();
-        Iterator masterDeckIterator = AbstractDungeon.player.masterDeck.group.iterator();
+        ArrayList<AbstractCard> list = new ArrayList<>();
 
-        while(masterDeckIterator.hasNext()) {
-            AbstractCard c = (AbstractCard)masterDeckIterator.next();
+        for(AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        {
             if(c.hasTag(tag)) {
                 list.add(c);
             }

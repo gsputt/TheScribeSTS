@@ -2,11 +2,11 @@ package The_Scribe.actions;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
 import java.util.Iterator;
 
 public class RunicRepeaterAction extends AbstractGameAction {
@@ -45,13 +45,13 @@ public class RunicRepeaterAction extends AbstractGameAction {
         AbstractCard c = this.p.hand.getRandomCard(false);
         if (better) {
             if (c.costForTurn > 0) {
-                c.modifyCostForTurn(-1);
+                c.setCostForTurn(c.costForTurn - 1);
                 c.superFlash(Color.GOLD.cpy());
             } else {
                 this.findAndModifyCard(better);
             }
         } else if (c.cost > 0) {
-            c.modifyCostForTurn(-1);
+            c.setCostForTurn(c.costForTurn - 1);
             c.superFlash(Color.GOLD.cpy());
         } else {
             this.findAndModifyCard(better);

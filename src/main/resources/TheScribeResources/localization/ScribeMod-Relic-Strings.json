@@ -59,7 +59,7 @@
 		"NAME": "Meditation Circle",
 		"FLAVOR": "This makes you wonder: Is a circle technically a polygon of infinite sides?",
 		"DESCRIPTIONS": [
-			"At the start of your turn, gain 25% scribe:Spell_Effectiveness. Then, if you have less than or equal to 50% scribe:Spell_Effectiveness, gain an scribe:Additional_Cast this turn."
+			"At the start of your turn, gain 25% #yscribe:Spell_Effectiveness. Then, if you have less than or equal to 50% #ySpell #yEffectiveness, gain an #yscribe:Additional_Cast this turn."
 		]
 	},
 
