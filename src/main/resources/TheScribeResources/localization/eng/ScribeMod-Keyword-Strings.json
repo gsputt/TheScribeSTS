@@ -1,0 +1,98 @@
+[
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "NAMES": [
+      "Cast",
+      "cast",
+      "casts"
+    ],
+    "DESCRIPTION": "Use up all your stored Spell Effects and Spell Modifiers to cause effects. Additionally causes Scribed Spells to stop being added to your hand until another Spell Effect is played."
+  },
+  {
+    "NAMES": [
+      "Spectral",
+      "spectral"
+    ],
+    "DESCRIPTION": "Purged from your hand at the end of your turn."
+  },
+  {
+    "PROPER_NAME": "Spell Effect",
+    "NAMES": [
+      "Spell Effect",
+      "Spell Effects",
+      "spell_effect",
+      "spell_effects"
+    ],
+    "DESCRIPTION": "Adds an effect to your next spell. Additionally adds a Scribed Spell to your hand and at the start of every turn if you do not have one."
+  },
+  {
+    "PROPER_NAME": "Spell Modifier",
+    "NAMES": [
+      "Spell Modifier",
+      "Spell Modifiers",
+      "spell_modifier",
+      "spell_modifiers"
+    ],
+    "DESCRIPTION": "Modifies the effects of your next spell."
+  },
+  {
+    "NAMES": [
+      "Drained",
+      "drained",
+      "drain"
+    ],
+    "DESCRIPTION": "Lose 1 Energy at the start of your turn. At the start of each turn, drained is reduced by 1."
+  },
+  {
+    "PROPER_NAME": "Spell Effectiveness",
+    "NAMES": [
+      "Spell Effectiveness",
+      "Spell Effectivity",
+      "spell_effectiveness",
+      "spell_effectivity"
+    ],
+    "DESCRIPTION": "Your next spell will be X % more effective. ALL Spell Effects will be multiplied by X %."
+  },
+  {
+    "PROPER_NAME": "Additional Casts",
+    "NAMES": [
+      "Additional Casts",
+      "Additional Cast",
+      "additional_casts",
+      "additional_cast"
+    ],
+    "DESCRIPTION": "Your next spell will cast X additional times."
+  },
+  {
+    "NAMES": [
+      "Thunder",
+      "thunder"
+    ],
+    "DESCRIPTION": "Any and all instances of Spell Effect: Damage."
+  },
+  {
+    "NAMES": [
+      "Echo",
+      "echo",
+      "echoes"
+    ],
+    "DESCRIPTION": "Echoes are copies of cards with Ethereal and Exhaust."
+  }
+]

@@ -64,18 +64,7 @@ public class EscalationPower extends TwoAmountPower implements CloneablePowerInt
                 if (c != null) {
                     c = c.makeSameInstanceOf();
                     c.freeToPlayOnce = true;
-                    if (c.exhaust == false) {
-                        c.exhaust = true;
-                        c.rawDescription += " NL Exhaust.";
-                    }
-                    if (c.isEthereal == false) {
-                        c.isEthereal = true;
-                        c.rawDescription += " NL Ethereal.";
-                    }
-                    if(!c.name.contains("Echo: ")) {
-                        c.name = "Echo: " + c.name;
-                    }
-                    c.initializeDescription();
+                    ScribeMod.addEchoDescription(c);
                     if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(c));
                     } else {

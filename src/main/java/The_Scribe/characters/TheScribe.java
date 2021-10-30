@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import The_Scribe.ScribeMod;
 import The_Scribe.relics.StarterRelic;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,6 +26,8 @@ import basemod.animations.SpriterAnimation;
 import The_Scribe.cards.*;
 import The_Scribe.patches.*;
 
+import static The_Scribe.ScribeMod.makeID;
+
 public class TheScribe extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(TheScribe.class.getName());
 
@@ -39,6 +42,14 @@ public class TheScribe extends CustomPlayer {
     public static final int ORB_SLOTS = 0;
 
 // =============== /BASE STATS/ =================
+
+
+
+    private static final String ID = makeID("TheScribe");
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
+    private static final String[] NAMES = characterStrings.NAMES;
+    private static final String[] TEXT = characterStrings.TEXT;
+
 
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
@@ -103,8 +114,8 @@ public class TheScribe extends CustomPlayer {
     // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Spell Scribe",
-                "A Scribe that works only with spells. NL " + "Uses Spell Effects and Spell Modifiers to cast custom spells.",
+        return new CharSelectInfo(NAMES[0],
+                TEXT[0],
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
@@ -213,7 +224,7 @@ public class TheScribe extends CustomPlayer {
     // Should return class name as it appears in run history screen.
     @Override
     public String getLocalizedCharacterName() {
-        return "The Spell Scribe";
+        return NAMES[0];
     }
 
     //Which card should be obtainable from the Match and Keep event?
@@ -225,7 +236,7 @@ public class TheScribe extends CustomPlayer {
     // The class name as it appears next to your player name in-game
     @Override
     public String getTitle(AbstractPlayer.PlayerClass playerClass) {
-        return "The Spell Scribe";
+        return NAMES[1];
     }
 
     // Should return a new instance of your character, sending this.name as its name parameter.
@@ -261,7 +272,7 @@ public class TheScribe extends CustomPlayer {
     // core to its maximum..."
     @Override
     public String getSpireHeartText() {
-        return "You prepare your spells...";
+        return TEXT[1];
     }
 
     // The vampire events refer to the base game characters as "brother", "sister",
@@ -269,6 +280,6 @@ public class TheScribe extends CustomPlayer {
     // the full text that will be displayed as the first screen of the vampires event.
     @Override
     public String getVampireText() {
-        return "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~scribe,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~";
+        return TEXT[2];
     }
 }

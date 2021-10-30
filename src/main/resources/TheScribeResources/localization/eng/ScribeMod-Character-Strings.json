@@ -1,0 +1,13 @@
+{
+  "theShowman:DefaultCharacter": {
+    "NAMES": [
+      "The Spell Scribe",
+      "the Spell Scribe"
+    ],
+    "TEXT": [
+      "A Scribe that works only with spells. NL Uses Spell Effects and Spell Modifiers to cast custom spells.",
+      "You prepare your spells...",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~scribe,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}

@@ -11,24 +11,27 @@ import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 //import The_Scribe.potions.*;
@@ -43,6 +46,8 @@ public class ScribeMod implements
         PostBattleSubscriber, OnStartBattleSubscriber
 {
     //PrePlayerUpdateSubscriber, OnReceivePowerPower
+
+    private static String modID;
 
     public static final Logger logger = LogManager.getLogger(ScribeMod.class.getName());
 
@@ -333,6 +338,8 @@ public class ScribeMod implements
         logger.info("Subscribe to BaseMod hooks");
 
         BaseMod.subscribe(this);
+
+        setModID("TheScribe");
 
         logger.info("Done subscribing");
 
@@ -728,19 +735,19 @@ public class ScribeMod implements
 
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                "TheScribeResources/localization/ScribeMod-Card-Strings.json");
+                "TheScribeResources/localization/eng/ScribeMod-Card-Strings.json");
 
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                "TheScribeResources/localization/ScribeMod-Power-Strings.json");
+                "TheScribeResources/localization/eng/ScribeMod-Power-Strings.json");
 
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                "TheScribeResources/localization/ScribeMod-Relic-Strings.json");
+                "TheScribeResources/localization/eng/ScribeMod-Relic-Strings.json");
 
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                "TheScribeResources/localization/ScribeMod-Potion-Strings.json");
+                "TheScribeResources/localization/eng/ScribeMod-Potion-Strings.json");
 
         logger.info("Done editing strings");
     }
@@ -751,6 +758,19 @@ public class ScribeMod implements
 
     @Override
     public void receiveEditKeywords() {
+
+        Gson gson = new Gson();
+        String json = Gdx.files.internal(getModID() + "Resources/localization/" + getLanguageString() + "/ScribeMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
+            }
+        }
+
+        /*
         final String[] Cast = { "Cast", "casts", "cast"};
         BaseMod.addKeyword("scribe", "Cast", Cast, "Use up all your stored Spell Effects and Spell Modifiers to cause effects. Additionally causes Scribed Spells to stop being added to your hand until another Spell Effect is played.");
 
@@ -777,7 +797,7 @@ public class ScribeMod implements
 
         final String[] Echo = {"Echo", "echo", "echoes"};
         BaseMod.addKeyword("scribe","Echo", Echo, "Echoes are copies of cards with Ethereal and Exhaust.");
-
+        */
     }
 
     // ================ /LOAD THE KEYWORDS/ ===================
@@ -852,6 +872,89 @@ public class ScribeMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return "theScribe:" + idText;
+    }
+
+
+    private static void loadStringsWithLoc(String language)
+    {
+        // CardStrings
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Card-Strings.json");
+
+        // PowerStrings
+        BaseMod.loadCustomStringsFile(PowerStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Power-Strings.json");
+
+        // RelicStrings
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Relic-Strings.json");
+
+        // Event Strings
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Event-Strings.json");
+
+        // PotionStrings
+        BaseMod.loadCustomStringsFile(PotionStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Potion-Strings.json");
+
+        // CharacterStrings
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Character-Strings.json");
+
+        // OrbStrings
+        BaseMod.loadCustomStringsFile(OrbStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-Orb-Strings.json");
+
+        //UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/" + language + "/ShowmanMod-UI-Strings.json");
+    }
+
+    private static String getLanguageString()
+    {
+        String stringToReturn;
+        switch(Settings.language)
+        {
+            case RUS:
+                stringToReturn = "rus";
+                break;
+            default:
+                stringToReturn = "eng";
+                break;
+        }
+        return stringToReturn;
+    }
+
+    public static String getModID() {
+        return modID;
+    }
+
+    public static void setModID(String ID)
+    {
+        modID = ID;
+        //no checks here because im using way older template and can't be bothered to move everything over
+    }
+
+
+    private static final String EggoID = ScribeMod.makeID("Eggo");
+
+    public static void addEchoDescription(AbstractCard card)
+    {
+        CardStrings EggoStrings = CardCrawlGame.languagePack.getCardStrings(EggoID);
+
+        AbstractCard c = card;
+        if (c.exhaust == false) {
+            c.exhaust = true;
+            c.rawDescription += EggoStrings.EXTENDED_DESCRIPTION[0]; // " NL Exhaust."
+        }
+        if (c.isEthereal == false) {
+            c.isEthereal = true;
+            c.rawDescription += EggoStrings.EXTENDED_DESCRIPTION[1]; // " NL Ethereal."
+        }
+        if (!c.name.contains(EggoStrings.EXTENDED_DESCRIPTION[2])) { // "Echo: "
+            c.name = EggoStrings.EXTENDED_DESCRIPTION[2] + c.name; // "Echo: "
+        }
+        c.initializeDescription();
     }
 
 }
