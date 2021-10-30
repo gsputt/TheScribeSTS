@@ -879,35 +879,23 @@ public class ScribeMod implements
     {
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Card-Strings.json");
+                getModID() + "Resources/localization/" + language + "/ScribeMod-Card-Strings.json");
 
-        // PowerStrings
+        // PowerScribe
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Power-Strings.json");
+                getModID() + "Resources/localization/" + language + "/ScribeMod-Power-Strings.json");
 
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Relic-Strings.json");
-
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Event-Strings.json");
-
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Potion-Strings.json");
+                getModID() + "Resources/localization/" + language + "/ScribeMod-Relic-Strings.json");
 
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Character-Strings.json");
-
-        // OrbStrings
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-Orb-Strings.json");
+                getModID() + "Resources/localization/" + language + "/ScribeMod-Character-Strings.json");
 
         //UIStrings
         BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/" + language + "/ShowmanMod-UI-Strings.json");
+                getModID() + "Resources/localization/" + language + "/ScribeMod-UI-Strings.json");
     }
 
     private static String getLanguageString()

@@ -1,5 +1,6 @@
 package The_Scribe.actions;
 
+import The_Scribe.ScribeMod;
 import The_Scribe.powers.Drained;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -9,15 +10,19 @@ import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 
 public class OverexertAction extends AbstractGameAction {
     //private boolean exhaustCards;
-    public static final String TEXT = "to play twice and exhaust";
+    private static final String ID = ScribeMod.makeID("OverexertAction");
+    private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+    public static final String TEXT = UI_STRINGS.TEXT[0];
     private boolean isRandom;
 
     public OverexertAction(AbstractCreature target, int amount, boolean isRandom) {

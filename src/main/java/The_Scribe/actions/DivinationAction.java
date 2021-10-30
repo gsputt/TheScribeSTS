@@ -1,19 +1,24 @@
 package The_Scribe.actions;
 
 
+import The_Scribe.ScribeMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DivinationAction extends AbstractGameAction {
-    public static final String TEXT = "Choose a card to draw. The others are Exhausted.";
+    private static final String ID = ScribeMod.makeID("DivinationAction");
+    private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+    public static final String TEXT = UI_STRINGS.TEXT[0];
     private float startingDuration;
     private CardGroup tmpGroup;
 

@@ -1,5 +1,6 @@
 package The_Scribe.actions;
 
+import The_Scribe.ScribeMod;
 import The_Scribe.powers.SpellAttack;
 import The_Scribe.powers.SpellBlock;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,7 +16,9 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import java.util.Iterator;
 
 public class GatherComponentsAction extends AbstractGameAction {
-    public static final String TEXT = "Exhaust";
+    private static final String ID = ScribeMod.makeID("GatherComponentsAction");
+    private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+    public static final String TEXT = UI_STRINGS.TEXT[0];
     private AbstractPlayer p;
     private boolean isRandom;
     private boolean anyNumber;

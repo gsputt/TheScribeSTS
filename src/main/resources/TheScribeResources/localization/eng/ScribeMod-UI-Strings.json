@@ -1,0 +1,11 @@
+{
+  "theScribe:DivinationAction": {
+    "TEXT": ["Choose a card to draw. The others are Exhausted."]
+  },
+  "theScribe:GatherComponentsAction": {
+    "TEXT": ["Exhaust"]
+  },
+  "theScribe:OverexertAction": {
+    "TEXT": ["to play twice and exhaust"]
+  }
+}
