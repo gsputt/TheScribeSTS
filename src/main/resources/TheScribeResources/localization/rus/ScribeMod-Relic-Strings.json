@@ -1,0 +1,92 @@
+{
+	"theScribe:StarterRelic1": {
+		"NAME": "Свиток Начертателя Заклинаний",
+		"FLAVOR": "Помечен символом \"S\" испускающим мистические флюиды.",
+		"DESCRIPTIONS": [
+			"Выберите #b1 из #b3 случайных карт и замешайте её в стопку добора в начале боя."
+		]
+	},
+	"theScribe:StarterRelic2": {
+		"NAME": "Spell Scribe's Pen",
+		"FLAVOR": "A fountain pen that never runs out of ink. It aids in the creation of spells.",
+		"DESCRIPTIONS": [
+			"Adds 1 Scribed Spell to your hand at the start of every odd turn. NL Scribed Spells are used for casting spells created with #yscribe:Spell_Effects and #yscribe:Spell_Modifiers."
+		]
+	},
+	"theScribe:OsmoticFilter": {
+		"NAME": "Осмотический Фильтр",
+		"FLAVOR": "Прохладный на ощупь загадочный агрегат. Едва различимо гудит. Периодически из него вытекает кристально чистая освежающая вода.",
+		"DESCRIPTIONS": [
+			"Даёт [E] в начале вашего следующего хода в количестве, равном полученному #yscribe:Иссушению [REMOVE_SPACE]."
+		]
+	},
+	"theScribe:StormScale": {
+		"NAME": "Чешуйка Штормового Зверя",
+		"FLAVOR": "Жесткая блестящая чешуйка. \n Природная способность Зверя проводить электричество делает даже одну чешуйку прекрасной фокусировкой для заклинаний школы #yМолнии.",
+		"DESCRIPTIONS": [
+			"Увеличивает урон от #yscribe:Записи_Эффекта [REMOVE_SPACE]: \"Наносит N урона\", на #b1 за каждую карту, сыгранну. в этом ходу."
+		]
+	},
+	"theScribe:PermafrostPen": {
+		"NAME": "Леденящее Перо",
+		"FLAVOR": "Обжигающе холодный инструмент для письма, украшенный снежинкой. \n Одно прикосновение к нему уже пробирает до костей.",
+		"DESCRIPTIONS": [
+			"Даёт #b3 #yЗащиты, когда карта #yscribe:Записывает_Эффект [REMOVE_SPACE]."
+		]
+	},
+	"theScribe:AlchemicalAlter": {
+		"NAME": "Алхимический Заменитель",
+		"FLAVOR": "Флакон с ядом, искрящийся от напряжения. Токсичность этой смеси Шокирует вас!",
+		"DESCRIPTIONS": [
+			"#yscribe:Записывает_Эффект [REMOVE_SPACE]: \"Накладывает N/2 #yЯда [REMOVE_SPACE]\", когда карта #yscribe:Записывает_Эффект [REMOVE_SPACE]: \"Наносит N урона.\""
+		]
+	},
+	"theScribe:ClarityBossRelic": {
+		"NAME": "Баночка с Невидимыми Чернилами",
+		"FLAVOR": "Богато-украшенная баночка, из которой постоянно течёт поток осязаемого Ничто. \n Вы быстро теряете след заклинания, записанного такими \"чернилами\".",
+		"DESCRIPTIONS": [
+			"#yscribe:Записывает_Эффект [REMOVE_SPACE]: \"Даёт 2 [E] [REMOVE_SPACE]\" в начале каждого вашего хода. Убирает все записанные #yЭффекты и #yМодификаторы в конце каждого вашего хода."
+		]
+	},
+	"theScribe:RunicRepeater": {
+		"NAME": "Руническое Кольцо",
+		"FLAVOR": "Маленькое металлическое кольцо, украшенное странными символами. Значительно расширяет магический резерв носителя.",
+		"DESCRIPTIONS": [
+			"Уменьшает стоимость случайной карты в руке на 1 до конца хода, когда карта #yscribe:Записывает_Модификатор [REMOVE_SPACE]."
+		]
+	},
+	"theScribe:MeditationCircle": {
+		"NAME": "Многомерная Окружность",
+		"FLAVOR": "При взгляде на эту магическую фигуру, вы невольно задаётесь вопросом: неужели круг это просто многоугольник с бесконечным количеством сторон?",
+		"DESCRIPTIONS": [
+			"#yscribe:Записывает_Модификатор \"25% #yscribe:Эффективности [REMOVE_SPACE]\" в начале каждого вашего хода. Затем #yscribe:Записывает_Модификатор #yscribe:Дополнительное_прочтение [REMOVE_SPACE], если Эффективность меньше или равна 50%."
+		]
+	},
+
+
+	"theScribe:ScribeSkillbook": {
+		"NAME": "Scribe's Skillbook",
+		"FLAVOR": "This appears to be an introduction to modular spellcasting. The pages are worn from heavy use.",
+		"DESCRIPTIONS": [
+			"The first card you play each turn costs 1 less.", " NL NL #yMulticlass Spell Scribe."
+		]
+	},
+
+	"theScribe:PlaceholderRelic2": {
+		"NAME": "Placeholder Relic 2",
+		"FLAVOR": "You feel stronger.",
+		"DESCRIPTIONS": [
+			"At the start of each combat, gain +1 Strength."
+		]
+	},
+	"theScribe:Skillbook": {
+		"NAME": "Multiclass Keyword",
+		"FLAVOR": "This shouldn't be seen.",
+		"DESCRIPTIONS": [
+			"Multiclass",
+			"Cards from the associated class may now spawn, and future Card Reward screens have #b1 additional card to choose from.",
+			"(You have disabled cardpool mixing in options) Future Card Reward screens have #b1 additional card to choose from.",
+			" NL NL #yMulticlass "
+		]
+	}
+}

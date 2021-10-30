@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -115,6 +116,18 @@ public class MaelstromPower extends TwoAmountPower implements CloneablePowerInte
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
+        if (Settings.language == Settings.GameLanguage.RUS) {
+            rusDescription();
+        }
+        else
+        {
+            engDescription();
+        }
+
+    }
+
+    private void engDescription()
+    {
         if(this.amount == 1) {
             this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
         }
@@ -130,7 +143,16 @@ public class MaelstromPower extends TwoAmountPower implements CloneablePowerInte
         {
             this.description += DESCRIPTIONS[4] + this.amount2 + DESCRIPTIONS[6];
         }
+    }
 
+    private void rusDescription()
+    {
+        if (this.amount == 1) {
+            this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[4] + this.amount2;
+        }
+        if (this.amount > 1) {
+            this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3] + DESCRIPTIONS[4] + this.amount2;
+        }
     }
 
 }

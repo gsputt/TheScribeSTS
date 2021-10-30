@@ -93,6 +93,18 @@ public class ScrollOfShadowsPower extends TwoAmountPower implements CloneablePow
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
+        if (Settings.language == Settings.GameLanguage.RUS) {
+            rusDescription();
+        }
+        else
+        {
+            engDescription();
+        }
+
+    }
+
+    private void engDescription()
+    {
         if(this.amount == 1) {
             this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
         }
@@ -107,6 +119,16 @@ public class ScrollOfShadowsPower extends TwoAmountPower implements CloneablePow
         if(this.amount2 > 1)
         {
             this.description += DESCRIPTIONS[4] + this.amount2 + DESCRIPTIONS[6];
+        }
+    }
+
+    private void rusDescription()
+    {
+        if (this.amount == 1) {
+            this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[4] + this.amount2;
+        }
+        if (this.amount > 1) {
+            this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3] + DESCRIPTIONS[4] + this.amount2;
         }
     }
 

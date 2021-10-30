@@ -1,0 +1,11 @@
+{
+  "theScribe:DivinationAction": {
+    "TEXT": ["Выберите карту, которую положите в руку. Остальные будут Сожжены."]
+  },
+  "theScribe:GatherComponentsAction": {
+    "TEXT": ["Сжечь"]
+  },
+  "theScribe:OverexertAction": {
+    "TEXT": [", которая будет разыграна дважды и Сожжена."]
+  }
+}

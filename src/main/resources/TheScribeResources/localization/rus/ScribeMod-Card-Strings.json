@@ -1,0 +1,416 @@
+{
+  "theScribe:StarterAttack": {
+    "NAME": "Удар",
+    "DESCRIPTION": " Наносит !D! урона."
+  },
+  "theScribe:StarterDefend": {
+    "NAME": "Оборона",
+    "DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "theScribe:Insight": {
+    "NAME": "Озарение",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карты."
+  },
+  "theScribe:Cast_Spell": {
+    "NAME": "Зачитать Заклинание",
+    "DESCRIPTION": "thescribe:Зачитывает. Изгоняется. thescribe:Спектральная.",
+    "EXTENDED_DESCRIPTION": ["(Без эффекта сейчас.)"," NL ", "(Наносит !D! урона.)",
+      "(Даёт !B! Защиты.)", "(Накладывает !DarkPoison! Яда.)","(Накладывает !DarkVulnerable! Уязвимости.)",
+      "(Накладывает !DarkWeak! Слабости.)", "( !EFFECTIVENESS! % Эффективности.)", "(Заклинание срабатывает ещё !SplitNumber! раз(а).)",
+      "(Даёт !Clarity! [E].)", "(Затраигвает !SPELLCHAINING! дополнительную цель.)", "( Вы полчаете !SELFDAMAGE! урона.)", "(Всё срабатывает в указанном порядке.)",
+      "(Затрагивает !SPELLCHAINING! дополнительные(х) цели(ей).)", "(Враги с Защитой получают в ", " раз(а) больше урона.)"]
+  },
+  "theScribe:ArcaneBarrier": {
+    "NAME": "Мистический Барьер",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Даёт !M! Защиты.\" NL thescribe:Записывает_Модификатор: \"[#fa0000]Отнимает[] 25% thescribe:Эффективности .\""
+  },
+  "theScribe:Thunder": {
+    "NAME": "Понять Шторм",
+    "DESCRIPTION": "Вы берёте карту. NL thescribe:Записывает_Эффект: NL \"Наносит !BETTERSPELLATTACK! урона.\"",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карты. NL thescribe:Записывает_Эффект: NL \"Наносит !BETTERSPELLATTACK! урона\"."
+  },
+  "theScribe:Frost": {
+    "NAME": "Заморозить",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Даёт !BETTERSPELLBLOCK! Защиты.\"",
+    "UPGRADE_DESCRIPTION": "Накладывает !M! Слабости на ВСЕХ врагов. NL thescribe:Записывает_Эффект: NL \"Даёт !BETTERSPELLBLOCK! Защиты.\""
+  },
+  "theScribe:Dark": {
+    "NAME": "Кошмар",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Накладывает 5 Яда и 2 Слабости.\""
+  },
+  "theScribe:Split": {
+    "NAME": "Расщепление",
+    "DESCRIPTION": "thescribe:Записывает_Модификатор: NL \"[#fa0000]Отнимает[] 50% thescribe:Эффективности\" NL thescribe:Записывает_Модификатор: NL \" !M! thescribe:Доп._прочтение .\"",
+    "UPGRADE_DESCRIPTION": "thescribe:Записывает_Модификатор: NL \"[#fa0000]Отнимает[] 50% thescribe:Эффективности\" NL thescribe:Записывает_Модификатор: NL \" !M! thescribe:Доп._прочтения .\""
+  },
+  "theScribe:BloodMagicks": {
+    "NAME": "Кровавые Ритуалы",
+    "DESCRIPTION": "Вы берёте карту и получаете [E] , когда получаете урон во время своего хода."
+  },
+  "theScribe:Thwack": {
+    "NAME": "Кровоизлияние",
+    "DESCRIPTION": " Наносит !D! урона. NL Оглушает цель на 1 ход. NL Даёт 2 thescribe:Иссушения. NL Сжигается."
+  },
+  "theScribe:Clarity": {
+    "NAME": "Ясность",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Даёт !M! [E]."
+  },
+  "theScribe:Focused": {
+    "NAME": "Сфокусиоваться",
+    "DESCRIPTION": "Даёт !B! Защиты. NL thescribe:Записывает_Модификатор: NL \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:Ghost_Realm": {
+    "NAME": "Свиток Неосязаемости",
+    "DESCRIPTION": "Даёт !M! Неосязаемости вам и ВСЕМ врагам."
+  },
+  "theScribe:SacrificeRitual": {
+    "NAME": "Кровавая жертва",
+    "DESCRIPTION": " Наносит !D! урона. NL Если это убивает врага, Восполняет ОЗ равное 25% Макс. ОЗ убитого врага. NL Сжигается."
+  },
+  "theScribe:Echo": {
+    "NAME": "Эхо",
+    "DESCRIPTION": "thescribe:Записывает_Модификатор: NL \" !M! thescribe:Доп._прочтение .\"",
+    "UPGRADE_DESCRIPTION": "thescribe:Записывает_Модификатор: NL \" !M! thescribe:Доп._прочтения .\""
+  },
+  "theScribe:LightningBolt": {
+    "NAME": "Разряд Молнии",
+    "DESCRIPTION": " Наносит !D! урона ВСЕМ врагам. NL thescribe:Записывает_Эффект: NL \"Наносит !M! урона.\""
+  },
+  "theScribe:MirrorImage": {
+    "NAME": "Зеркальное Отражение",
+    "DESCRIPTION": "Даёт !B! Защиты. NL thescribe:Записывает_Эффект: NL \"Даёт !M! Защиты.\""
+  },
+  "theScribe:Meditate": {
+    "NAME": "Медитация",
+    "DESCRIPTION": "Снимает с вас все Отрицальные эффекты. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Снимает с вас все Отрицальные эффекты."
+  },
+  "theScribe:MagicMissiles": {
+    "NAME": "Магические Снаряды",
+    "DESCRIPTION": "Наносит !D! урона 2 раза. NL Увеличивает число ударов за каждый уникальный записанный thescribe:Эффект_Заклинания и thescribe:Модификатор_Заклинания. NL (Бьёт !M! раз(а).)"
+  },
+  "theScribe:PoisonGas": {
+    "NAME": "Ядовитый Газ",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Накладывает !M! Яда."
+  },
+  "theScribe:AirPrison": {
+    "NAME": "Воздушная Тюрьма",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Накладывает !M! Уязвимости."
+  },
+  "theScribe:BluntWeapons": {
+    "NAME": "Затупить Оружие",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Накладывает !M! Слабости."
+  },
+  "theScribe:IcicleBlast": {
+    "NAME": "Взрыв Сосулек",
+    "DESCRIPTION": "Даёт *Шипы равные половине вашей Защиты. NL Потеряйте полученные *Шипы в начале вашего следующего хода.",
+    "UPGRADE_DESCRIPTION": "Даёт *Шипы равные вашей Защите. NL Потеряйте полученные *Шипы в начале вашего следующего хода."
+  },
+  "theScribe:OpenMind": {
+    "NAME": "Раскрыть Сознание",
+    "DESCRIPTION": "Заклинание затрагивает ВСЕХ врагов. NL Эфирная. NL Даёт 1 thescribe:Иссушение",
+    "UPGRADE_DESCRIPTION": "Заклинание затрагивает ВСЕХ врагов. NL Даёт 1 thescribe:Иссушение"
+  },
+  "theScribe:PriceOfKnowledge": {
+    "NAME": "Цена Знаний",
+    "DESCRIPTION": "Розыгрыш этой карты стоит !M! золота. NL Добавляет \"Цену Знаний\" в руку. NL Вы берёте 1 карту. NL Изгоняется.",
+    "UPGRADE_DESCRIPTION": "Розыгрыш этой карты стоит !M! золота. NL Добавляет улучшенную \"Цену Знаний\" в руку. NL Вы берёте 1 карту. NL Изгоняется."
+  },
+  "theScribe:BarrierOfLight": {
+    "NAME": "Световой Барьер",
+    "DESCRIPTION": "Стоит на [E] меньше за каждые 25% недостающего ОЗ. NL Даёт 1 Защиты за каждые !M! Макс. ОЗ. NL (Даёт !B! Защиты.)"
+  },
+  "theScribe:Manablast": {
+    "NAME": "Manablast",
+    "DESCRIPTION": "Даёт 1 thescribe:Иссушены. NL thescribe:Записывает_Модификатор: NL [#fa0000]Отнимает[] 50% thescribe:Эффективности , and !M! thescribe:Additional_Casts."
+  },
+  "theScribe:EldritchApplyPoison": {
+    "NAME": "Яд",
+    "DESCRIPTION": "thescribe:Записывает_Модификатор: NL Накладывает !M! Яда."
+  },
+  "theScribe:EldritchApplyVulnerable": {
+    "NAME": "Уязвимость",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Накладывает !M! Уязвимости."
+  },
+  "theScribe:EldritchApplyWeak": {
+    "NAME": "Слабость",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL Накладывает !M! Слабости."
+  },
+  "theScribe:Escalation": {
+    "NAME": "Эскалация",
+    "DESCRIPTION": "Добавляет в руку thescribe:Эхо первой сыгранной NL за ход карты, thescribe:Записывающей_Эффект. Добавленная карта стоит 0. NL Даёт !M! thescribe:Иссушение.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Добавляет в руку thescribe:Эхо первой сыгранной NL за ход карты, thescribe:Записывающей_Эффект. Добавленная карта стоит 0. NL Даёт !M! thescribe:Иссушение."
+  },
+  "theScribe:Conversion": {
+    "NAME": "Конверсия",
+    "DESCRIPTION": " Сжигается. NL thescribe:Записывает_Модификатор: NL \"Потеряйте все thescribe:Дополнительные_Прочтения. Получите !SPELLEFFECTIVENESS! % thescribe:Эффективности за каждое потерянное прочтение.\""
+  },
+  "theScribe:Inversion": {
+    "NAME": "Инверсия",
+    "DESCRIPTION": "Сжигается. NL thescribe:Записывает_Модификатор: NL Потеряйте all negative thescribe:Эффективности . Даёт 25% thescribe:Эффективности for each !SPELLEFFECTIVENESS! % lost."
+  },
+  "theScribe:Splinter": {
+    "NAME": "Splinter",
+    "DESCRIPTION": "Сжигается. NL Add a copy of this карты to your hand that costs 1 more [E]. NL thescribe:Записывает_Модификатор: NL \"Даёт !M! thescribe:Additional_Cast.\""
+  },
+  "theScribe:AmplifyingSpellstone": {
+    "NAME": "Рунный Камень Заряда",
+    "DESCRIPTION": "Сжигаемая !stslib:ex!. NL Когда эта карта Сжигается, NL thescribe:Записывает_Модификатор: \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:EnchantedStrike": {
+    "NAME": "Зачарованный Удар",
+    "DESCRIPTION": "На эту карту влияют все записанные thescribe:модификаторы. NL  Наносит !D! урона. ",
+    "EXTENDED_DESCRIPTION": [" NL ","(Бьёт !M! дополнительных раз)", "(Затрагивает !SPELLCHAINING! дополнительную цель)", "(Затрагивает !SPELLCHAINING! дополнительных целей)", "(Враги с Защитой получают в ", " раз(а) больше урона.)"]
+  },
+  "theScribe:FocusingBlow": {
+    "NAME": "Фокусирующий Замах",
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт 1 thescribe:Иссушение. NL thescribe:Записывает_Модификатор: NL \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:LightningBlade": {
+    "NAME": "Клинок Молнии",
+    "DESCRIPTION": "Наносит 5 урона.  Наносит дополнительный урон, равный thescribe:Шторму. NL ( Наносит !D! урона.)",
+    "UPGRADE_DESCRIPTION": " Наносит 5 урона.  Наносит дополнительный урон, равный thescribe:Шторму. NL Вы берёте карту. NL ( Наносит !D! урона.)"
+  },
+  "theScribe:Overcharge": {
+    "NAME": "Перегрузка",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Наносит !M! урона. Наносит вам !OverchargeVariable! урона.\""
+  },
+  "theScribe:LiquidumScroll": {
+    "NAME": "Свиток Текучести",
+    "DESCRIPTION": "Вы берёте дополнительную карту в начале вашего хода, если вы thescribe:Иссушены.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Вы берёте дополнительную карту в начале вашего хода, если вы thescribe:Иссушены."
+  },
+  "theScribe:ScindoSpellstone": {
+    "NAME": "Рунный Камень Повторения",
+    "DESCRIPTION": "Сжигаемая !stslib:ex!. NL Даёт !BETTERDRAINED! thescribe:Иссушение. NL Когда эта карта Сжигается, NL thescribe:Записывает_Модификатор: NL \" !BETTERSPLIT! thescribe:Доп._прочтения .\""
+  },
+  "theScribe:BlankScroll": {
+    "NAME": "Чистый Свиток",
+    "DESCRIPTION": "Все ваши заклинания имеют thescribe:Модификатор: NL \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\"",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Все ваши заклинания имеют thescribe:Модификатор: NL \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:WordsOfPower": {
+    "NAME": "Слова силы",
+    "DESCRIPTION": "Наносит !M! урона случайному врагу, когда вы теряете положительный эффект.",
+    "UPGRADE_DESCRIPTION": "Наносит !M! урона случайному врагу, когда вы получаете или теряете положительный эффект."
+  },
+  "theScribe:StemTheFlow": {
+    "NAME": "Против Течения",
+    "DESCRIPTION": "Даёт Временное_ОЗ равное количеству слоёв отрицательного эффекта, когда вы получаете его. NL Складывается по убыванию.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт Временное_ОЗ равное количеству слоёв отрицательного эффекта, когда вы получаете его. NL Складывается по убыванию."
+  },
+  "theScribe:BloodBulwark": {
+    "NAME": "Кровавый Бастион",
+    "DESCRIPTION": "Даёт !M! Временного_ОЗ."
+  },
+  "theScribe:FalseLife": {
+    "NAME": "Фальшивая Жизнь",
+    "DESCRIPTION": "Получайте Временное_ОЗ вместо Защиты до конца NL этого хода. NL Сжигается."
+  },
+  "theScribe:InscribeDeath": {
+    "NAME": "Предначертать Смерть",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL thescribe:Записывает_Эффект: \"Наносит вам !M! урона.\""
+  },
+  "theScribe:WeirdBlast": {
+    "NAME": "Странный Взрыв",
+    "DESCRIPTION": "Даёт !BETTERDRAINED! thescribe:Иссушение. NL thescribe:Записывает_Эффект:  \"Наносит !BETTERSPELLATTACK! урона.\"",
+    "UPGRADE_DESCRIPTION": "Вы берёте a карту. NL Даёт !BETTERDRAINED! thescribe:Иссушение. NL thescribe:Записывает_Эффект:  \"Наносит !BETTERSPELLATTACK! урона.\""
+  },
+  "theScribe:WeirdShield": {
+    "NAME": "Странный Щит",
+    "DESCRIPTION": "Даёт !B! Защиты. NL thescribe:Записывает_Эффект: \"Наносит вам !BETTERSELFDAMAGE! урона.",
+    "UPGRADE_DESCRIPTION": "Вы берёте a карту. NL Даёт !B! Защиты. NL thescribe:Записывает_Эффект: \"Наносит вам !BETTERSELFDAMAGE! урона.\""
+  },
+  "theScribe:StaticCage": {
+    "NAME": "Клетка под Напряжением",
+    "DESCRIPTION": "Даёт !B! Защиты. NL thescribe:Записывает_Эффект:  \"Наносит !BETTERSPELLATTACK! урона.\""
+  },
+  "theScribe:TelumSpellstone": {
+    "NAME": "Рунный Камень Меча",
+    "DESCRIPTION": "Сжигаемая !stslib:ex!. NL Когда эта карта Сжигается, NL thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона.\""
+  },
+  "theScribe:FlowLikeWater": {
+    "NAME": "По Течению",
+    "DESCRIPTION": "Даёт !M! Временной ловкости сейчас и в начале вашего хода, если вы thescribe:Иссушены."
+  },
+  "theScribe:CapacitanceScroll": {
+    "NAME": "Свиток Разрядов",
+    "DESCRIPTION": "Все ваши заклинания начинаются с thescribe:Эффекта: \"Наносит !M! урона.\""
+  },
+  "theScribe:Incendio": {
+    "NAME": "Инцендио",
+    "DESCRIPTION": "Стоит 1 [E] если вы thescribe:Иссушены. NL  Наносит !D! урона. Даёт !BETTERDRAINED! thescribe:Иссушения."
+  },
+  "theScribe:Exsanguinate": {
+    "NAME": "Обескровить",
+    "DESCRIPTION": "Наносит !D! урона. Даёт Временное_ОЗ равное половине незаблокированного урона."
+  },
+  "theScribe:Conflagrate": {
+    "NAME": "Распалить",
+    "DESCRIPTION": "Наносит !D! урона ближайшему врагу. Если враг погибает, наносит удвоенный оставшийся урон следующему за ним врагу."
+  },
+  "theScribe:AbsoluteZero": {
+    "NAME": "Абсолютный Ноль",
+    "DESCRIPTION": "Даёт ВСЕМ врагам !M! Защиты. NL После этого хода NL сделайте ещё один. NL Ваша рука, Энергия и Защита переносятся на следующий ход. NL Сжигается."
+  },
+  "theScribe:AnomalousTexts": {
+    "NAME": "Аномалия с Текстом",
+    "DESCRIPTION": "Убирает ВСЮ отрицательную thescribe:Эффективность и ВСЕ thescribe:Дополнительные_Прочтения . NL Даёт 25% thescribe:Эффективности за NL каждые убранные !SPELLEFFECTIVENESS!%, NL и !ANOMALOUSTEXTSVARIABLE!% thescribe:Эффективности за NL каждое убранное прочтение. NL Сжигается."
+  },
+  "theScribe:RecklessResponse": {
+    "NAME": "Безрассудство",
+    "DESCRIPTION": "Накладывает !M! Уязвимости на ВСЕХ врагов. NL thescribe:Записывает_Эффект: \"Наносит вам !BETTERSELFDAMAGE! урона.\""
+  },
+  "theScribe:ForkedBolt": {
+    "NAME": "Ветвление Снаряда",
+    "DESCRIPTION": "Добавляет в руку !M! thescribe:Эхо NL случайной крты из колоды, thescribe:Записывающей_Эффект: NL \"Наносит N урона \". NL Добавленные карты NL стоят 0 в этом ходу. NL Сжигается."
+  },
+  "theScribe:FocusedBolt": {
+    "NAME": "Фокусирующий Снаряд",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона.\" NL thescribe:Записывает_Модификатор: \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:Maelstrom": {
+    "NAME": "Потоп",
+    "DESCRIPTION": "Добаляет в руку thescribe:Эхо случайной карты из колоды, которая стоит меньше или столько же, сколько разыгранная, когда вы играете первую за ход карту, если вы thescribe:Иссушены. Добавленная карта стоит 0. NL Даёт 2 thescribe:Иссушения.",
+    "UPGRADE_DESCRIPTION": "Добаляет в руку thescribe:Эхо случайной карты из колоды, которая стоит меньше или столько же, сколько разыгранная, когда вы играете первые две карты за ход, если вы thescribe:Иссушены. Добавленная карта стоит 0. NL Даёт 2 thescribe:Иссушения."
+  },
+  "theScribe:CripplingCharge": {
+    "NAME": "Калечащий Разряд",
+    "DESCRIPTION": "thescribe:Записывает_Эффект:  \"Наносит !BETTERSPELLATTACK! урона.\" NL thescribe:Записывает_Модификатор: [#fa0000]Отнимает[] !SPELLEFFECTIVENESS! % thescribe:Эффективности ."
+  },
+  "theScribe:ScrollOfPoison": {
+    "NAME": "Свиток Яда",
+    "DESCRIPTION": "Накладывает Яд на ВСЕХ врагов равный урону, получаемому во время вашего хода."
+  },
+  "theScribe:CrystalShield": {
+    "NAME": "Кристальный Щит",
+    "DESCRIPTION": "Даёт !B! Защиты и !M! *Шипа X Раз. Потеряйте полученные *Шипы в начале вашего следующего хода."
+  },
+  "theScribe:FocusingBarrier": {
+    "NAME": "Фокусирующий Барьер",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Даёт !M! Защиты.\" NL thescribe:Записывает_Модификатор: \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:RecurringRime": {
+    "NAME": "Повторение Инея",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Даёт !M! Защиты.\" NL thescribe:Записывает_Модификатор: NL \" !BETTERSPLIT! thescribe:Дополнительное_прочтение в этом ходу.\" NL Сжигается."
+  },
+  "theScribe:ArcaneArcing": {
+    "NAME": "Мистическая Дуга",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона\" Х раз."
+  },
+  "theScribe:LightningStrike": {
+    "NAME": "Удар Молнии",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона.\""
+  },
+  "theScribe:IcyDefend": {
+    "NAME": "Ледяная Оборона",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: \"Даёт !M! Защиты.\""
+  },
+  "theScribe:StarterModifier": {
+    "NAME": "Примечание",
+    "DESCRIPTION": "thescribe:Записывает_Модификатор: \" !SPELLEFFECTIVENESS! % thescribe:Эффективности .\""
+  },
+  "theScribe:ScrollOfShadows": {
+    "NAME": "Свиток Теней",
+    "DESCRIPTION": "Добавляет thescribe:Эхо первой сыгранной за ход карты, если это Талант. Добавленная карта стоит на 1 меньше."
+  },
+  "theScribe:ScrollOfChaining": {
+    "NAME": "Свиток Цепей",
+    "DESCRIPTION": "Даёт 1 thescribe:Модификатор: \"Заклинание затрагивает дополнительного врага\" в начале каждого вашего хода. NL Не может затронуть одного врага больше одного раза.",
+    "UPGRADE_DESCRIPTION": "Даёт 1 thescribe:Модификатор: \"Заклинание затрагивает дополнительного врага\" сейчас и в начале каждого вашего хода. NL Не может затронуть одного врага больше одного раза."
+  },
+  "theScribe:StaticSeries": {
+    "NAME": "Серия Разрядов",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Наносит !BETTERSPELLATTACK! урона.\" NL thescribe:Записывает_Модификатор: \"Заклинание затрагивает дополнительного врага\". NL Не может затронуть одного врага больше одного раза."
+  },
+  "theScribe:ScriptedStarfall": {
+    "NAME": "Предначертать Звездопад",
+    "DESCRIPTION": "Оставляется. Начальная. Наносит !SCRIBEM2! урона ВСЕМ врагам в конце вашего хода. NL Повышает свой урон на !M! в этом бою, когда оставляется."
+  },
+  "theScribe:TimeDilation": {
+    "NAME": "Замедление Времени",
+    "DESCRIPTION": "Даёт !BETTERDRAINED! thescribe:Иссушение. NL Сжигается. NL Накладывает Медлительность."
+  },
+  "theScribe:ScrollOfScrying": {
+    "NAME": "Свиток Предсказаний",
+    "DESCRIPTION": "Даёт !BETTERDRAINED! thescribe:Иссушения. Вы можете положить карту из руки наверх вашей стопки добора в конце каждого вашего хода. Первая карта, которую вы тянете в каждом ходу стоит на 1 Меньше."
+  },
+  "theScribe:PiercingBolts": {
+    "NAME": "Пробивающие Снаряды",
+    "DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Наносит 6 урона.\" NL thescribe:Записывает_Модификатор: \"Заклинание наносит в 2 раза больше урона по целям с Защитой.\" NL Складывается по убывающей.",
+    "UPGRADE_DESCRIPTION": "thescribe:Записывает_Эффект: NL \"Наносит 6 урона.\" NL thescribe:Записывает_Модификатор: \"Заклинание наносит в 2.5 раза больше урона по целям с Защитой.\" NL Складывается по убывающей"
+  },
+  "theScribe:CatalyticCatastrophe": {
+    "NAME": "Хим. Катастрофа",
+    "DESCRIPTION": "Накладывает !M! Яда. Наносит урон, равный половине потенциально суммарного урона от яда на цели. NL (Наносит !SCRIBEM2! урона.)"
+  },
+  "theScribe:WeirdToxin": {
+    "NAME": "Странный Токсин",
+    "DESCRIPTION": "Даёт !SCRIBEM2! Слабости NL и !SCRIBEM2! Хрупкости. NL thescribe:Записывает_Эффект: \"Накладывает !M! Яда.\"",
+    "UPGRADE_DESCRIPTION": "Вы берёте a карту. NL Даёт !SCRIBEM2! Слабости NL и !SCRIBEM2! Хрупкости. NL thescribe:Записывает_Эффект: \"Накладывает !M! Яда.\""
+  },
+  "theScribe:GlacialGuard": {
+    "NAME": "Ледяной Защитник",
+    "DESCRIPTION": "Не может быть разыграна, если вы играли атаки в этом ходу. NL Вы не можете разыгрывать атаки в этом ходу. Даёт !B! Защиты.",
+    "UPGRADE_DESCRIPTION": "Вы не можете разыгрывать атаки в этом ходу. Даёт !B! Защиты."
+  },
+  "theScribe:FrostvenomToxin": {
+    "NAME": "Леденящий Токсин",
+    "DESCRIPTION": "Даёт !B! Защиты. thescribe:Записывает_Эффект: \"Накладывает !M! Яда.\""
+  },
+  "theScribe:ToxicSpellstone": {
+    "NAME": "Рунный Камень Яда",
+    "DESCRIPTION": "Сжигаемая !stslib:ex!. NL Когда эта карта Сжигается, NL thescribe:Записывает_Эффект: \"Накладывает !M! Яда.\""
+  },
+  "theScribe:QuickStudy": {
+    "NAME": "Быстрое Обучение",
+    "DESCRIPTION": "Добавляет в руку thescribe:Эхо случайной карты из колоды. Добавленная карта стоит 0. Сжигается."
+  },
+  "theScribe:InvigoratingStrike": {
+    "NAME": "Бодрящий Удар",
+    "DESCRIPTION": " Наносит !D! урона. NL Если вы thescribe:Иссушены, thescribe:Записывает_Эффект: \" Даёт [E] \"."
+  },
+  "theScribe:PaperCut": {
+    "NAME": "Разрезать бумагу",
+    "DESCRIPTION": "Наносит урон, равный количеству карт в руке. NL (Наносит !D! урона.)",
+    "UPGRADE_DESCRIPTION": "Наносит урон, равный удвоенному количеству карт в руке. NL (Наносит !D! урона.)"
+  },
+  "theScribe:FranticSearch": {
+    "NAME": "Судорожные Поиски",
+    "DESCRIPTION": "Вы берёте !M! карт. Карты, которые не поместились в руку, Сжигаются."
+  },
+  "theScribe:Overexert": {
+    "NAME": "Перенапряжение",
+    "DESCRIPTION": "Разыгрывает случайную карту в руке давжды, затем сжигает её. Даёт thescribe:Иссушение равное её стоимости.",
+    "UPGRADE_DESCRIPTION": "Разыгрывает карту в руке давжды, затем сжигает её. Даёт thescribe:Иссушение равное её стоимости."
+  },
+  "theScribe:ThrownScroll": {
+    "NAME": "Выбросить Свиток",
+    "DESCRIPTION": "Наносит !D! урона. Убирает ВСЕ ваши thescribe:эффекты_заклинания и thescribe:модификаторы_заклинания. Наносит 1 дополнительный урон за каждые !M! убранные слоя."
+  },
+  "theScribe:Divination": {
+    "NAME": "Гадание",
+    "DESCRIPTION": "Посмотрите !M! карты с верха вашей колоды. Положите одну из них в руку и Сожгите остальные.",
+    "UPGRADE_DESCRIPTION": "Посмотрите !M! карты с верха вашей колоды. Положите одну из них в руку и Сожгите остальные."
+  },
+  "theScribe:GatherComponents": {
+    "NAME": "Собрать Компоненты",
+    "DESCRIPTION": "Сжигает случайную карту в руке. thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона\", если сожглась атака, иначе, thescribe:Записывает_Эффект: \"Даёт !BETTERSPELLBLOCK! Защиты.\"",
+    "UPGRADE_DESCRIPTION": "Сжигает карту в руке. thescribe:Записывает_Эффект: \"Наносит !BETTERSPELLATTACK! урона\", если сожглась атака, иначе, thescribe:Записывает_Эффект: \"Даёт !BETTERSPELLBLOCK! Защиты.\"."
+  },
+  "theScribe:SanguineSurge": {
+    "NAME": "Кровавая Волна",
+    "DESCRIPTION": "Изгоняется. NL Добавляет \"Кровавую Волну\" в руку. NL thescribe:Записывает_Эффект: \"Наносит !M! урона. Наносит вам !BETTERSELFDAMAGE! урона\".",
+    "UPGRADE_DESCRIPTION": "Изгоняется. NL Добавляет улучшенную \"Кровавую Волну\" в руку. NL thescribe:Записывает_Эффект: \"Наносит !M! урона. Наносит вам !BETTERSELFDAMAGE! урона\"."
+  },
+  "theScribe:GlaciesSpellstone": {
+    "NAME": "Рунный Камень Льда",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Сжигаемая !stslib:ex! NL Когда эта карта Сжигается, даёт !B! Защиты."
+  },
+  "theScribe:Eggo": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [" NL Сжигается.", " NL Эфирная.", "Эхо: "]
+  }
+}
