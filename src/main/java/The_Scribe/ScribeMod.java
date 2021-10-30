@@ -733,21 +733,12 @@ public class ScribeMod implements
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings");
 
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                "TheScribeResources/localization/eng/ScribeMod-Card-Strings.json");
+        loadStringsWithLoc("eng");
+        if(Settings.language != Settings.GameLanguage.ENG)
+        {
+            loadStringsWithLoc(getLanguageString());
+        }
 
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                "TheScribeResources/localization/eng/ScribeMod-Power-Strings.json");
-
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                "TheScribeResources/localization/eng/ScribeMod-Relic-Strings.json");
-
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                "TheScribeResources/localization/eng/ScribeMod-Potion-Strings.json");
 
         logger.info("Done editing strings");
     }
