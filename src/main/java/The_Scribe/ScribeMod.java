@@ -54,7 +54,7 @@ public class ScribeMod implements
     //MOD SETTINGS PANEL
     private static final String MODNAME = "The Spell Scribe";
     private static final String AUTHOR = "Left Click, ComingVirus";
-    private static final String DESCRIPTION = "An attempt to create a character with a modular spell system NL NL thanks to Your_soul#6311 for proving a RUS localization";
+    private static final String DESCRIPTION = "An attempt to create a character with a modular spell system.";
     //MOD SETTINGS PANEL
 
     // =============== INPUT TEXTURE LOCATION =================
