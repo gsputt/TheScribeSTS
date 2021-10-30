@@ -14,7 +14,7 @@
   },
   "theScribe:Cast_Spell": {
     "NAME": "Scribed Spell",
-    "DESCRIPTION": "scribe:Cast, Purge, thescribe:Spectral.",
+    "DESCRIPTION": "thescribe:Cast, Purge, thescribe:Spectral.",
     "EXTENDED_DESCRIPTION": ["(No Effect Currently.)"," NL ", "(Deal !D! damage.)",
       "(Gain !B! Block.)", "(Apply !DarkPoison! Poison.)","(Apply !DarkVulnerable!.)",
       "(Apply !DarkWeak! Weak.)", "( !EFFECTIVENESS! % Additional Effectiveness)", "( thescribe:Casts !SplitNumber! additional times.)",
@@ -23,7 +23,7 @@
   },
   "theScribe:ArcaneBarrier": {
     "NAME": "Arcane Barrier",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! Block. NL thescribe:Spell_Modifier: NL [#fa0000]Lose[] 25% thescribe:Spell_Effectiveness."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Gain !M! Block. NL thescribe:Spell_Modifier: NL [#fa0000]Lose[] 25% thescribe:Spell_Effectiveness."
   },
   "theScribe:Thunder": {
     "NAME": "Storm Savvy",
@@ -32,17 +32,17 @@
   },
   "theScribe:Frost": {
     "NAME": "Freeze",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block.",
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block.",
     "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL thescribe:Spell_Effect: NL Gain !BETTERSPELLBLOCK! Block."
   },
   "theScribe:Dark": {
     "NAME": "Eldritch",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply 5 Poison and 2 Weak."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply 5 Poison and 2 Weak."
   },
   "theScribe:Split": {
     "NAME": "Split",
-    "DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% thescribe:Spell_Effectiveness, NL gain !M! thescribe:Additional_Cast.",
-    "UPGRADE_DESCRIPTION": "scribe:Spell_Modifier: NL [#fa0000]Lose[] 50% thescribe:Spell_Effectiveness, NL gain !M! thescribe:Additional_Casts."
+    "DESCRIPTION": "thescribe:Spell_Modifier: NL [#fa0000]Lose[] 50% thescribe:Spell_Effectiveness, NL gain !M! thescribe:Additional_Cast.",
+    "UPGRADE_DESCRIPTION": "thescribe:Spell_Modifier: NL [#fa0000]Lose[] 50% thescribe:Spell_Effectiveness, NL gain !M! thescribe:Additional_Casts."
   },
   "theScribe:BloodMagicks": {
     "NAME": "Blood Magicks",
@@ -54,7 +54,7 @@
   },
   "theScribe:Clarity": {
     "NAME": "Clarity",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Gain !M! [E]."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Gain !M! [E]."
   },
   "theScribe:Focused": {
     "NAME": "Focused",
@@ -92,15 +92,15 @@
   },
   "theScribe:PoisonGas": {
     "NAME": "Poison Gas",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Poison."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply !M! Poison."
   },
   "theScribe:AirPrison": {
     "NAME": "Air Prison",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply !M! Vulnerable."
   },
   "theScribe:BluntWeapons": {
     "NAME": "Blunt Weapons",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply !M! Weak."
   },
   "theScribe:IcicleBlast": {
     "NAME": "Icicle Blast",
@@ -127,15 +127,15 @@
   },
   "theScribe:EldritchApplyPoison": {
     "NAME": "Poison",
-    "DESCRIPTION": "scribe:Spell_Modifier: NL Apply !M! Poison."
+    "DESCRIPTION": "thescribe:Spell_Modifier: NL Apply !M! Poison."
   },
   "theScribe:EldritchApplyVulnerable": {
     "NAME": "Vulnerable",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Vulnerable."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply !M! Vulnerable."
   },
   "theScribe:EldritchApplyWeak": {
     "NAME": "Weak",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Apply !M! Weak."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Apply !M! Weak."
   },
   "theScribe:Escalation": {
     "NAME": "Escalation",
@@ -174,7 +174,7 @@
   },
   "theScribe:Overcharge": {
     "NAME": "Overcharge",
-    "DESCRIPTION": "scribe:Spell_Effect: NL Deal !M! damage to an enemy, and !OverchargeVariable! to yourself."
+    "DESCRIPTION": "thescribe:Spell_Effect: NL Deal !M! damage to an enemy, and !OverchargeVariable! to yourself."
   },
   "theScribe:LiquidumScroll": {
     "NAME": "Liquidum Scroll",
@@ -268,7 +268,7 @@
   },
   "theScribe:FocusedBolt": {
     "NAME": "Focusing Bolt",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
+    "DESCRIPTION": "thescribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
   },
   "theScribe:Maelstrom": {
     "NAME": "Deluge",
@@ -277,7 +277,7 @@
   },
   "theScribe:CripplingCharge": {
     "NAME": "Crippling Charge",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: [#fa0000]Lose[] !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
+    "DESCRIPTION": "thescribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: [#fa0000]Lose[] !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
   },
   "theScribe:ScrollOfPoison": {
     "NAME": "Scroll Of Poison",
@@ -289,11 +289,11 @@
   },
   "theScribe:FocusingBarrier": {
     "NAME": "Focusing Barrier",
-    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL thescribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
+    "DESCRIPTION": "thescribe:Spell_Effect: Gain !M! Block. NL thescribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
   },
   "theScribe:RecurringRime": {
     "NAME": "Recurring Rime",
-    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block. NL thescribe:Spell_Modifier: Gain !BETTERSPLIT! thescribe:Additional_Cast this turn. NL Exhaust."
+    "DESCRIPTION": "thescribe:Spell_Effect: Gain !M! Block. NL thescribe:Spell_Modifier: Gain !BETTERSPLIT! thescribe:Additional_Cast this turn. NL Exhaust."
   },
   "theScribe:ArcaneArcing": {
     "NAME": "Arcane Arcing",
@@ -301,15 +301,15 @@
   },
   "theScribe:LightningStrike": {
     "NAME": "Lightning Strike",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! Damage."
+    "DESCRIPTION": "thescribe:Spell_Effect: Deal !BETTERSPELLATTACK! Damage."
   },
   "theScribe:IcyDefend": {
     "NAME": "Icy Defend",
-    "DESCRIPTION": "scribe:Spell_Effect: Gain !M! Block."
+    "DESCRIPTION": "thescribe:Spell_Effect: Gain !M! Block."
   },
   "theScribe:StarterModifier": {
     "NAME": "Detailed Annotation",
-    "DESCRIPTION": "scribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
+    "DESCRIPTION": "thescribe:Spell_Modifier: Gain !SPELLEFFECTIVENESS! % thescribe:Spell_Effectiveness."
   },
   "theScribe:ScrollOfShadows": {
     "NAME": "Scroll of Shadows",
@@ -322,7 +322,7 @@
   },
   "theScribe:StaticSeries": {
     "NAME": "Static Series",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
+    "DESCRIPTION": "thescribe:Spell_Effect: Deal !BETTERSPELLATTACK! damage. NL thescribe:Spell_Modifier: Your spells now target 1 additional enemy. NL Cannot target the same enemy more than once."
   },
   "theScribe:ScriptedStarfall": {
     "NAME": "Scripted Starfall",
@@ -338,8 +338,8 @@
   },
   "theScribe:PiercingBolts": {
     "NAME": "Piercing Bolts",
-    "DESCRIPTION": "scribe:Spell_Effect: Deal 6 damage. NL thescribe:Spell_Modifier: Your thescribe:Thunder deals double damage when hitting an enemy with Block. NL Stacks diminishingly.",
-    "UPGRADE_DESCRIPTION": "scribe:Spell_Effect: Deal 6 damage. NL thescribe:Spell_Modifier: your thescribe:Thunder deals 2.5 times damage when hitting an enemy with Block. NL Stacks diminishingly"
+    "DESCRIPTION": "thescribe:Spell_Effect: Deal 6 damage. NL thescribe:Spell_Modifier: Your thescribe:Thunder deals double damage when hitting an enemy with Block. NL Stacks diminishingly.",
+    "UPGRADE_DESCRIPTION": "thescribe:Spell_Effect: Deal 6 damage. NL thescribe:Spell_Modifier: your thescribe:Thunder deals 2.5 times damage when hitting an enemy with Block. NL Stacks diminishingly"
   },
   "theScribe:CatalyticCatastrophe": {
     "NAME": "Catalytic Catastrophe",
